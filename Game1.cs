@@ -24,11 +24,22 @@ public class Game1 : Game
         base.Initialize();
     }
 
+    VertexPositionColor[] _vertexPositionColors;
+    BasicEffect _basicEffect;
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-    // TODO: use this.Content to load your game content here
-        texture = Content.Load<Texture2D>("ball");
+    _vertexPositionColors = new[]
+    {
+        new VertexPositionColor(new Vector3(0, 0, 0), Color.White),
+        new VertexPositionColor(new Vector3(100, 0, 0), Color.White),
+        new VertexPositionColor(new Vector3(100, 100, 0), Color.White),
+        new VertexPositionColor(new Vector3(0, 100, 0), Color.White)
+    };
+    _basicEffect = new BasicEffect(GraphicsDevice);
+    _basicEffect.World = Matrix.CreateOrthographicOffCenter(
+        0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, 1);
+
     }
 
     protected override void Update(GameTime gameTime)
@@ -43,13 +54,15 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-
 
         // TODO: Add your drawing code here
-        _spriteBatch.Begin();
-        _spriteBatch.Draw(texture, new Vector2(0, 0), Color.White);
-        _spriteBatch.End();
+    EffectTechnique effectTechnique = _basicEffect.Techniques[0];
+    EffectPassCollection effectPassCollection = effectTechnique.Passes;
+    foreach (EffectPass pass in effectPassCollection)
+    {
+        pass.Apply();
+        GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineStrip, _vertexPositionColors, 0, 3);
+    }
 
         base.Draw(gameTime);
     }
