@@ -2,9 +2,11 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace desktop;
+namespace desktop.utils;
 
-
+/// <summary>
+/// Classe pour génerer des polygones réguliers
+/// </summary>
 //Idéalement, les polygones généré avec ceci devraient être mis dans une cache pour éviter de devoir les recalculer à chaque fois
 public static class PolyGen
 {
@@ -26,7 +28,6 @@ public static class PolyGen
         }
         return res;
     }
-
 
     /// <summary>
     /// Genere les points d'un polygone régulier

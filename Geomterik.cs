@@ -1,19 +1,24 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using desktop.gameobjects;
+using desktop.utils;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace desktop;
 
-public class Game1 : Game
+public class Geometrik : Game
 {
-    private GraphicsDeviceManager _graphics;
+    List<IGameObject> _objets;
     private SpriteBatch _spriteBatch;
+    GraphicsDeviceManager _graphics;
 
-    public Game1()
+    public Geometrik()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
+        this.Window.AllowUserResizing = true;
     }
 
     protected override void Initialize()
@@ -23,21 +28,12 @@ public class Game1 : Game
         base.Initialize();
     }
 
-    VertexPositionColor[] _vertexPositionColors;
-    BasicEffect _basicEffect;
-
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        _vertexPositionColors = PolyGen.GetPolyVide(5,100,0,Color.White);
-        _basicEffect = new BasicEffect(GraphicsDevice);
-        _basicEffect.World = Matrix.CreateOrthographicOffCenter(
-            0,
-            GraphicsDevice.Viewport.Width,
-            GraphicsDevice.Viewport.Height,
-            0,
-            0,
-            1
+        _objets = new List<IGameObject>();
+        _objets.Add(
+            new Joueur(PolyGen.GetPolyVide(5, 100, 0, Color.White), _graphics.GraphicsDevice)
         );
     }
 
@@ -56,17 +52,11 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        // TODO: Add your drawing code here
-        EffectTechnique effectTechnique = _basicEffect.Techniques[0];
-        EffectPassCollection effectPassCollection = effectTechnique.Passes;
-        foreach (EffectPass pass in effectPassCollection)
+        foreach (IGameObject obj in _objets)
         {
-            pass.Apply();
-            GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineStrip, _vertexPositionColors, 0, 4);
+            obj.Draw(_graphics.GraphicsDevice);
         }
 
         base.Draw(gameTime);
     }
-    
-
 }
