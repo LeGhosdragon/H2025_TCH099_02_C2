@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using desktop.gameobjects;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -19,6 +20,7 @@ public class Geometrik : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
         this.Window.AllowUserResizing = true;
+        this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
     }
 
     protected override void Initialize()
@@ -52,11 +54,17 @@ public class Geometrik : Game
 
     protected override void Draw(GameTime gameTime)
     {
+        _graphics.GraphicsDevice.Clear(Color.Black);
         foreach (IGameObject obj in _objets)
         {
             obj.Draw(_graphics.GraphicsDevice);
         }
 
         base.Draw(gameTime);
+    }
+
+    void Window_ClientSizeChanged(object sender, EventArgs e)
+    {
+        // Make changes to handle the new window size.
     }
 }
