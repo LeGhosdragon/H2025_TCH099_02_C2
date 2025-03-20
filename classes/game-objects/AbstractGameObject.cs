@@ -25,7 +25,7 @@ public abstract class AbstractGameObject : IGameObject
         foreach (EffectPass pass in _passes)
         {
             pass.Apply();
-            device.DrawUserPrimitives(PrimitiveType.LineStrip, formeVis, 0, 3);
+            device.DrawUserPrimitives(PrimitiveType.LineStrip, formeVis, 0, formeVis.Length-1);
         }
     }
 

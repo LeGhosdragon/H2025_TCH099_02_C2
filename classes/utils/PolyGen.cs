@@ -10,7 +10,6 @@ namespace desktop.utils;
 //Idéalement, les polygones généré avec ceci devraient être mis dans une cache pour éviter de devoir les recalculer à chaque fois
 public static class PolyGen
 {
-    
     /// <summary>
     /// Génere une forme qui peut être affiché
     /// </summary>
