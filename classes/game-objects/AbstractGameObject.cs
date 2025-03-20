@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -5,20 +7,50 @@ namespace desktop.gameobjects;
 
 public abstract class AbstractGameObject : IGameObject
 {
-    protected VertexPositionColor[] _forme;
-
+    protected Vector2[] _forme;
+    protected Vector3 _position;
     protected BasicEffect _effet;
     protected EffectTechnique _tecEffets;
     protected EffectPassCollection _passes;
 
-    public AbstractGameObject(VertexPositionColor[] forme, GraphicsDevice graphics)
+    public AbstractGameObject(Vector2[] forme, GraphicsDevice graphics)
     {
         this._forme = forme;
-        _effet = new BasicEffect(graphics);
+        resEffet(graphics);
+    }
+
+    public void Draw(GraphicsDevice device)
+    {
+        VertexPositionColor[] formeVis = PolyGen.GenererFormeVide(_forme, _position, Color.White);
+        foreach (EffectPass pass in _passes)
+        {
+            pass.Apply();
+            device.DrawUserPrimitives(PrimitiveType.LineStrip, formeVis, 0, 3);
+        }
+    }
+
+    public void Update(float deltaT)
+    {
+        _forme = PolyGen.tournerMatrice(_forme, deltaT * 0.2f);
+    }
+
+    public Vector3 getPosition()
+    {
+        return _position;
+    }
+
+    public void setPosition(Vector3 position)
+    {
+        _position = position;
+    }
+
+    public void resEffet(GraphicsDevice device)
+    {
+        _effet = new BasicEffect(device);
         _effet.World = Matrix.CreateOrthographicOffCenter(
             0,
-            graphics.Viewport.Width,
-            graphics.Viewport.Height,
+            device.Viewport.Width,
+            device.Viewport.Height,
             0,
             0,
             1
@@ -27,15 +59,4 @@ public abstract class AbstractGameObject : IGameObject
         _tecEffets = _effet.Techniques[0];
         _passes = _tecEffets.Passes;
     }
-
-    public void Draw(GraphicsDevice device)
-    {
-        foreach (EffectPass pass in _passes)
-        {
-            pass.Apply();
-            device.DrawUserPrimitives(PrimitiveType.LineStrip, _forme, 0, 4);
-        }
-    }
-
-    public void Update() { }
 }
