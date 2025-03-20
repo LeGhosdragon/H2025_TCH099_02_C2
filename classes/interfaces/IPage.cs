@@ -12,6 +12,7 @@ public interface IPage
     /// </summary>
     /// <param name="gameTime">temps du jeu (selon le dernier appel de la fonction)</param>
     public void Draw(GameTime gameTime);
+
     /// <summary>
     /// Rafraichis la page
     /// </summary>

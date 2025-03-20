@@ -84,6 +84,7 @@ public class Controle
         return false;
     }
 }
+
 /// <summary>
 /// Liste de chaque controle dans l'ordre ou il sont placé dans la liste de controle
 /// </summary>

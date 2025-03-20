@@ -26,7 +26,9 @@ public class Geometrik : Game
 
     protected override void Initialize()
     {
-
+        _graphics.PreferredBackBufferWidth = 1000;
+        _graphics.PreferredBackBufferHeight = 800;
+        _graphics.ApplyChanges();
         base.Initialize();
     }
 
@@ -54,7 +56,6 @@ public class Geometrik : Game
 
         base.Draw(gameTime);
     }
-
 
     void Window_ClientSizeChanged(object sender, EventArgs e)
     {

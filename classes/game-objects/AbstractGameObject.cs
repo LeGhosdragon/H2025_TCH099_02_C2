@@ -12,19 +12,15 @@ public abstract class AbstractGameObject : IGameObject
 {
     protected Vector2[] _forme;
     protected Vector3 _position;
-    protected BasicEffect _effet;
-    protected EffectTechnique _tecEffets;
-    protected EffectPassCollection _passes;
 
     /// <summary>
     /// Fonction par défaut pour générer un objet
     /// </summary>
     /// <param name="forme">tableau ou chaque point représente un sommet de l'objet</param>
-    /// <param name="graphics">appareil graphique utilisé</param>
-    public AbstractGameObject(Vector2[] forme, GraphicsDevice graphics)
+    public AbstractGameObject(Vector2[] forme, Vector3 position)
     {
         this._forme = forme;
-        resEffet(graphics);
+        this._position = position;
     }
 
     /// <summary>
@@ -34,11 +30,7 @@ public abstract class AbstractGameObject : IGameObject
     public void Draw(GraphicsDevice device)
     {
         VertexPositionColor[] formeVis = PolyGen.GenererFormeVide(_forme, _position, Color.White);
-        foreach (EffectPass pass in _passes)
-        {
-            pass.Apply();
-            device.DrawUserPrimitives(PrimitiveType.LineStrip, formeVis, 0, formeVis.Length - 1);
-        }
+        device.DrawUserPrimitives(PrimitiveType.LineStrip, formeVis, 0, formeVis.Length - 1);
     }
 
     /// <summary>
@@ -66,25 +58,5 @@ public abstract class AbstractGameObject : IGameObject
     public void setPosition(Vector3 position)
     {
         _position = position;
-    }
-
-    /// <summary>
-    /// Rafraichis les effets de laffichage
-    /// </summary>
-    /// <param name="device">appareil graphique utilisé</param>
-    public void resEffet(GraphicsDevice device)
-    {
-        _effet = new BasicEffect(device);
-        _effet.World = Matrix.CreateOrthographicOffCenter(
-            0,
-            device.Viewport.Width,
-            device.Viewport.Height,
-            0,
-            0,
-            1
-        );
-
-        _tecEffets = _effet.Techniques[0];
-        _passes = _tecEffets.Passes;
     }
 }

@@ -8,10 +8,19 @@ namespace desktop.gameobjects;
 
 public class Joueur : AbstractGameObject
 {
-    float vitesse = 100f;
+    float _vitesse = 100f;
+    float _rayon;
 
-    public Joueur(Vector2[] forme, GraphicsDevice device)
-        : base(forme, device) { }
+    public Joueur(Vector2[] forme, Vector3 position)
+        : base(forme, position)
+    {
+        _rayon = forme[0].Length();
+    }
+
+    public float getRayon()
+    {
+        return _rayon;
+    }
 
     public override void Update(float deltaT)
     {
@@ -35,7 +44,7 @@ public class Joueur : AbstractGameObject
             xMov += 1;
         }
 
-        _position.Y += yMov * deltaT * vitesse;
-        _position.X += xMov * deltaT * vitesse;
+        _position.Y += yMov * deltaT * _vitesse;
+        _position.X += xMov * deltaT * _vitesse;
     }
 }
