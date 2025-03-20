@@ -5,6 +5,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace desktop.pages;
 
+/// <summary>
+/// Classe d'une page par défaut
+/// </summary>
 public abstract class AbstractPageObjet : IPage
 {
     protected List<IGameObject> _objets;
@@ -15,6 +18,10 @@ public abstract class AbstractPageObjet : IPage
         this._graphics = graphics;
     }
 
+    /// <summary>
+    /// Dessine chaque objet
+    /// </summary>
+    /// <param name="gameTime">temps avant le dernier rafraichissement</param>
     public void Draw(GameTime gameTime)
     {
         _graphics.GraphicsDevice.Clear(Color.Black);
@@ -25,6 +32,10 @@ public abstract class AbstractPageObjet : IPage
         }
     }
 
+    /// <summary>
+    /// Rafraichis chaque objet
+    /// </summary>
+    /// <param name="gameTime">temps entre les deux images</param>
     public void Update(GameTime gameTime)
     {
         float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;

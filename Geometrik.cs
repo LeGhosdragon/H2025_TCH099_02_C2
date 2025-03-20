@@ -58,6 +58,6 @@ public class Geometrik : Game
 
     void Window_ClientSizeChanged(object sender, EventArgs e)
     {
-
+        //Ne fait rien pour l'instant
     }
 }
