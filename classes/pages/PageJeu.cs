@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using desktop.gameobjects;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -18,7 +19,7 @@ public class PageJeu : AbstractPageObjet
         _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector3(0, 0, 0));
         _objets.Add(_joueur);
         resEffet();
-        _chronoMonstres = new Chrono(10);
+        _chronoMonstres = new Chrono(1f);
     }
 
     public override void Update(GameTime gameTime)
@@ -37,8 +38,18 @@ public class PageJeu : AbstractPageObjet
     /// </summary>
     private void genererMonstres()
     {
-        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 100), new Vector3(100, 100, 0));
+        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 10), new Vector3(100, 100, 0), this);
         _objets.Add(monstre);
+    }
+
+    public List<Monstre> GetMonstres()
+    {
+        return _objets.OfType<Monstre>().ToList<Monstre>();
+    }
+
+    public Joueur getJoueur()
+    {
+        return _joueur;
     }
 
     /*
