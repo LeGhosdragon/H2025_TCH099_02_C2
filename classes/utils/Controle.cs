@@ -5,6 +5,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace desktop.utils;
 
+/// <summary>
+/// Les touches de la souris ne sont pas géré par cette classe
+/// </summary>
 public class Controle
 {
     protected List<Keys> _clees;
@@ -64,6 +67,11 @@ public class Controle
         Controle bougerDroite = new Controle(clees, boutons);
         controles.Insert((int)ControlesEnum.BOUGER_DROIT, bougerDroite);
 
+        clees = new List<Keys> { Keys.Q };
+        boutons = new List<GamePadButtons>();
+        Controle AttaquerAutomatique = new Controle(clees, boutons);
+        controles.Insert((int)ControlesEnum.ATTAQUE_AUTOMATIQUE, AttaquerAutomatique);
+
         return controles;
     }
 
@@ -83,6 +91,19 @@ public class Controle
 
         return false;
     }
+
+    /// <summary>
+    /// Permet d'obtenir un vecteur qui correspond a la position de la souris
+    /// </summary>
+    /// <returns>Un vector2 de la position de la souris</returns>
+    public static Vector2 getPosSouris()
+    {
+        return new Vector2(Mouse.GetState().X + Mouse.GetState().Y);
+    }
+
+    public static Vector2 getPosSourisRel(Vector2 position){
+        return getPosSouris();
+    }
 }
 
 /// <summary>
@@ -94,4 +115,5 @@ public enum ControlesEnum
     BOUGER_BAS = 1, // S ou Fleche bas
     BOUGER_GAUCHE = 2, // A ou Fleche Gauche
     BOUGER_DROIT = 3, // D ou Fleche droite
+    ATTAQUE_AUTOMATIQUE = 4, // Q
 }

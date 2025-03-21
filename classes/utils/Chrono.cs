@@ -9,13 +9,17 @@ public class Chrono
     private float _delai;
     private float _tempsAct;
 
+    //Determine si le delai doit etre reinitialise manuellement ou non
+    private bool _manuel;
+
     /// <summary>
     /// Genere un chronometre
     /// </summary>
     /// <param name="delai">Delai entre les retours (en secondes)</param>
-    public Chrono(float delai)
+    public Chrono(float delai, bool manuel = false)
     {
         this._delai = delai;
+        this._manuel = manuel;
     }
 
     /// <summary>
@@ -28,9 +32,20 @@ public class Chrono
         _tempsAct += deltaT;
         if (_tempsAct >= _delai)
         {
-            _tempsAct -= _delai;
+            if (!_manuel)
+            {
+                _tempsAct -= _delai;
+            }
             return true;
         }
         return false;
+    }
+
+    /// <summary>
+    /// Permet de remetre le temps ecoule a 0
+    /// </summary>
+    public void reinitialiser()
+    {
+        this._tempsAct = 0;
     }
 }

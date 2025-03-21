@@ -27,7 +27,7 @@ public abstract class AbstractGameObject : IGameObject
     /// Affiche l'objet
     /// </summary>
     /// <param name="device">appareil graphique utilisé</param>
-    public void Draw(GraphicsDevice device)
+    public virtual void Draw(GraphicsDevice device)
     {
         VertexPositionColor[] formeVis = PolyGen.GenererFormeVide(_forme, _position, Color.White);
         device.DrawUserPrimitives(PrimitiveType.LineStrip, formeVis, 0, formeVis.Length - 1);

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using desktop.armes;
 using desktop.gameobjects;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -11,13 +12,17 @@ public class PageJeu : AbstractPageObjet
 {
     protected Joueur _joueur;
     private Chrono _chronoMonstres;
-
     public PageJeu(GraphicsDeviceManager graphics)
         : base(graphics)
     {
         _objets = new List<IGameObject>();
         _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector3(0, 0, 0));
         _objets.Add(_joueur);
+
+        AbstractArme arme = new Epee(_joueur);
+        _joueur.setArme(arme);
+        _objets.Add(arme);
+
         resEffet();
         _chronoMonstres = new Chrono(1f);
     }

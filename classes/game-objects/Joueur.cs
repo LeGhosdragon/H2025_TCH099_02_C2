@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using desktop.armes;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,6 +9,7 @@ namespace desktop.gameobjects;
 
 public class Joueur : AbstractGameObject
 {
+    private IArme _arme;
     float _vitesse = 100f;
     float _rayon;
 
@@ -15,6 +17,11 @@ public class Joueur : AbstractGameObject
         : base(forme, position)
     {
         _rayon = forme[0].Length();
+    }
+
+    public void setArme(IArme arme)
+    {
+        this._arme = arme;
     }
 
     public float getRayon()
