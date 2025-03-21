@@ -12,6 +12,7 @@ public class PageJeu : AbstractPageObjet
 {
     protected Joueur _joueur;
     private Chrono _chronoMonstres;
+
     public PageJeu(GraphicsDeviceManager graphics)
         : base(graphics)
     {
@@ -23,7 +24,9 @@ public class PageJeu : AbstractPageObjet
         _joueur.setArme(arme);
         _objets.Add(arme);
 
-        resEffet();
+        Camera.setPosition(_joueur.getPosition());
+        Camera.getInstance().resEffet(graphics.GraphicsDevice);
+
         _chronoMonstres = new Chrono(1f);
     }
 
@@ -57,40 +60,11 @@ public class PageJeu : AbstractPageObjet
         return _joueur;
     }
 
-    /*
-    SECTION GRAPHIQUE
-    */
-    protected BasicEffect _effet;
-    protected EffectTechnique _tecEffets;
-    protected EffectPassCollection _passes;
-
-    /// <summary>
-    /// Rafraichis les effets de laffichage
-    /// </summary>
-    /// <param name="device">appareil graphique utilisé</param>
-    public void resEffet()
-    {
-        _effet = new BasicEffect(_graphics.GraphicsDevice);
-        _effet.World = Matrix.CreateOrthographicOffCenter(
-            _joueur.getPosition().X - _graphics.GraphicsDevice.Viewport.Width / 2,
-            _graphics.GraphicsDevice.Viewport.Width / 2 + _joueur.getPosition().X,
-            _graphics.GraphicsDevice.Viewport.Height / 2 + _joueur.getPosition().Y,
-            _joueur.getPosition().Y - _graphics.GraphicsDevice.Viewport.Height / 2,
-            0,
-            1
-        );
-
-        _tecEffets = _effet.Techniques[0];
-        _passes = _tecEffets.Passes;
-    }
-
     public override void Draw(GameTime gameTime)
     {
-        resEffet();
-        foreach (EffectPass pass in _passes)
-        {
-            pass.Apply();
-        }
+        Camera.setPosition(_joueur.getPosition());
+        Camera.getInstance().Draw(_graphics.GraphicsDevice, _objets);
+
         base.Draw(gameTime);
     }
 }

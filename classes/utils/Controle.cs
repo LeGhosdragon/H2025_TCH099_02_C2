@@ -98,11 +98,7 @@ public class Controle
     /// <returns>Un vector2 de la position de la souris</returns>
     public static Vector2 getPosSouris()
     {
-        return new Vector2(Mouse.GetState().X + Mouse.GetState().Y);
-    }
-
-    public static Vector2 getPosSourisRel(Vector2 position){
-        return getPosSouris();
+        return new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
     }
 }
 

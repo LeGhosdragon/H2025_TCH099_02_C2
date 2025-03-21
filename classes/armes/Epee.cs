@@ -8,13 +8,9 @@ namespace desktop.armes;
 public class Epee : AbstractArme
 {
     public Epee(Joueur joueur)
-        : base(PolyGen.GetPoly(4, 5), joueur.getPosition(), joueur, 1f) { }
+        : base(PolyGen.GetPoly(4, 5), joueur.getPosition(), joueur, 1f, 5) { }
 
-    public override void utiliser()
-    {
-        throw new System.NotImplementedException();
-    }
-
+    public override void utiliser() { }
 
     /*
     Section Graphique

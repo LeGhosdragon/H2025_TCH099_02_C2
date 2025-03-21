@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 
 namespace desktop.utils;
@@ -32,12 +33,28 @@ public static class MathPlus
     }
 
     /// <summary>
-    /// Converti un vecteur 3d en vecteur 2d en enlevant le z
+    /// Transforme un vecteur 3d en vecteur 2d en enlevant le z
     /// </summary>
     /// <param name="vector">vecteur a convertir</param>
     /// <returns>vecteur 2d correspondant au vecteur passe en parametre</returns>
     public static Vector2 EnVector2(Vector3 vector)
     {
         return new Vector2(vector.X, vector.Y);
+    }
+
+    /// <summary>
+    /// Transforme un vecteur 2d en vecteur 3d en ajoutant un Z
+    /// </summary>
+    /// <param name="vector">Vecteur a transformer</param>
+    /// <param name="z">valeur du z</param>
+    /// <returns>vecteur 3d correspondant au vecteur en parametre</returns>
+    public static Vector3 EnVector3(Vector2 vector, float z)
+    {
+        return new Vector3(vector.X, vector.Y, z);
+    }
+
+    public static float AngleEntre(Vector2 v1, Vector2 v2)
+    {
+        return (float)Math.Atan2(v1.X * v2.Y - v2.X * v1.Y, v1.Y * v2.X - v2.Y * v1.X);
     }
 }

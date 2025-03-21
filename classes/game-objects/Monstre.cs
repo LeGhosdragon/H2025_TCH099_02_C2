@@ -44,7 +44,7 @@ public class Monstre : AbstractGameObject
     /// <param name="deltaT">difference entre la derniere update</param>
     private void eviterCollisions(Monstre monstre, float deltaT)
     {
-        float minDistance = 85f * _forme[0].Length();
+        float minDistance = 1.2f * _forme[0].Length();
         float facteurEviter = 0.5f;
 
         Vector3 dif = _position - monstre._position;
