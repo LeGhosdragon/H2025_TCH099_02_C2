@@ -23,17 +23,26 @@ public class Monstre : AbstractGameObject
     public override void Update(float deltaT)
     {
         bouger(_pageJeu.getJoueur().getPosition(), deltaT);
-        eviterCollisions();
+        eviterCollisions(deltaT);
     }
 
-    private void eviterCollisions()
+    /// <summary>
+    /// Evite les collisions avec tout les monstres
+    /// </summary>
+    /// <param name="deltaT">difference entre la derniere update</param>
+    private void eviterCollisions(float deltaT)
     {
         List<Monstre> monstres = _pageJeu.GetMonstres();
         monstres.Remove(this);
-        monstres.ForEach(eviterCollisions);
+        monstres.ForEach(m => eviterCollisions(m, deltaT));
     }
 
-    private void eviterCollisions(Monstre monstre)
+    /// <summary>
+    /// Evite les collisions entre deux monstres
+    /// </summary>
+    /// <param name="monstre">monstre a evite</param>
+    /// <param name="deltaT">difference entre la derniere update</param>
+    private void eviterCollisions(Monstre monstre, float deltaT)
     {
         float minDistance = 1.5f * _forme[0].Length();
         float facteurEviter = 0.5f;
@@ -44,29 +53,15 @@ public class Monstre : AbstractGameObject
         if (distance < minDistance)
         {
             Vector3 eviter = dif * facteurEviter;
-            _position += eviter;
+            _position += eviter * deltaT;
         }
     }
 
-    /*    avoidMonsterCollision() {
-    
-    
-            Monstre.monstres.forEach(otherMonstre => {
-                if (this === otherMonstre) return;
-                let dx = this.getX() - otherMonstre.getX();
-                let dy = this.getY() - otherMonstre.getY();
-                let distance = Math.sqrt(dx * dx + dy * dy);
-    
-                if (distance < minDistance) {
-                    let angle = Math.atan2(dy, dx);
-                    let avoidX = Math.cos(angle) * avoidFactor;
-                    let avoidY = Math.sin(angle) * avoidFactor;
-                    this.setX(this.getX() + avoidX);
-                    this.setY(this.getY() + avoidY);
-                }
-            });
-        }
-    */
+    /// <summary>
+    /// Bouge et fait tourner l'ennemi selon sa vitesse et sa vitesse de rotation
+    /// </summary>
+    /// <param name="posJoueur">posiition du joueur</param>
+    /// <param name="deltaT">difference de temps</param>
     public void bouger(Vector3 posJoueur, float deltaT)
     {
         Vector3 mouvement = Vector3.Normalize(posJoueur - _position);
