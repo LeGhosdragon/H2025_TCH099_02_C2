@@ -17,7 +17,7 @@ public class PageJeu : AbstractPageObjet
         : base(graphics)
     {
         _objets = new List<IGameObject>();
-        _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector3(0, 0, 0));
+        _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector2(0, 0));
         _objets.Add(_joueur);
 
         AbstractArme arme = new Epee(_joueur);
@@ -46,7 +46,7 @@ public class PageJeu : AbstractPageObjet
     /// </summary>
     private void genererMonstres()
     {
-        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 10), new Vector3(100, 100, 0), this);
+        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 10), new Vector2(100, 100), this);
         _objets.Add(monstre);
     }
 

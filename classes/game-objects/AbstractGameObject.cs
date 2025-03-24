@@ -11,27 +11,28 @@ namespace desktop.gameobjects;
 public abstract class AbstractGameObject : IGameObject
 {
     protected Vector2[] _forme;
-    protected Vector3 _position;
+    protected Vector2 _position;
+    protected int _zIndex;
 
     /// <summary>
     /// Fonction par défaut pour générer un objet
     /// </summary>
     /// <param name="forme">tableau ou chaque point représente un sommet de l'objet</param>
-    public AbstractGameObject(Vector2[] forme, Vector3 position)
+    /// <param name="position">position sur l'ecran</param>
+    /// <param name="zIndex">determine l'ordre avec lequel ils sera affiche</param>
+
+    public AbstractGameObject(Vector2[] forme, Vector2 position, int zIndex)
     {
         this._forme = forme;
         this._position = position;
+        this._zIndex = zIndex;
     }
 
     /// <summary>
     /// Affiche l'objet
     /// </summary>
-    /// <param name="device">appareil graphique utilisé</param>
-    public virtual void Draw(GraphicsDevice device, SpriteBatch spriteBatch)
-    {
-        VertexPositionColor[] formeVis = PolyGen.GenererFormeVide(_forme, _position, Color.White);
-        device.DrawUserPrimitives(PrimitiveType.LineStrip, formeVis, 0, formeVis.Length - 1);
-    }
+    /// <param name="spritebatch">appareil graphique utilisé</param>
+    public virtual void Draw(SpriteBatch spriteBatch) { }
 
     /// <summary>
     /// Rafraichis l'objet
@@ -46,7 +47,7 @@ public abstract class AbstractGameObject : IGameObject
     /// Donne la position de l'objet
     /// </summary>
     /// <returns>Retourne la position de l'objet</returns>
-    public Vector3 getPosition()
+    public Vector2 getPosition()
     {
         return _position;
     }
@@ -55,7 +56,7 @@ public abstract class AbstractGameObject : IGameObject
     /// Modifie la position de l'objet
     /// </summary>
     /// <param name="position">nouvelle position de l'objet</param>
-    public void setPosition(Vector3 position)
+    public void setPosition(Vector2 position)
     {
         _position = position;
     }

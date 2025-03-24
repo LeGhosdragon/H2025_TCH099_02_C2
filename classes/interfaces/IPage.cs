@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 namespace desktop.pages;
 
 /// <summary>
-/// Represente un écran qui est affiché, il devrait y en avoir seulement un a la fois
+/// Represente un écran qui est affiché, il devrait y en avoir seulement un a la fois d'actif
 /// </summary>
 public interface IPage
 {

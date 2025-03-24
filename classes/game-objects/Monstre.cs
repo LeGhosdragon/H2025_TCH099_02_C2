@@ -12,8 +12,8 @@ public class Monstre : AbstractGameObject
     private float _vitesse;
     private float _vitesseRot;
 
-    public Monstre(Vector2[] forme, Vector3 position, PageJeu pageJeu)
-        : base(forme, position)
+    public Monstre(Vector2[] forme, Vector2 position, PageJeu pageJeu)
+        : base(forme, position,1)
     {
         this._pageJeu = pageJeu;
         this._vitesse = 20;
@@ -47,12 +47,12 @@ public class Monstre : AbstractGameObject
         float minDistance = 1.2f * _forme[0].Length();
         float facteurEviter = 0.5f;
 
-        Vector3 dif = _position - monstre._position;
+        Vector2 dif = _position - monstre._position;
         float distance = dif.Length();
 
         if (distance < minDistance)
         {
-            Vector3 eviter = dif * facteurEviter;
+            Vector2 eviter = dif * facteurEviter;
             _position += eviter * deltaT;
         }
     }
@@ -62,9 +62,9 @@ public class Monstre : AbstractGameObject
     /// </summary>
     /// <param name="posJoueur">posiition du joueur</param>
     /// <param name="deltaT">difference de temps</param>
-    public void bouger(Vector3 posJoueur, float deltaT)
+    public void bouger(Vector2 posJoueur, float deltaT)
     {
-        Vector3 mouvement = Vector3.Normalize(posJoueur - _position);
+        Vector2 mouvement = Vector2.Normalize(posJoueur - _position);
         _position += mouvement * deltaT * _vitesse;
 
         this._forme = PolyGen.tournerMatrice(_forme, _vitesseRot * deltaT);

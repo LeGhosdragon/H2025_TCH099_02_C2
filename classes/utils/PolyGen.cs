@@ -16,7 +16,7 @@ public static class PolyGen
     /// <param name="forme">forme a afficher</param>
     /// <param name="position">position de la forme sur l'écran</param>
     /// <param name="couleur">couleur des cotées de la forme</param>
-    /// <returns></returns>
+    /// <returns>tableau d'arretes utilise avec les basicEffects</returns>
     public static VertexPositionColor[] GenererFormeVide(
         Vector2[] forme,
         Vector3 position,

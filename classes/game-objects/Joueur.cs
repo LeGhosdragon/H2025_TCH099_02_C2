@@ -13,8 +13,8 @@ public class Joueur : AbstractGameObject
     float _vitesse = 100f;
     float _rayon;
 
-    public Joueur(Vector2[] forme, Vector3 position)
-        : base(forme, position)
+    public Joueur(Vector2[] forme, Vector2 position)
+        : base(forme, position, 0)
     {
         _rayon = forme[0].Length();
     }

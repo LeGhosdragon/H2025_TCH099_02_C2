@@ -47,13 +47,13 @@ public class Epee : AbstractArme
     /*
     Section Graphique
     */
-    public override void Draw(GraphicsDevice device, SpriteBatch spriteBatch)
+    public override void Draw(SpriteBatch spriteBatch)
     {
         foreach (AttaqueEpee attaque in attaques)
         {
-            attaque.Draw(device, spriteBatch);
+            attaque.Draw(spriteBatch);
         }
-        base.Draw(device, spriteBatch);
+        base.Draw(spriteBatch);
     }
 
     public Joueur GetJoueur()
@@ -62,7 +62,7 @@ public class Epee : AbstractArme
     }
 }
 
-public class AttaqueEpee
+public class AttaqueEpee : IGameObject
 {
     private Vector2 _debut;
     private Vector2 _act;
@@ -84,7 +84,7 @@ public class AttaqueEpee
         }
     }
 
-    public void Draw(GraphicsDevice device, SpriteBatch spriteBatch)
-    {
-    }
+    public void Draw(SpriteBatch spriteBatch) {
+
+     }
 }

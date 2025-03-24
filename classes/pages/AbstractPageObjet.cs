@@ -32,7 +32,7 @@ public abstract class AbstractPageObjet : IPage
         _spriteBatch.Begin();
         foreach (IGameObject obj in _objets)
         {
-            obj.Draw(_graphics.GraphicsDevice, _spriteBatch);
+            obj.Draw(_spriteBatch);
         }
         _spriteBatch.End();
     }

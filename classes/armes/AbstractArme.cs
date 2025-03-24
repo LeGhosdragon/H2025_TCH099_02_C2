@@ -15,12 +15,12 @@ public abstract class AbstractArme : AbstractGameObject, IArme
 
     protected AbstractArme(
         Vector2[] formeBase,
-        Vector3 position,
+        Vector2 position,
         Joueur joueur,
         float delai,
         float longueur
     )
-        : base(formeBase, position)
+        : base(formeBase, position, 1)
     {
         this._formeBase = formeBase;
         this._joueur = joueur;
@@ -46,11 +46,9 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     {
         Vector2 dir = Camera.getInstance().getPosSourisCamera();
         //Console.WriteLine(Camera.getInstance().getPosSourisCamera());
-    
+
         dir.Normalize();
-        _position =
-            _joueur.getPosition()
-            + MathPlus.EnVector3(dir * (_joueur.getRayon() + _longueur / 2), _position.Z);
+        _position = _joueur.getPosition() + dir * (_joueur.getRayon() + _longueur / 2);
         //   _forme = PolyGen.tournerMatrice(_formeBase, (float)(MathPlus.AngleEntre(dir, new Vector2(1, 0)) + Math.PI));
     }
 

@@ -10,11 +10,11 @@ namespace desktop.utils;
 public class Camera
 {
     private static Camera instance = getInstance();
-    protected Vector3 _position;
+    protected Vector2 _position;
 
     private Camera()
     {
-        _position = Vector3.Zero;
+        _position = Vector2.Zero;
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public class Camera
         return instance == null ? new Camera() : instance;
     }
 
-    public static void setPosition(Vector3 position)
+    public static void setPosition(Vector2 position)
     {
         instance._position = position;
     }
@@ -40,23 +40,9 @@ public class Camera
         }
     }
 
-    /// <summary>
-    ///
-    /// retourne le vecteur de la position
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 getPosition3D()
+    public Vector2 getPosition()
     {
         return _position;
-    }
-
-    /// <summary>
-    /// Retourne un le vecteur de la position en format 2D
-    /// </summary>
-    /// <returns>Le vecteur position en 2D</returns>
-    public Vector2 getPosition2D()
-    {
-        return MathPlus.EnVector2(_position);
     }
 
     /// <summary>
@@ -78,9 +64,9 @@ public class Camera
     /// <returns>La position de la souris selon la position de la camera</returns>
     public Vector2 getPosSourisCamera()
     {
-        Console.WriteLine(objetPosEnPX(getPosition2D()) + " souris" + Controle.getPosSouris());
+        Console.WriteLine(objetPosEnPX(getPosition()) + " souris" + Controle.getPosSouris());
 
-        return Controle.getPosSouris() - objetPosEnPX(getPosition2D());
+        return Controle.getPosSouris() - objetPosEnPX(getPosition());
     }
 
     /*
