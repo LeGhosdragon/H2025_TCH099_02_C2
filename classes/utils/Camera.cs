@@ -7,6 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace desktop.utils;
 
+/// <summary>
+/// Singleton qui affiche tout les objets sur l'ecran
+/// </summary>
 public class Camera
 {
     private static Camera instance = getInstance();
@@ -17,6 +20,10 @@ public class Camera
         _position = Vector3.Zero;
     }
 
+    /// <summary>
+    /// Permet d'obtenir l'instance unique de la camera, la cree si elle n'existe pas
+    /// </summary>
+    /// <returns>retourne l'instance de la camera</returns>
     public static Camera getInstance()
     {
         return instance == null ? new Camera() : instance;
@@ -36,33 +43,45 @@ public class Camera
         }
     }
 
-    public void Update(float deltaT)
-    {
-        throw new System.NotImplementedException();
-    }
-
+    /// <summary>
+    ///
+    /// retourne le vecteur de la position
+    /// </summary>
+    /// <returns></returns>
     public Vector3 getPosition3D()
     {
         return _position;
     }
 
+    /// <summary>
+    /// Retourne un le vecteur de la position en format 2D
+    /// </summary>
+    /// <returns>Le vecteur position en 2D</returns>
     public Vector2 getPosition2D()
     {
         return MathPlus.EnVector2(_position);
     }
 
+    /// <summary>
+    /// Convertis la position d'un objet pour selon sa position en pixel sur l'ecran
+    /// </summary>
+    /// <param name="posObj">position de l'objet a converir</param>
+    /// <returns>position de lobjet en pixel selon lecran</returns>
     public Vector2 objetPosEnPX(Vector2 posObj)
     {
         return new Vector2(
-            posObj.X + _effet.GraphicsDevice.Viewport.Width / 2 + _position.X / 2,
-            posObj.Y + _effet.GraphicsDevice.Viewport.Height / 2 + _position.Y / 2
+            posObj.X + _effet.GraphicsDevice.Viewport.Width / 2 - _position.X,
+            posObj.Y + _effet.GraphicsDevice.Viewport.Height / 2 - _position.Y
         );
     }
 
+    /// <summary>
+    /// Donne la position de la souris par rapport au coin haut gauche de la camera
+    /// </summary>
+    /// <returns>La position de la souris selon la position de la camera</returns>
     public Vector2 getPosSourisCamera()
     {
-        //Console.WriteLine(Controle.getPosSouris());
-        //Console.WriteLine(objetPosEnPX(getPosition2D()));
+        Console.WriteLine(objetPosEnPX(getPosition2D()) + " souris" + Controle.getPosSouris());
 
         return Controle.getPosSouris() - objetPosEnPX(getPosition2D());
     }

@@ -47,13 +47,13 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     protected virtual void UpdatePos(float deltaT)
     {
         Vector2 dir = Camera.getInstance().getPosSourisCamera();
-        Console.WriteLine(Camera.getInstance().getPosSourisCamera());
+        //Console.WriteLine(Camera.getInstance().getPosSourisCamera());
 
         dir.Normalize();
         _position =
             _joueur.getPosition()
             + MathPlus.EnVector3(dir * (_joueur.getRayon() + _longueur / 2), _position.Z);
-     //   _forme = PolyGen.tournerMatrice(_formeBase, (float)(MathPlus.AngleEntre(dir, new Vector2(1, 0)) + Math.PI));
+        //   _forme = PolyGen.tournerMatrice(_formeBase, (float)(MathPlus.AngleEntre(dir, new Vector2(1, 0)) + Math.PI));
     }
 
     public abstract void utiliser();
