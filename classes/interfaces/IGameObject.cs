@@ -11,7 +11,7 @@ public interface IGameObject
     /// Devrait afficher l'objet sur l'écran
     /// </summary>
     /// <param name="device">Élément graphique sur lequel l'objet doit être affiché</param>
-    public void Draw(GraphicsDevice device);
+    public void Draw(GraphicsDevice device, SpriteBatch spriteBatch);
 
     /// <summary>
     /// Rafraichis l'objet a chaque image

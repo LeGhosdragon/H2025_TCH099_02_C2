@@ -1,5 +1,3 @@
-using System;
-using System.Diagnostics;
 using desktop.gameobjects;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -48,7 +46,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     {
         Vector2 dir = Camera.getInstance().getPosSourisCamera();
         //Console.WriteLine(Camera.getInstance().getPosSourisCamera());
-
+    
         dir.Normalize();
         _position =
             _joueur.getPosition()
@@ -57,4 +55,9 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     }
 
     public abstract void utiliser();
+
+    public bool GetAttaqueAutomatique()
+    {
+        return _attaqueAutomatique;
+    }
 }

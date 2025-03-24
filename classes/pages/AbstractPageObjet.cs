@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using desktop.gameobjects;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace desktop.pages;
@@ -12,10 +13,12 @@ public abstract class AbstractPageObjet : IPage
 {
     protected List<IGameObject> _objets;
     protected GraphicsDeviceManager _graphics;
+    SpriteBatch _spriteBatch;
 
     public AbstractPageObjet(GraphicsDeviceManager graphics)
     {
         this._graphics = graphics;
+        this._spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
     }
 
     /// <summary>
@@ -26,10 +29,12 @@ public abstract class AbstractPageObjet : IPage
     {
         _graphics.GraphicsDevice.Clear(Color.Black);
 
+        _spriteBatch.Begin();
         foreach (IGameObject obj in _objets)
         {
-            obj.Draw(_graphics.GraphicsDevice);
+            obj.Draw(_graphics.GraphicsDevice, _spriteBatch);
         }
+        _spriteBatch.End();
     }
 
     /// <summary>

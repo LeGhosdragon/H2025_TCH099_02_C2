@@ -51,3 +51,4 @@ C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\obj\Debug\net8.0\desktop.pdb
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\obj\Debug\net8.0\desktop.genruntimeconfig.cache
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\obj\Debug\net8.0\ref\desktop.dll
+C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\MonoGame.Primitives2D.dll

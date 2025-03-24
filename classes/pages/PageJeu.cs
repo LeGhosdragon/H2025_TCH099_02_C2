@@ -63,7 +63,7 @@ public class PageJeu : AbstractPageObjet
     public override void Draw(GameTime gameTime)
     {
         Camera.setPosition(_joueur.getPosition());
-        Camera.getInstance().Draw(_graphics.GraphicsDevice, _objets);
+        Camera.getInstance().Draw(_graphics.GraphicsDevice);
 
         base.Draw(gameTime);
     }

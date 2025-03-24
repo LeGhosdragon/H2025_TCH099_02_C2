@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using desktop.gameobjects;
-using desktop.pages;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -34,7 +31,7 @@ public class Camera
         instance._position = position;
     }
 
-    public void Draw(GraphicsDevice device, List<IGameObject> objets)
+    public void Draw(GraphicsDevice device)
     {
         resEffet(device);
         foreach (EffectPass pass in _passes)
