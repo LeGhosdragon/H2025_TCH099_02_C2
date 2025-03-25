@@ -24,9 +24,7 @@ public class PageJeu : AbstractPageObjet
         _joueur.setArme(arme);
         _objets.Add(arme);
 
-        Camera.setPosition(_joueur.getPosition());
-        Camera.getInstance().resEffet(graphics.GraphicsDevice);
-
+        new Camera(_graphics.GraphicsDevice,_joueur.getPosition());
         _chronoMonstres = new Chrono(1f);
     }
 
@@ -63,8 +61,6 @@ public class PageJeu : AbstractPageObjet
     public override void Draw(GameTime gameTime)
     {
         Camera.setPosition(_joueur.getPosition());
-        Camera.getInstance().Draw(_graphics.GraphicsDevice);
-
         base.Draw(gameTime);
     }
 }
