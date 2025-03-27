@@ -37,7 +37,7 @@ public class PageJeu : AbstractPageObjet
         float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;
         if (_chronoMonstres.Update(deltaT))
         {
-            //genererMonstres();
+           genererMonstres();
         }
 
         base.Update(gameTime);
@@ -55,7 +55,7 @@ public class PageJeu : AbstractPageObjet
     /// </summary>
     private void genererMonstres()
     {
-        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 100), new Vector2(100, 100), this, 100);
+        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 20), new Vector2(100, 100), this, 20);
         _objets.Add(monstre);
     }
 
