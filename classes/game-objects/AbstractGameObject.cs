@@ -20,7 +20,6 @@ public abstract class AbstractGameObject : IGameObject
     /// <param name="forme">tableau ou chaque point représente un sommet de l'objet</param>
     /// <param name="position">position sur l'ecran</param>
     /// <param name="zIndex">determine l'ordre avec lequel ils sera affiche</param>
-
     public AbstractGameObject(Vector2[] forme, Vector2 position, int zIndex)
     {
         this._forme = forme;
@@ -62,5 +61,10 @@ public abstract class AbstractGameObject : IGameObject
     public void setPosition(Vector2 position)
     {
         _position = position;
+    }
+
+    public bool enCollision(AbstractGameObject autre)
+    {
+        return false;
     }
 }

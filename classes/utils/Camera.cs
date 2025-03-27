@@ -28,7 +28,10 @@ public class Camera
 
     public static void setPosition(Vector2 position)
     {
-        instance._position = new Vector2(position.X - getInstance()._graphics.Viewport.Width/2,position.Y - getInstance()._graphics.Viewport.Height/2);
+        instance._position = new Vector2(
+            position.X - getInstance()._graphics.Viewport.Width / 2,
+            position.Y - getInstance()._graphics.Viewport.Height / 2
+        );
     }
 
     public Vector2 getPosition()
@@ -55,8 +58,6 @@ public class Camera
     /// <returns>La position de la souris selon la position de la camera</returns>
     public Vector2 getPosSourisCamera()
     {
-        Console.WriteLine(objetPosEnPX(getPosition()) + " souris" + Controle.getPosSouris());
-
         return Controle.getPosSouris() - objetPosEnPX(getPosition());
     }
 }

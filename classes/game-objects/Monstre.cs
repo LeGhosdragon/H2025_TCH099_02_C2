@@ -13,7 +13,7 @@ public class Monstre : AbstractGameObject
     private float _vitesseRot;
 
     public Monstre(Vector2[] forme, Vector2 position, PageJeu pageJeu)
-        : base(forme, position,1)
+        : base(forme, position, 1)
     {
         this._pageJeu = pageJeu;
         this._vitesse = 20;

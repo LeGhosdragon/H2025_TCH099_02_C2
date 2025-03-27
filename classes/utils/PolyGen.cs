@@ -37,7 +37,7 @@ public static class PolyGen
     /// <summary>
     ///Tourne une matrice selon les Z
     /// </summary>
-    /// <param name="matrice">Tableau de Matrices qui doivent etre torunées</param>
+    /// <param name="matrice">Tableau de Matrices qui doivent etre tournées</param>
     /// <param name="angleRad">Angle dont la matrice doit être tournée</param>
     /// <returns>Retourne le tableau avec tout les points tourné</returns>
     public static Vector2[] tournerMatrice(Vector2[] matrice, float angleRad)
@@ -48,6 +48,17 @@ public static class PolyGen
             res[i] = Vector2.Transform(matrice[i], Matrix.CreateRotationZ(angleRad));
         }
         return res;
+    }
+
+    /// <summary>
+    ///Tourne un vecteur selon les Z
+    /// </summary>
+    /// <param name="vecteur">Tableau de vecteur qui doivent etre tournées</param>
+    /// <param name="angleRad">Angle dont la matrice doit être tournée</param>
+    /// <returns>Retourne le tableau avec tout les points tourné</returns>
+    public static Vector2 tournerMatrice(Vector2 vecteur, float angleRad)
+    {
+        return tournerMatrice(new Vector2[] { vecteur }, angleRad)[0];
     }
 
     /// <summary>
@@ -68,5 +79,27 @@ public static class PolyGen
         }
 
         return points;
+    }
+
+    /// <summary>
+    /// Permet d'obtenir l'angle entre 2 vecteurs
+    /// </summary>
+    /// <param name="v1">premier vecteur</param>
+    /// <param name="v2">deuxieme vecteur</param>
+    /// <returns>Angle entre les vecteur (de PI/2 a -PI/2)</returns>
+    public static float AngleEntre(Vector2 v1, Vector2 v2)
+    {
+        return (float)Math.Atan2(v2.Y - v1.Y, v2.X - v1.X);
+    }
+
+    /// <summary>
+    /// Obtiens l'angle du vecteur par rapport a un cercle trigonometrique
+    /// </summary>
+    /// <param name="v">vecteur dont on veut savoir langle</param>
+    /// <returns>angle en radians</returns>
+    public static float angleVecteur(Vector2 v)
+    {
+        Vector2 normal = Vector2.Normalize(v);
+        return (float)Math.Atan2(normal.Y, normal.X);
     }
 }

@@ -19,11 +19,19 @@ public class Joueur : AbstractGameObject
         _rayon = forme[0].Length();
     }
 
+    /// <summary>
+    /// Choisis l'arme qui est utilisé
+    /// </summary>
+    /// <param name="arme"></param>
     public void setArme(IArme arme)
     {
         this._arme = arme;
     }
 
+    /// <summary>
+    /// Rayon du joueur
+    /// </summary>
+    /// <returns>rayon entre le centre et l'extremitee du joueur</returns>
     public float getRayon()
     {
         return _rayon;
