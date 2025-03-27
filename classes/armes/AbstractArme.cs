@@ -1,4 +1,5 @@
 using desktop.gameobjects;
+using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -29,12 +30,15 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     /// </summary>
     protected float _longueur;
 
+    protected PageJeu _page;
+
     protected AbstractArme(
         Vector2[] formeBase,
         Vector2 position,
         Joueur joueur,
         float delai,
-        float longueur
+        float longueur,
+        PageJeu page
     )
         : base(formeBase, position, 1)
     {
@@ -43,6 +47,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         this._delai = new Chrono(delai, true);
         this._attaqueAutomatique = true;
         this._longueur = longueur;
+        this._page = page;
     }
 
     public override void Update(float deltaT)

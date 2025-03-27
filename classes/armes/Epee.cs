@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Net.NetworkInformation;
 using System.Runtime.Intrinsics.Arm;
 using desktop.gameobjects;
+using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,7 +23,7 @@ public class Epee : AbstractArme
     private float _angleZone = (float)Math.PI / 2;
     private float _vitRot = (float)Math.PI;
 
-    public Epee(Joueur joueur)
+    public Epee(Joueur joueur, PageJeu pageJeu)
         : base(
             new Vector2[]
             {
@@ -34,7 +35,8 @@ public class Epee : AbstractArme
             joueur.getPosition(),
             joueur,
             1f,
-            5
+            100,
+            pageJeu
         )
     {
         this.attaques = new List<AttaqueEpee>();
@@ -54,7 +56,7 @@ public class Epee : AbstractArme
         base.Update(deltaT);
         foreach (AttaqueEpee attaqueEpee in attaques)
         {
-            attaqueEpee.Update(deltaT);
+            attaqueEpee.Update(deltaT, _page.GetMonstres());
         }
         attaques.RemoveAll(e => _aEnlever.Contains(e));
         _aEnlever = new List<AttaqueEpee>();
@@ -139,17 +141,18 @@ public class AttaqueEpee
         this._epee = epee;
     }
 
-    public void Update(float deltaT)
+    public void Update(float deltaT, List<Monstre> monstres)
     {
         //Annule l'attaque si le joueur n'attaque plus
         if (
             !_epee.GetAttaqueAutomatique() && Mouse.GetState().LeftButton != ButtonState.Pressed
-            || _act < _debut -_epee.getAngleZone()
+            || _act < _debut - _epee.getAngleZone()
         )
         {
             _epee.EnleverAttaque(this);
             return;
         }
+        DetecterCollisions(monstres, deltaT);
         //Tourne l'épée
 
         _act -= _epee.getVitRot() * deltaT;
@@ -159,6 +162,58 @@ public class AttaqueEpee
             + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
                 * _epee.getJoueur().getRayon();
         this._position = v;
+    }
+
+    public void DetecterCollisions(List<Monstre> monstres, float deltaT)
+    {
+        foreach (Monstre monstre in monstres)
+        {
+            if (DetecterCollision(monstre, deltaT))
+            {
+                Console.WriteLine("coll");
+            }
+        }
+    }
+
+    public bool DetecterCollision(Monstre monstre, float deltaT)
+    {
+        Vector2[] forme = getZoneDegat(deltaT);
+        Vector2 d1 = forme[0] - monstre.getPosition();
+        Vector2 d2 = forme[1] - monstre.getPosition();
+        Vector2 d3 = forme[2] - monstre.getPosition();
+
+        if (d1.Length() <= monstre.getRayon())
+        {
+            return true;
+        }
+        if (d2.Length() <= monstre.getRayon())
+        {
+            return true;
+        }
+        if (d3.Length() <= monstre.getRayon())
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public Vector2[] getZoneDegat(float deltaT)
+    {
+        Vector2[] zone = new Vector2[3];
+
+        zone[0] = _epee.getJoueur().getPosition();
+        zone[1] =
+            zone[0]
+            + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
+                * (_epee.getJoueur().getRayon() + _epee.GetLongueur());
+        float apres = _act - _epee.getVitRot() * deltaT;
+        zone[2] =
+            zone[0]
+            + new Vector2((float)Math.Cos(apres), (float)Math.Sin(apres))
+                * (_epee.getJoueur().getRayon() + _epee.GetLongueur());
+
+        return zone;
     }
 
     public void Draw(SpriteBatch spriteBatch)

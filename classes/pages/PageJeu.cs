@@ -21,7 +21,7 @@ public class PageJeu : AbstractPageObjet
         _objets.Add(_joueur);
 
         //Assigne une arme au joueur
-        AbstractArme arme = new Epee(_joueur);
+        AbstractArme arme = new Epee(_joueur, this);
         _joueur.setArme(arme);
         _objets.Add(arme);
 
@@ -55,7 +55,7 @@ public class PageJeu : AbstractPageObjet
     /// </summary>
     private void genererMonstres()
     {
-        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 10), new Vector2(100, 100), this, 10);
+        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 100), new Vector2(100, 100), this, 100);
         _objets.Add(monstre);
     }
 

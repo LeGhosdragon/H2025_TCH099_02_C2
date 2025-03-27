@@ -22,14 +22,15 @@ public class Monstre : AbstractGameObject
         this._vitesseRot = 1;
         this._rayon = rayon;
     }
+    public float getRayon(){
+        return _rayon;
+    }
 
     public override void Update(float deltaT)
     {
         bouger(_pageJeu.getJoueur().getPosition(), deltaT);
         eviterCollisions(deltaT);
-        if (collisionJoueur())
-        {
-        }
+        if (collisionJoueur()) { }
     }
 
     /// <summary>
