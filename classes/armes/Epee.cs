@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
+using System.Runtime.Intrinsics.Arm;
 using desktop.gameobjects;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -17,8 +18,9 @@ public class Epee : AbstractArme
     /// Liste d'attaques qui sont actives
     /// </summary>
     private List<AttaqueEpee> attaques;
+    private List<AttaqueEpee> _aEnlever;
     private float _angleZone = (float)Math.PI / 2;
-    private float _vitRot = (float)Math.PI / 2;
+    private float _vitRot = (float)Math.PI;
 
     public Epee(Joueur joueur)
         : base(
@@ -36,6 +38,7 @@ public class Epee : AbstractArme
         )
     {
         this.attaques = new List<AttaqueEpee>();
+        this._aEnlever = new List<AttaqueEpee>();
     }
 
     /// <summary>
@@ -43,7 +46,7 @@ public class Epee : AbstractArme
     /// </summary>
     public override void utiliser()
     {
-        attaques.Add(new AttaqueEpee(getDir(), this));
+        attaques.Add(new AttaqueEpee(PolyGen.angleVecteur(getDir()), this));
     }
 
     public override void Update(float deltaT)
@@ -53,6 +56,8 @@ public class Epee : AbstractArme
         {
             attaqueEpee.Update(deltaT);
         }
+        attaques.RemoveAll(e => _aEnlever.Contains(e));
+        _aEnlever = new List<AttaqueEpee>();
     }
 
     /// <summary>
@@ -61,7 +66,7 @@ public class Epee : AbstractArme
     /// <param name="attaque">Attaque a enlever</param>
     public void EnleverAttaque(AttaqueEpee attaque)
     {
-        attaques.Remove(attaque);
+        _aEnlever.Add(attaque);
     }
 
     /// <summary>
@@ -79,13 +84,12 @@ public class Epee : AbstractArme
         {
             attaque.Draw(spriteBatch);
         }
-        base.Draw(spriteBatch);
     }
 
     /// <summary>
     /// Permet de rafraichir la position actuelle de l'arme
     /// </summary>
-    /// <param name="deltaT"></param>
+    /// <param name="deltaT">temps depuis le dernier appel</param>
     protected override void UpdatePos(float deltaT)
     {
         //Place l'arme dans la direction ou la souris pointe
@@ -105,36 +109,60 @@ public class Epee : AbstractArme
         dir.Normalize();
         return dir;
     }
+
+    public float getAngleZone()
+    {
+        return _angleZone;
+    }
+
+    public Joueur getJoueur()
+    {
+        return _joueur;
+    }
 }
 
 /// <summary>
 /// Classe unitilisee pour chaque attaque d'epee
 /// </summary>
-public class AttaqueEpee : AbstractGameObject
+public class AttaqueEpee
 {
-    private Vector2 _debut;
-    private Vector2 _act;
+    private float _debut;
+    private float _act;
     private Epee _epee;
+    private Vector2 _position;
+    private Vector2[] _forme;
 
-    public AttaqueEpee(Vector2 angle, Epee epee)
-        : base(epee.getFormeBase(), epee.getPosition(), 2)
+    public AttaqueEpee(float angle, Epee epee)
     {
         this._debut = angle;
         this._act = angle;
         this._epee = epee;
     }
 
-    public override void Update(float deltaT)
+    public void Update(float deltaT)
     {
         //Annule l'attaque si le joueur n'attaque plus
-        if (!_epee.GetAttaqueAutomatique() && Mouse.GetState().LeftButton != ButtonState.Pressed)
+        if (
+            !_epee.GetAttaqueAutomatique() && Mouse.GetState().LeftButton != ButtonState.Pressed
+            || _act < _debut -_epee.getAngleZone()
+        )
         {
             _epee.EnleverAttaque(this);
             return;
         }
         //Tourne l'épée
-        this._act = PolyGen.tournerMatrice(_act, deltaT * _epee.getVitRot());
+
+        _act -= _epee.getVitRot() * deltaT;
+        this._forme = PolyGen.tournerMatrice(_epee.getFormeBase(), _act - _epee.getAngleZone());
+        Vector2 v =
+            _epee.getJoueur().getPosition()
+            + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
+                * _epee.getJoueur().getRayon();
+        this._position = v;
     }
 
-    public override void Draw(SpriteBatch spriteBatch) { }
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        Peintre.dessinerForme(spriteBatch, _forme, _position);
+    }
 }

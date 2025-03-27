@@ -47,6 +47,10 @@ public abstract class AbstractArme : AbstractGameObject, IArme
 
     public override void Update(float deltaT)
     {
+        if (Controle.enfonceClavier(ControlesEnum.ATTAQUE_AUTOMATIQUE))
+        {
+            _attaqueAutomatique = !_attaqueAutomatique;
+        }
         if (
             _delai.Update(deltaT)
             && (_attaqueAutomatique || Mouse.GetState().LeftButton == ButtonState.Pressed)
@@ -64,9 +68,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         Vector2 dir = Camera.getInstance().getPosSourisCamera();
         dir.Normalize();
         _position = _joueur.getPosition() + dir * (_joueur.getRayon() + _longueur / 2);
-
-        //Doit gerer la rotaion de larme
-        //   _forme = PolyGen.tournerMatrice(_formeBase, (float)(MathPlus.AngleEntre(dir, new Vector2(1, 0)) + Math.PI));
+        _forme = PolyGen.tournerMatrice(_formeBase, PolyGen.angleVecteur(dir));
     }
 
     public float GetLongueur()

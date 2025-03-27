@@ -29,7 +29,6 @@ public class Monstre : AbstractGameObject
         eviterCollisions(deltaT);
         if (collisionJoueur())
         {
-            Console.WriteLine("collision");
         }
     }
 
@@ -77,6 +76,10 @@ public class Monstre : AbstractGameObject
         this._forme = PolyGen.tournerMatrice(_forme, _vitesseRot * deltaT);
     }
 
+    /// <summary>
+    /// Determine si le joueur entre en colision avec ce monstre
+    /// </summary>
+    /// <returns>True si le joueur est sur le monstre</returns>
     public bool collisionJoueur()
     {
         Vector2 posJ = _pageJeu.getJoueur().getPosition();
