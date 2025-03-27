@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using desktop.pages;
 using desktop.utils;
@@ -11,19 +12,25 @@ public class Monstre : AbstractGameObject
     private PageJeu _pageJeu;
     private float _vitesse;
     private float _vitesseRot;
+    private float _rayon;
 
-    public Monstre(Vector2[] forme, Vector2 position, PageJeu pageJeu)
+    public Monstre(Vector2[] forme, Vector2 position, PageJeu pageJeu, float rayon)
         : base(forme, position, 1)
     {
         this._pageJeu = pageJeu;
         this._vitesse = 20;
         this._vitesseRot = 1;
+        this._rayon = rayon;
     }
 
     public override void Update(float deltaT)
     {
         bouger(_pageJeu.getJoueur().getPosition(), deltaT);
         eviterCollisions(deltaT);
+        if (collisionJoueur())
+        {
+            Console.WriteLine("collision");
+        }
     }
 
     /// <summary>
@@ -68,5 +75,13 @@ public class Monstre : AbstractGameObject
         _position += mouvement * deltaT * _vitesse;
 
         this._forme = PolyGen.tournerMatrice(_forme, _vitesseRot * deltaT);
+    }
+
+    public bool collisionJoueur()
+    {
+        Vector2 posJ = _pageJeu.getJoueur().getPosition();
+        float rayJ = _pageJeu.getJoueur().getRayon();
+        float dist = (posJ - _position).Length();
+        return rayJ + _rayon > dist;
     }
 }

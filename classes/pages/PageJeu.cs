@@ -28,6 +28,7 @@ public class PageJeu : AbstractPageObjet
         //Initialise la camera et le timer pour les monstres
         new Camera(_graphics.GraphicsDevice, _joueur.getPosition());
         _chronoMonstres = new Chrono(1f);
+        genererMonstres();
     }
 
     public override void Update(GameTime gameTime)
@@ -36,7 +37,7 @@ public class PageJeu : AbstractPageObjet
         float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;
         if (_chronoMonstres.Update(deltaT))
         {
-            genererMonstres();
+            //genererMonstres();
         }
 
         base.Update(gameTime);
@@ -54,7 +55,7 @@ public class PageJeu : AbstractPageObjet
     /// </summary>
     private void genererMonstres()
     {
-        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 10), new Vector2(100, 100), this);
+        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 10), new Vector2(100, 100), this, 10);
         _objets.Add(monstre);
     }
 

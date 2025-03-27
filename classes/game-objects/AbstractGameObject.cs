@@ -62,9 +62,4 @@ public abstract class AbstractGameObject : IGameObject
     {
         _position = position;
     }
-
-    public bool enCollision(AbstractGameObject autre)
-    {
-        return false;
-    }
 }
