@@ -1,3 +1,4 @@
+using GeonBit.UI;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Screens;
 
@@ -15,18 +16,19 @@ public class EcranAcceuil : GameScreen
     }
     public override void Initialize()
     {
-
+        UserInterface.Initialize(Content,BuiltinThemes.editor);
         base.Initialize();
     }
 
     public override void Draw(GameTime gameTime)
-    {
-
+    {   
         Game.GraphicsDevice.Clear(Color.Beige);
+        UserInterface.Active.Draw(Game.GetSpriteBatch());
     }
 
     public override void Update(GameTime gameTime)
     {
+        UserInterface.Active.Update(gameTime);
 
     }
 }
