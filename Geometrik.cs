@@ -5,23 +5,27 @@ using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended.Screens;
 
 namespace desktop;
 
 public class Geometrik : Game
 {
-    public PageJeu _pageJeu;
     private GraphicsDeviceManager _graphics;
+    private readonly ScreenManager _screenManager;
 
     public Geometrik()
     {
         _graphics = new GraphicsDeviceManager(this);
+
+        _screenManager = new ScreenManager();
+        Components.Add(_screenManager);
+
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
         //Ajoute les evenements lorsque la page change de dimension
         this.Window.AllowUserResizing = true;
-        this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
     }
 
     protected override void Initialize()
@@ -29,17 +33,19 @@ public class Geometrik : Game
         _graphics.PreferredBackBufferWidth = 1000;
         _graphics.PreferredBackBufferHeight = 800;
         _graphics.ApplyChanges();
+
+
+        LoadPageAcceuil();
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
-        _pageJeu = new PageJeu(_graphics);
+
     }
 
     protected override void Update(GameTime gameTime)
     {
-        _pageJeu.Update(gameTime);
 
         if (
             GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
@@ -52,13 +58,12 @@ public class Geometrik : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        _pageJeu.Draw(gameTime);
 
         base.Draw(gameTime);
     }
-
-    void Window_ClientSizeChanged(object sender, EventArgs e)
-    {
-        //Ne fait rien pour l'instant
+    private void LoadPageAcceuil(){
+        _screenManager.LoadScreen(new PageAcceuil(this));
     }
+    
+
 }
