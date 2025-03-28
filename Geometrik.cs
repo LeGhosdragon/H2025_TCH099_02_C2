@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using desktop.gameobjects;
 using desktop.pages;
 using desktop.utils;
+using GeonBit.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -32,6 +33,8 @@ public class Geometrik : Game
 
     protected override void Initialize()
     {
+        UserInterface.Initialize(Content,BuiltinThemes.editor);
+
         _spriteBatch = new SpriteBatch(_graphics.GraphicsDevice);
 
         _graphics.PreferredBackBufferWidth = 1000;
@@ -77,6 +80,9 @@ public class Geometrik : Game
     }
     public void LoadEcranJeu(){
         _screenManager.LoadScreen(new EcranJeu(this));
+    }
+    public void LoadEcranInscription(){
+        _screenManager.LoadScreen(new EcranInscription(this));
     }
 
     
