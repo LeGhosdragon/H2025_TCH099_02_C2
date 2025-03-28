@@ -23,7 +23,7 @@ public class Epee : AbstractArme
     private float _angleZone = (float)Math.PI / 2;
     private float _vitRot = (float)Math.PI;
 
-    public Epee(Joueur joueur, PageJeu pageJeu)
+    public Epee(Joueur joueur, EcranJeu ecranJeu)
         : base(
             new Vector2[]
             {
@@ -36,7 +36,7 @@ public class Epee : AbstractArme
             joueur,
             1f,
             100,
-            pageJeu
+            ecranJeu
         )
     {
         this.attaques = new List<AttaqueEpee>();
@@ -56,7 +56,7 @@ public class Epee : AbstractArme
         base.Update(deltaT);
         foreach (AttaqueEpee attaqueEpee in attaques)
         {
-            attaqueEpee.Update(deltaT, _page.GetMonstres());
+            attaqueEpee.Update(deltaT, _ecran.GetMonstres());
         }
         attaques.RemoveAll(e => _aEnlever.Contains(e));
         _aEnlever = new List<AttaqueEpee>();

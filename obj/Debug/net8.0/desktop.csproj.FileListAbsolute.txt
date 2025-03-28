@@ -54,6 +54,5 @@ C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2
 <<<<<<< HEAD
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\MonoGame.Primitives2D.dll
 =======
-C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\GeonBit.UI.dll
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\MonoGame.Extended.dll
 >>>>>>> 398749e (Utilisation des Gamescreen de monogame extended)

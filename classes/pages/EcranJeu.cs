@@ -1,5 +1,7 @@
+
 using System.Collections.Generic;
 using System.Linq;
+using desktop.armes;
 using desktop.gameobjects;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -7,23 +9,21 @@ using MonoGame.Extended.Screens;
 
 namespace desktop.pages;
 
-public class PageJeu : GameScreen
+public class EcranJeu : GameScreen
 {
-
+    private new Geometrik Game => (Geometrik)base.Game;
     protected Joueur _joueur;
-    protected Chrono _chronoMonstres;
     protected List<IGameObject> _objets;
+    protected Chrono _chronoMonstre;
 
-    private new Geometrik Game => (Geometrik) base.Game;
-
-    public PageJeu(Game game) : base(game)
+    public EcranJeu(Game game) : base(game)
     {
-        _objets = new List<IGameObject>();
-        _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector3(0, 0, 0));
-        _objets.Add(_joueur);
 
-        _chronoMonstres = new Chrono(100);
+        _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector2(0, 0));
+        _joueur.setArme(new Epee(_joueur, this));
+
     }
+
     public override void LoadContent()
     {
         base.LoadContent();
@@ -31,23 +31,19 @@ public class PageJeu : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
-        
+        Game.GraphicsDevice.Clear(Color.Black);
     }
 
     public override void Update(GameTime gameTime)
     {
-        float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
     }
-
 
     public List<Monstre> GetMonstres()
     {
         return _objets.OfType<Monstre>().ToList<Monstre>();
     }
-    public Joueur getJoueur()
-    {
+    public Joueur GetJoueur(){
         return _joueur;
     }
-
 }

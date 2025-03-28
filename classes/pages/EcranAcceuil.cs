@@ -4,11 +4,11 @@ using MonoGame.Extended.Screens;
 
 namespace desktop.pages;
 
-public class PageAcceuil : GameScreen
+public class EcranAcceuil : GameScreen
 {
     private new Geometrik Game => (Geometrik) base.Game;
 
-    public PageAcceuil(Game game) : base(game) { }
+    public EcranAcceuil(Game game) : base(game) { }
 
     public override void LoadContent()
     {

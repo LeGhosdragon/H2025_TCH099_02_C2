@@ -35,7 +35,7 @@ public class Geometrik : Game
         _graphics.ApplyChanges();
 
 
-        LoadPageAcceuil();
+        LoadEcranAcceuil();
         base.Initialize();
     }
 
@@ -61,9 +61,13 @@ public class Geometrik : Game
 
         base.Draw(gameTime);
     }
-    private void LoadPageAcceuil(){
-        _screenManager.LoadScreen(new PageAcceuil(this));
+    public void LoadEcranAcceuil(){
+        _screenManager.LoadScreen(new EcranAcceuil(this));
     }
+    public void LoadEcranJeu(){
+        _screenManager.LoadScreen(new EcranJeu(this));
+    }
+
     
 
 }

@@ -30,7 +30,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     /// </summary>
     protected float _longueur;
 
-    protected PageJeu _page;
+    protected EcranJeu _ecran;
 
     protected AbstractArme(
         Vector2[] formeBase,
@@ -38,7 +38,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         Joueur joueur,
         float delai,
         float longueur,
-        PageJeu page
+        EcranJeu ecran
     )
         : base(formeBase, position, 1)
     {
@@ -47,7 +47,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         this._delai = new Chrono(delai, true);
         this._attaqueAutomatique = true;
         this._longueur = longueur;
-        this._page = page;
+        this._ecran = ecran;
     }
 
     public override void Update(float deltaT)

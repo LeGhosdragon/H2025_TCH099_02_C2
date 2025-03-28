@@ -9,15 +9,15 @@ namespace desktop.gameobjects;
 
 public class Monstre : AbstractGameObject
 {
-    private PageJeu _pageJeu;
+    private EcranJeu _ecranJeu;
     private float _vitesse;
     private float _vitesseRot;
     private float _rayon;
 
-    public Monstre(Vector2[] forme, Vector2 position, PageJeu pageJeu, float rayon)
+    public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon)
         : base(forme, position, 1)
     {
-        this._pageJeu = pageJeu;
+        this._ecranJeu = ecranJeu;
         this._vitesse = 20;
         this._vitesseRot = 1;
         this._rayon = rayon;
@@ -28,7 +28,7 @@ public class Monstre : AbstractGameObject
 
     public override void Update(float deltaT)
     {
-        bouger(_pageJeu.getJoueur().getPosition(), deltaT);
+        bouger(_ecranJeu.GetJoueur().getPosition(), deltaT);
         eviterCollisions(deltaT);
         if (collisionJoueur()) { }
     }
@@ -39,7 +39,7 @@ public class Monstre : AbstractGameObject
     /// <param name="deltaT">difference entre la derniere update</param>
     private void eviterCollisions(float deltaT)
     {
-        List<Monstre> monstres = _pageJeu.GetMonstres();
+        List<Monstre> monstres = _ecranJeu.GetMonstres();
         monstres.Remove(this);
         monstres.ForEach(m => eviterCollisions(m, deltaT));
     }
@@ -83,8 +83,8 @@ public class Monstre : AbstractGameObject
     /// <returns>True si le joueur est sur le monstre</returns>
     public bool collisionJoueur()
     {
-        Vector2 posJ = _pageJeu.getJoueur().getPosition();
-        float rayJ = _pageJeu.getJoueur().getRayon();
+        Vector2 posJ = _ecranJeu.GetJoueur().getPosition();
+        float rayJ = _ecranJeu.GetJoueur().getRayon();
         float dist = (posJ - _position).Length();
         return rayJ + _rayon > dist;
     }

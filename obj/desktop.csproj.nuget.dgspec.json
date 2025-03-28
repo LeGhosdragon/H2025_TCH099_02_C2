@@ -51,10 +51,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "GeonBit.UI": {
-              "target": "Package",
-              "version": "[4.3.0.4, )"
-            },
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
               "version": "[3.8.2.1105, )"
