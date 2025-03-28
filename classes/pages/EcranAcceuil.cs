@@ -16,6 +16,7 @@ public class EcranAcceuil : GameScreen
     public EcranAcceuil(Game game) : base(game) { }
 
     Fond fond = new Fond();
+    Panel centre;
     public override void LoadContent()
     {
         base.LoadContent();
@@ -26,11 +27,19 @@ public class EcranAcceuil : GameScreen
 
 
         //Panneau du centre
-        Panel centre = new Panel(new Vector2(600,800));
+        centre = new Panel(new Vector2(600,800));
         UserInterface.Active.AddEntity(centre);
 
-        //Image du Logo
+        //Ajout du bouton Jouer
+        Button btnJouer = new Button("Jouer");
+        btnJouer.OnClick = (Entity btn) =>{
+            Game.LoadEcranJeu();
+        };
 
+        centre.AddChild(btnJouer);
+
+        Button btnConnexion = new Button("Connexion");
+        centre.AddChild(btnConnexion);
 
         base.Initialize();
     }
