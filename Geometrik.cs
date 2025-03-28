@@ -4,6 +4,7 @@ using desktop.gameobjects;
 using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Screens;
 
@@ -13,6 +14,7 @@ public class Geometrik : Game
 {
     private GraphicsDeviceManager _graphics;
     private readonly ScreenManager _screenManager;
+    private SpriteBatch _spriteBatch;
 
     public Geometrik()
     {
@@ -30,6 +32,8 @@ public class Geometrik : Game
 
     protected override void Initialize()
     {
+        _spriteBatch = new SpriteBatch(_graphics.GraphicsDevice);
+
         _graphics.PreferredBackBufferWidth = 1000;
         _graphics.PreferredBackBufferHeight = 800;
         _graphics.ApplyChanges();
@@ -61,6 +65,13 @@ public class Geometrik : Game
 
         base.Draw(gameTime);
     }
+    public SpriteBatch GetSpriteBatch(){
+        return _spriteBatch;
+    }
+
+    /*
+    CHARGER LES ECRANS
+    */
     public void LoadEcranAcceuil(){
         _screenManager.LoadScreen(new EcranAcceuil(this));
     }

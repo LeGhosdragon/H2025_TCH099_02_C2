@@ -1,4 +1,3 @@
-
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Screens;
 
@@ -14,9 +13,15 @@ public class EcranAcceuil : GameScreen
     {
         base.LoadContent();
     }
+    public override void Initialize()
+    {
+
+        base.Initialize();
+    }
 
     public override void Draw(GameTime gameTime)
     {
+
         Game.GraphicsDevice.Clear(Color.Beige);
     }
 
