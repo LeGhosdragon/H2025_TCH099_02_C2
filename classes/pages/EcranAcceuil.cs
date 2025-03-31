@@ -32,6 +32,7 @@ public class EcranAcceuil : GameScreen
         //Ajout du bouton Jouer
         Button btnJouer = new Button("Jouer");
         btnJouer.OnClick = (Entity btn) =>{
+            UnloadContent();
             Game.LoadEcranJeu();
         };
 
@@ -40,7 +41,7 @@ public class EcranAcceuil : GameScreen
         Button btnInscription = new Button("Inscription");
         _centre.AddChild(btnInscription);
         btnInscription.OnClick = (Entity btn) =>{
-            
+            UnloadContent();
             Game.LoadEcranInscription();
 
         };
@@ -69,5 +70,9 @@ public class EcranAcceuil : GameScreen
         float deltaT = (float) gameTime.ElapsedGameTime.TotalSeconds;
         _fond.Update(deltaT);
         UserInterface.Active.Update(gameTime);
+    }
+    public override void UnloadContent()
+    {
+        UserInterface.Active.Clear();
     }
 }

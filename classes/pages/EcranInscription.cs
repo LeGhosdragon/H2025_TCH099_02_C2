@@ -52,6 +52,7 @@ public class EcranInscription : GameScreen
                     erreurs.FillColor = new Color(200,6,87);
                     erreurs.Text = LocalAPI.formatterErreurs(reponse.Erreurs);
                 }else{
+                    UnloadContent();
                     Game.LoadEcranJeu();
                 }
             });
@@ -82,5 +83,9 @@ public class EcranInscription : GameScreen
         Game.GetSpriteBatch().End();
 
         UserInterface.Active.Draw(Game.GetSpriteBatch());
+    }
+    public override void UnloadContent()
+    {
+        UserInterface.Active.Clear();
     }
 }
