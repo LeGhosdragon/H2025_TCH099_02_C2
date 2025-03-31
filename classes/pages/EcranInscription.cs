@@ -1,3 +1,5 @@
+using System;
+using System.Threading;
 using desktop.gameobjects;
 using desktop.utils;
 using GeonBit.UI;
@@ -13,6 +15,7 @@ public class EcranInscription : GameScreen
 
     protected Fond _fond;
     protected Panel _centre;
+    protected Paragraph erreurs;
     public EcranInscription(Game game) : base(game) { }
 
 
@@ -21,7 +24,7 @@ public class EcranInscription : GameScreen
 
         _fond = new Fond();
         //Panneau du centre
-        _centre = new Panel(new Vector2(600, 800));
+        _centre = new Panel();
         UserInterface.Active.AddEntity(_centre);
 
         //Entree pour l'identifiant
@@ -40,13 +43,26 @@ public class EcranInscription : GameScreen
 
         //Ajout du bouton Jouer
         Button btnValider = new Button("S'inscrire");
-        btnValider.OnClick = (Entity btn) =>
+        btnValider.OnClick = (Entity btn) => 
         {
-            LocalAPI.Inscription(textID.Value, textMDP.Value);
-        };
 
+            Thread t1 = new Thread (async ()=>{
+                ReponseInscription reponse = await LocalAPI.Inscription(textID.Value, textMDP.Value);
+                if(reponse.Erreurs.Length != 0){
+                    erreurs.FillColor = new Color(200,6,87);
+                    erreurs.Text = LocalAPI.formatterErreurs(reponse.Erreurs);
+                }else{
+                    Game.LoadEcranJeu();
+                }
+            });
+            t1.Start();
+
+        };
         _centre.AddChild(btnValider);
 
+        erreurs = new Paragraph();
+         _centre.AddChild(erreurs);
+        
 
 
         base.Initialize();

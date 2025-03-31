@@ -688,3 +688,4 @@ C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\GeonBit.UI\Themes\lowres\fonts\Regular.xnb
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\GeonBit.UI\Themes\editor\fonts\Regular.xnb
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\LogoGeometrik.xnb
+C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Newtonsoft.Json.dll

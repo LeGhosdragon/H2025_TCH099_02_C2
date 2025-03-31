@@ -40,7 +40,9 @@ public class EcranAcceuil : GameScreen
         Button btnInscription = new Button("Inscription");
         _centre.AddChild(btnInscription);
         btnInscription.OnClick = (Entity btn) =>{
+            
             Game.LoadEcranInscription();
+
         };
 
         base.Initialize();

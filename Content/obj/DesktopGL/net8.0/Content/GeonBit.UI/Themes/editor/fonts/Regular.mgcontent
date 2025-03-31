@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/fonts/Regular.spritefont</SourceFile>
-  <SourceTime>2025-03-28T11:14:40.8807546-04:00</SourceTime>
+  <SourceTime>2025-03-31T14:59:21.4746681-04:00</SourceTime>
   <DestFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/GeonBit.UI/Themes/editor/fonts/Regular.xnb</DestFile>
-  <DestTime>2025-03-28T11:15:02.6554264-04:00</DestTime>
+  <DestTime>2025-03-31T14:59:35.8118776-04:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
