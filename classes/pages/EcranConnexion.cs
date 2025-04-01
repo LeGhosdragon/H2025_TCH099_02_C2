@@ -53,7 +53,7 @@ public class EcranConnexion : GameScreen
                     erreurs.Text = LocalAPI.formatterErreurs(reponse.Erreurs);
                 }else{
                     UnloadContent();
-                    Game.LoadEcranJeu();
+                    Game.LoadEcranAcceuil();
                 }
             });
             t1.Start();

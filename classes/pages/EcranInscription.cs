@@ -48,12 +48,18 @@ public class EcranInscription : GameScreen
 
             Thread t1 = new Thread (async ()=>{
                 ReponseInscription reponse = await LocalAPI.Inscription(textID.Value, textMDP.Value);
-                if(reponse.Erreurs.Length != 0){
+                if(!reponse.Reussite){
                     erreurs.FillColor = new Color(200,6,87);
                     erreurs.Text = LocalAPI.formatterErreurs(reponse.Erreurs);
                 }else{
+                    ReponseConnexion reponseConnexion = await LocalAPI.Connexion(textID.Value,textMDP.Value);
+                    if(!reponseConnexion.Reussite){
+                        Console.WriteLine(erreurs);
+                    }
+
+        
                     UnloadContent();
-                    Game.LoadEcranJeu();
+                    Game.LoadEcranAcceuil();
                 }
             });
             t1.Start();
