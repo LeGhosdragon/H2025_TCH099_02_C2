@@ -1,2 +1,4 @@
-﻿using var game = new desktop.Game1();
+﻿using desktop;
+
+using var game = new Geometrik();
 game.Run();

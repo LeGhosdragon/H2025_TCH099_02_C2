@@ -5,8 +5,604 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/ball.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/btn_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/btn_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/btn_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/cursor.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/GeonBitUI-sm.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/mage_color.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/mage_skin.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/mage.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/monk_color.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/monk_skin.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/monk.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/ranger_color.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/ranger_skin.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/ranger.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/warrior_color.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/warrior_skin.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/warrior.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/effects/disabled.fx</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/effects/silhouette.fx</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/fonts/Bold.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/fonts/Italic.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/fonts/Regular.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/arrow_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/arrow_up.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_alternative_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_alternative_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_alternative.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_default_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_default_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_fancy_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_fancy_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/button_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/checkbox_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/checkbox_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/checkbox.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/cursor_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/cursor_ibeam.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/cursor_pointer.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/file_icon.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/folder_icon.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/horizontal_line.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Apple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Armor.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Axe.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/background.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/BloodySword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Bone.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Book.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Cubes.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Diamond.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Explanation.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Feather.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/FloppyDisk.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/GoldCoins.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/GoldShard.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Heart.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Helmet.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Key.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/MagicBook.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/MagicWand.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Map.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/None.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/OrbBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/OrbGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/OrbRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Pistol.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/PotionBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/PotionCyan.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/PotionGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/PotionPurple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/PotionRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/PotionYellow.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Ring.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RingGold.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RingGoldRuby.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RingRuby.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RubyBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RubyGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RubyPink.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RubyPurple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/RubyRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Sack.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Scroll.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Shield.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/ShieldAndSword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Shovel.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/SilverShard.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Skull.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Sword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/Trap.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/ZoomIn.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/icons/ZoomOut.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/panel_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/panel_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/panel_golden.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/panel_listbackground.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/panel_simple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/progressbar_fill.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/progressbar.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/radio_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/radio_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/radio.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/scrollbar_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/scrollbar.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/slider_default_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/slider_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/slider_fancy_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/slider_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/white_texture.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/effects/disabled.fx</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/effects/silhouette.fx</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/fonts/Bold.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/fonts/Italic.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/fonts/Regular.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/arrow_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/arrow_up.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_alternative_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_alternative_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_alternative.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_default_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_default_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_fancy_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_fancy_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/button_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/checkbox_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/checkbox_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/checkbox.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/cursor_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/cursor_ibeam.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/cursor_pointer.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/file_icon.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/folder_icon.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/horizontal_line.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Apple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Armor.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Axe.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/background.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/BloodySword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Bone.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Book.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Cubes.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Diamond.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Explanation.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Feather.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/FloppyDisk.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/GoldCoins.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/GoldShard.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Heart.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Helmet.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Key.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/MagicBook.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/MagicWand.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Map.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/None.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/OrbBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/OrbGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/OrbRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Pistol.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/PotionBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/PotionCyan.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/PotionGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/PotionPurple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/PotionRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/PotionYellow.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Ring.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RingGold.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RingGoldRuby.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RingRuby.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RubyBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RubyGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RubyPink.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RubyPurple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RubyRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Sack.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Scroll.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Shield.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/ShieldAndSword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Shovel.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/SilverShard.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Skull.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Sword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/Trap.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/ZoomIn.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/ZoomOut.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/panel_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/panel_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/panel_golden.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/panel_listbackground.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/panel_simple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/progressbar_fill.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/progressbar.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/radio_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/radio_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/radio.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/scrollbar_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/scrollbar.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/slider_default_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/slider_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/slider_fancy_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/slider_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/white_texture.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/effects/disabled.fx</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/effects/silhouette.fx</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/fonts/Bold.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/fonts/Italic.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/fonts/Regular.spritefont</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/arrow_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/arrow_up.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_alternative_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_alternative_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_alternative.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_default_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_default_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_fancy_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_fancy_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/button_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/checkbox_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/checkbox_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/checkbox.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/cursor_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/cursor_ibeam.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/cursor_pointer.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/dot.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/file_icon.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/folder_icon.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/horizontal_line.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Apple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Armor.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Axe.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/background.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/BloodySword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Bone.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Book.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Cubes.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Diamond.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Explanation.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Feather.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/FloppyDisk.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/GoldCoins.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/GoldShard.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Heart.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Helmet.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Key.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/MagicBook.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/MagicWand.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Map.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/None.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/OrbBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/OrbGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/OrbRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Pistol.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/PotionBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/PotionCyan.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/PotionGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/PotionPurple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/PotionRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/PotionYellow.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Ring.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RingGold.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RingGoldRuby.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RingRuby.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RubyBlue.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RubyGreen.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RubyPink.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RubyPurple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/RubyRed.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Sack.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Scroll.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Shield.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/ShieldAndSword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Shovel.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/SilverShard.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Skull.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Sword.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/Trap.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/ZoomIn.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/icons/ZoomOut.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/panel_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/panel_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/panel_golden.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/panel_listbackground.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/panel_simple.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/progressbar_fill.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/progressbar.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/radio_down.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/radio_hover.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/radio.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/scrollbar_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/scrollbar.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/slider_default_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/slider_default.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/slider_fancy_mark.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/slider_fancy.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/white_texture.png</File>
+    <File>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/LogoGeometrik.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

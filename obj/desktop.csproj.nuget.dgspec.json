@@ -51,13 +51,33 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "GeonBit.UI": {
+              "target": "Package",
+              "version": "[4.3.0.4, )"
+            },
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
               "version": "[3.8.2.1105, )"
             },
+            "MonoGame.Extended": {
+              "target": "Package",
+              "version": "[4.0.4, )"
+            },
+            "MonoGame.Extended.Content.Pipeline": {
+              "target": "Package",
+              "version": "[4.0.4, )"
+            },
             "MonoGame.Framework.DesktopGL": {
               "target": "Package",
               "version": "[3.8.2.1105, )"
+            },
+            "MonoGame.Primitives2D": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
