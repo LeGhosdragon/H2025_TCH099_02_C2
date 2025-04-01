@@ -84,6 +84,9 @@ public class Geometrik : Game
     public void LoadEcranInscription(){
         _screenManager.LoadScreen(new EcranInscription(this));
     }
+    public void LoadEcranConnexion(){
+        _screenManager.LoadScreen(new EcranConnexion(this));
+    }
 
     
 

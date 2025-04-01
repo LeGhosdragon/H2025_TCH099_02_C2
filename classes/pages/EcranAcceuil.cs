@@ -38,6 +38,14 @@ public class EcranAcceuil : GameScreen
 
         _centre.AddChild(btnJouer);
 
+        Button btnConnexion = new Button("Connexion");
+        _centre.AddChild(btnConnexion);
+        btnConnexion.OnClick = (Entity btn) =>{
+            UnloadContent();
+            Game.LoadEcranConnexion();
+
+        };
+
         Button btnInscription = new Button("Inscription");
         _centre.AddChild(btnInscription);
         btnInscription.OnClick = (Entity btn) =>{

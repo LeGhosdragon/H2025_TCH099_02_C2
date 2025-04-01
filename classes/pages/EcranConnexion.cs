@@ -47,7 +47,7 @@ public class EcranConnexion : GameScreen
         {
 
             Thread t1 = new Thread (async ()=>{
-                ReponseInscription reponse = await LocalAPI.Inscription(textID.Value, textMDP.Value);
+                ReponseConnexion reponse = await LocalAPI.Connexion(textID.Value, textMDP.Value);
                 if(reponse.Erreurs.Length != 0){
                     erreurs.FillColor = new Color(200,6,87);
                     erreurs.Text = LocalAPI.formatterErreurs(reponse.Erreurs);
