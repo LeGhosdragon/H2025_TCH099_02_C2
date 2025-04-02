@@ -32,6 +32,30 @@
 #begin BuiltEffects/silhouette.xnb
 /copy:BuiltEffects/silhouette.xnb
 
+#begin custom/demonstration-fusil-spritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:custom/demonstration-fusil-spritesheet.png
+
+#begin custom/presentation-epee.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:custom/presentation-epee.png
+
 #begin Example/btn_default.png
 /importer:TextureImporter
 /processor:TextureProcessor
