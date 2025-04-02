@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using desktop.armes;
 using desktop.gameobjects;
 using desktop.utils;
@@ -21,7 +22,11 @@ public class EcranJeu : GameScreen
     {
         _objets = new List<IGameObject>();
         _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector2(0, 0));
-        _joueur.setArme(new Epee(_joueur, this));
+
+        AbstractArme arme = new Fusil(_joueur,this);
+        _joueur.setArme(arme);
+        _objets.Add(arme);
+
         _objets.Add(_joueur);
 
         new Camera(GraphicsDevice,_joueur.getPosition());

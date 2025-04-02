@@ -32,7 +32,6 @@ public class Epee : AbstractArme
                 new Vector2(10, 100),
                 new Vector2(10, 0),
             },
-            joueur.getPosition(),
             joueur,
             1f,
             100,
