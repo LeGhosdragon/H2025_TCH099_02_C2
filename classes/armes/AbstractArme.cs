@@ -34,13 +34,12 @@ public abstract class AbstractArme : AbstractGameObject, IArme
 
     protected AbstractArme(
         Vector2[] formeBase,
-        Vector2 position,
         Joueur joueur,
         float delai,
         float longueur,
         EcranJeu ecran
     )
-        : base(formeBase, position, 1)
+        : base(formeBase, joueur.getPosition(), 1)
     {
         this._formeBase = formeBase;
         this._joueur = joueur;

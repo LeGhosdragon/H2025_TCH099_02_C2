@@ -35,7 +35,7 @@ public class EcranAcceuil : GameScreen
         btnJouer.OnClick = (Entity btn) =>
         {
             UnloadContent();
-            Game.LoadEcranJeu();
+            Game.LoadEcranSelection();
         };
 
         _centre.AddChild(btnJouer);

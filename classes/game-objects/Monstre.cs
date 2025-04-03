@@ -13,6 +13,7 @@ public class Monstre : AbstractGameObject
     private float _vitesse;
     private float _vitesseRot;
     private float _rayon;
+    private int hp;
 
     public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon)
         : base(forme, position, 1)
@@ -21,7 +22,12 @@ public class Monstre : AbstractGameObject
         this._vitesse = 20;
         this._vitesseRot = 1;
         this._rayon = rayon;
+        this.hp = 20;
     }
+    /// <summary>
+    /// Rayon de la collision de la forme
+    /// </summary>
+    /// <returns>Le rayon de la collision de la forme</returns>
     public float getRayon(){
         return _rayon;
     }
@@ -62,6 +68,20 @@ public class Monstre : AbstractGameObject
             Vector2 eviter = dif * facteurEviter;
             _position += eviter * deltaT;
         }
+    }
+    /// <summary>
+    /// Enleve le nombre de degat au monstre
+    /// Si sa vie est sous zero, le tue
+    /// </summary>
+    /// <param name="degat">Nombre de degat subit</param>
+    /// <returns>true si le monstre est mort</returns>
+    public bool RecevoirDegat(int degat){
+        this.hp -= degat;
+        if(hp <= 0){
+            _ecranJeu.EnleverObjet(this);
+            return true;
+        }
+        return false;
     }
 
     /// <summary>

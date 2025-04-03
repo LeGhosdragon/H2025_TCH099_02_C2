@@ -32,7 +32,6 @@ public class Epee : AbstractArme
                 new Vector2(10, 100),
                 new Vector2(10, 0),
             },
-            joueur.getPosition(),
             joueur,
             1f,
             100,
@@ -171,14 +170,11 @@ public class AttaqueEpee
     {
         foreach (Monstre monstre in monstres)
         {
-            if(frappes.Contains(monstre)){
-                return;
-            }
-            if (DetecterCollision(monstre, deltaT))
-            {
+            if(!frappes.Contains(monstre) & DetecterCollision(monstre, deltaT)){
                 
                 Console.WriteLine("coll");
                 frappes.Add(monstre);
+                monstre.RecevoirDegat(10);
             }
         }
     }
