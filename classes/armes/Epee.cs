@@ -25,13 +25,12 @@ public class Epee : AbstractArme
 
     public Epee(Joueur joueur, EcranJeu ecranJeu)
         : base(
-            new Vector2[]
-            {
+            [
                 new Vector2(0, 0),
                 new Vector2(0, 100),
                 new Vector2(10, 100),
                 new Vector2(10, 0),
-            },
+            ],
             joueur,
             1f,
             100,
@@ -157,7 +156,7 @@ public class AttaqueEpee
         //Tourne l'épée
 
         _act -= _epee.getVitRot() * deltaT;
-        
+
         this._forme = PolyGen.tournerMatrice(_epee.getFormeBase(), _act - _epee.getAngleZone());
         Vector2 v =
             _epee.getJoueur().getPosition()
@@ -170,8 +169,9 @@ public class AttaqueEpee
     {
         foreach (Monstre monstre in monstres)
         {
-            if(!frappes.Contains(monstre) & DetecterCollision(monstre, deltaT)){
-                
+            if (!frappes.Contains(monstre) & DetecterCollision(monstre, deltaT))
+            {
+
                 Console.WriteLine("coll");
                 frappes.Add(monstre);
                 monstre.RecevoirDegat(10);
@@ -185,13 +185,16 @@ public class AttaqueEpee
         Vector2[] forme = getZoneDegat(deltaT);
 
 
-        if(collisionLigneCercle(monstre.getPosition(),monstre.getRayon(),forme[0],forme[1])){
+        if (collisionLigneCercle(monstre.getPosition(), monstre.getRayon(), forme[0], forme[1]))
+        {
             return true;
         }
-        if(collisionLigneCercle(monstre.getPosition(),monstre.getRayon(),forme[1],forme[2])){
+        if (collisionLigneCercle(monstre.getPosition(), monstre.getRayon(), forme[1], forme[2]))
+        {
             return true;
         }
-        if(collisionLigneCercle(monstre.getPosition(),monstre.getRayon(),forme[2],forme[0])){
+        if (collisionLigneCercle(monstre.getPosition(), monstre.getRayon(), forme[2], forme[0]))
+        {
             return true;
         }
 
@@ -200,20 +203,21 @@ public class AttaqueEpee
 
         return false;
     }
-    private bool collisionLigneCercle(Vector2 pos,float rayon,Vector2 p1,Vector2 p2){
-    Vector2 dif = p2-p1;
-    
-
-    float A = dif.LengthSquared();
-    float B = 2 * (dif.X * (p1.X - pos.X) + dif.Y * (p1.Y - pos.Y));
-    float C = (p1.X - pos.X) * (p1.X - pos.X) + (p1.Y - pos.Y) * (p1.Y - pos.Y) - rayon* rayon;
-
-    float det = B * B - 4 * A * C;
-    if ((A <= 0.0000001) || (det < 0))
+    private bool collisionLigneCercle(Vector2 pos, float rayon, Vector2 p1, Vector2 p2)
     {
-        return false;
-    }
-    return true;
+        Vector2 dif = p2 - p1;
+
+
+        float A = dif.LengthSquared();
+        float B = 2 * (dif.X * (p1.X - pos.X) + dif.Y * (p1.Y - pos.Y));
+        float C = (p1.X - pos.X) * (p1.X - pos.X) + (p1.Y - pos.Y) * (p1.Y - pos.Y) - rayon * rayon;
+
+        float det = B * B - 4 * A * C;
+        if ((A <= 0.0000001) || (det < 0))
+        {
+            return false;
+        }
+        return true;
     }
 
     public Vector2[] getZoneDegat(float deltaT)

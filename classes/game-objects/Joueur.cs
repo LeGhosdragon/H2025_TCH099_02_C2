@@ -13,18 +13,51 @@ public class Joueur : AbstractGameObject
     private IArme _arme;
     float _vitesse = 100f;
     float _rayon;
-    int _experience;
+    int _experience = 0;
+    private int _niveau = 1;
 
     public Joueur(Vector2[] forme, Vector2 position)
         : base(forme, position, 0)
     {
         _rayon = forme[0].Length();
-        _experience = 0;
     }
-    public void ajouterExperience(int quantitee){
+    /// <summary>
+    /// Ajoute de l'experience au joueur
+    /// </summary>
+    /// <param name="quantitee">Quantitee d'experience ajoutee</param>
+    public void ajouterExperience(int quantitee)
+    {
         _experience += quantitee;
+        while (_experience > getExpReq())
+        {
+            augmenterNiveau();
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void augmenterNiveau()
+    {
+        _experience -= getExpReq();
+        _niveau++;
+    }
+    /// <summary>
+    /// Permet d'obtenir le nombre d'experience requis pour atteindre le prochain niveau
+    /// </summary>
+    /// <returns>nombre d'experience requis pour le prochain niveau</returns>
+    public int getExpReq(int niveau)
+    {
+        return 7 + (int)Math.Round(Math.Pow(niveau, 1.9));
     }
 
+    /// <summary>
+    /// Permet d'obtenir le nombre d'experience requis pour atteindre le prochain niveau
+    /// </summary>
+    /// <returns>nombre d'experience requis pour le prochain niveau</returns>
+    public int getExpReq()
+    {
+        return getExpReq(_niveau);
+    }
     /// <summary>
     /// Choisis l'arme qui est utilisé
     /// </summary>
@@ -33,7 +66,6 @@ public class Joueur : AbstractGameObject
     {
         this._arme = arme;
     }
-
     /// <summary>
     /// Rayon du joueur
     /// </summary>
@@ -42,7 +74,6 @@ public class Joueur : AbstractGameObject
     {
         return _rayon;
     }
-
     public override void Update(float deltaT)
     {
         //Deplace le joueur
@@ -64,7 +95,6 @@ public class Joueur : AbstractGameObject
         {
             xMov += 1;
         }
-
         _position.Y += yMov * deltaT * _vitesse;
         _position.X += xMov * deltaT * _vitesse;
     }

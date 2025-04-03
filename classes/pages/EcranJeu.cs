@@ -21,6 +21,8 @@ public class EcranJeu : GameScreen
     protected List<IGameObject> _aAjouter;
     protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
+    public bool _arrete = false;
+    public bool MenuPause = false;
 
 
     public EcranJeu(Game game) : base(game)
@@ -48,6 +50,7 @@ public class EcranJeu : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
+        if(_arrete){
         Camera.setPosition(_joueur.getPosition());
         Game.GraphicsDevice.Clear(Color.Black);
         Game.GetSpriteBatch().Begin();
@@ -58,6 +61,8 @@ public class EcranJeu : GameScreen
             objet.Draw(Game.GetSpriteBatch());
         }
         Game.GetSpriteBatch().End();
+        }
+
 
     }
     public void ajouteBanqueExp(int valeur){
@@ -65,6 +70,8 @@ public class EcranJeu : GameScreen
     }
     public override void Update(GameTime gameTime)
     {
+        
+        if(_arrete){
         float deltaT = (float) gameTime.ElapsedGameTime.TotalSeconds;
         if (_chronoMonstre.Update(deltaT))
         {
@@ -82,6 +89,8 @@ public class EcranJeu : GameScreen
             _objets.Remove(gameObject);
         }
         _aEnlever = new List<IGameObject>();
+        }
+
     }
     public void GenererMonstres(int quantitee){
         for(int i = 0;i < quantitee;i++){
@@ -94,10 +103,10 @@ public class EcranJeu : GameScreen
     }
     public List<Monstre> GetMonstres()
     {
-        return _objets.OfType<Monstre>().ToList<Monstre>();
+        return _objets.OfType<Monstre>().ToList();
     }
     public List<Experience> GetExperiences(){
-        return _objets.OfType<Experience>().ToList<Experience>();
+        return _objets.OfType<Experience>().ToList();
     }
     public Joueur GetJoueur(){
         return _joueur;
