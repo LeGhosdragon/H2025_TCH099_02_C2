@@ -40,6 +40,7 @@ public class EcranSelection : GameScreen
     public override void Update(GameTime gameTime)
     {
         float deltaT = (float) gameTime.ElapsedGameTime.TotalSeconds;
+        
         if(Controle.getPosSouris().X > GraphicsDevice.Viewport.Width/2){
             _selectionEpee._hovered = true;
             _selectionFusil._hovered = false;

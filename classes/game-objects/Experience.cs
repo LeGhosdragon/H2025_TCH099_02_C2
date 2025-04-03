@@ -48,7 +48,7 @@ public class Experience : IGameObject
         //TODO devrait etre une statistique du joueur
         float distanceDattraction = 1000;
 
-        Joueur joueur = _ecranJeu.GetJoueur();
+        Joueur joueur = _ecranJeu._joueur;
         Vector2 posJoueur = joueur.getPosition();
         Vector2 dir = posJoueur - _position;
 

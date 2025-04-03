@@ -72,6 +72,11 @@ public class Controle
         Controle AttaquerAutomatique = new Controle(clees, boutons);
         controles.Insert((int)ControlesEnum.ATTAQUE_AUTOMATIQUE, AttaquerAutomatique);
 
+        clees = new List<Keys> { Keys.Escape };
+        boutons = new List<GamePadButtons>();
+        Controle Pause = new Controle(clees, boutons);
+        controles.Insert((int)ControlesEnum.PAUSE, Pause);
+
         return controles;
     }
 
@@ -91,6 +96,7 @@ public class Controle
 
         return false;
     }
+    
 
     /// <summary>
     /// Permet d'obtenir un vecteur qui correspond a la position de la souris
@@ -112,4 +118,5 @@ public enum ControlesEnum
     BOUGER_GAUCHE = 2, // A ou Fleche Gauche
     BOUGER_DROIT = 3, // D ou Fleche droite
     ATTAQUE_AUTOMATIQUE = 4, // Q
+    PAUSE = 5, // Echap
 }

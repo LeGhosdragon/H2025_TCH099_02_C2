@@ -145,7 +145,7 @@ public class AttaqueEpee
     {
         //Annule l'attaque si le joueur n'attaque plus
         if (
-            !_epee.GetAttaqueAutomatique() && Mouse.GetState().LeftButton != ButtonState.Pressed
+            !_epee._attaqueAutomatique && Mouse.GetState().LeftButton != ButtonState.Pressed
             || _act < _debut - _epee.getAngleZone()
         )
         {
@@ -157,7 +157,7 @@ public class AttaqueEpee
 
         _act -= _epee.getVitRot() * deltaT;
 
-        this._forme = PolyGen.tournerMatrice(_epee.getFormeBase(), _act - _epee.getAngleZone());
+        this._forme = PolyGen.tournerMatrice(_epee._formeBase, _act - _epee.getAngleZone());
         Vector2 v =
             _epee.getJoueur().getPosition()
             + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
@@ -228,12 +228,12 @@ public class AttaqueEpee
         zone[1] =
             zone[0]
             + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
-                * (_epee.getJoueur().getRayon() + _epee.GetLongueur());
+                * (_epee.getJoueur().getRayon() + _epee._longueur);
         float apres = _act - _epee.getVitRot() * deltaT;
         zone[2] =
             zone[0]
             + new Vector2((float)Math.Cos(apres), (float)Math.Sin(apres))
-                * (_epee.getJoueur().getRayon() + _epee.GetLongueur());
+                * (_epee.getJoueur().getRayon() + _epee._longueur);
 
         return zone;
     }

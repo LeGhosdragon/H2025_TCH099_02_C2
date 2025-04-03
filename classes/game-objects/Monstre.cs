@@ -34,7 +34,7 @@ public class Monstre : AbstractGameObject
 
     public override void Update(float deltaT)
     {
-        bouger(_ecranJeu.GetJoueur().getPosition(), deltaT);
+        bouger(_ecranJeu._joueur.getPosition(), deltaT);
         eviterCollisions(deltaT);
         if (collisionJoueur()) { }
     }
@@ -108,8 +108,8 @@ public class Monstre : AbstractGameObject
     /// <returns>True si le joueur est sur le monstre</returns>
     public bool collisionJoueur()
     {
-        Vector2 posJ = _ecranJeu.GetJoueur().getPosition();
-        float rayJ = _ecranJeu.GetJoueur().getRayon();
+        Vector2 posJ = _ecranJeu._joueur.getPosition();
+        float rayJ = _ecranJeu._joueur.getRayon();
         float dist = (posJ - _position).Length();
         return rayJ + _rayon > dist;
     }
