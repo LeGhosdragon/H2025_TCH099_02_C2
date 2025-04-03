@@ -13,11 +13,16 @@ public class Joueur : AbstractGameObject
     private IArme _arme;
     float _vitesse = 100f;
     float _rayon;
+    int _experience;
 
     public Joueur(Vector2[] forme, Vector2 position)
         : base(forme, position, 0)
     {
         _rayon = forme[0].Length();
+        _experience = 0;
+    }
+    public void ajouterExperience(int quantitee){
+        _experience += quantitee;
     }
 
     /// <summary>

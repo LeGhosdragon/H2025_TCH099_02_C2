@@ -78,10 +78,15 @@ public class Monstre : AbstractGameObject
     public bool RecevoirDegat(int degat){
         this.hp -= degat;
         if(hp <= 0){
-            _ecranJeu.EnleverObjet(this);
+            Mourrir();
             return true;
         }
         return false;
+    }
+
+    public void Mourrir(){
+            _ecranJeu.EnleverObjet(this);
+            new Experience(this._position,10,_ecranJeu);
     }
 
     /// <summary>

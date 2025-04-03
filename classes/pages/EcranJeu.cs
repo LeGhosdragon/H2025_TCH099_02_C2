@@ -18,12 +18,14 @@ public class EcranJeu : GameScreen
     protected Joueur _joueur;
     protected List<IGameObject> _objets;
     protected List<IGameObject> _aEnlever;
+    protected List<IGameObject> _aAjouter;
     protected Chrono _chronoMonstre;
 
     public EcranJeu(Game game) : base(game)
     {
         _objets = new List<IGameObject>();
         _aEnlever = new List<IGameObject>();
+        _aAjouter = new List<IGameObject>();
         _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector2(0, 0));
 
         AbstractArme arme = new Fusil(_joueur,this);
@@ -64,6 +66,10 @@ public class EcranJeu : GameScreen
         {
            GenererMonstres(5);
         }
+        foreach(IGameObject gameObject in _aAjouter){
+            _objets.Add(gameObject);
+        }
+        _aAjouter = new List<IGameObject>();
         foreach(IGameObject objet in _objets){
             objet.Update(deltaT);
         }
@@ -86,10 +92,16 @@ public class EcranJeu : GameScreen
     {
         return _objets.OfType<Monstre>().ToList<Monstre>();
     }
+    public List<Experience> GetExperiences(){
+        return _objets.OfType<Experience>().ToList<Experience>();
+    }
     public Joueur GetJoueur(){
         return _joueur;
     }
     public void EnleverObjet(IGameObject gameObject){
         _aEnlever.Add(gameObject);
+    }
+    public void AjouerObjet(IGameObject gameObject){
+        _aAjouter.Add(gameObject);
     }
 }

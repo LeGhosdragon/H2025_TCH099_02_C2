@@ -70,7 +70,7 @@ public class ProjectileFusil
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.DrawCircle(this._position - Camera.getInstance().getPosition(),_rayon,_rayon,Color.Red);
+        spriteBatch.DrawCircle(this._position - Camera.getInstance().getPosition(),_rayon,_rayon,Color.Red,_rayon);
     }
 
     public void Update(float deltaT,List<Monstre> monstres)
