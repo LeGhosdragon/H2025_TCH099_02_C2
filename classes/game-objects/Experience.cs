@@ -28,10 +28,14 @@ public class Experience : IGameObject
     }
     public void Update(float deltaT)
     {
-        if (_doitUpdate)
-        {
+
+        if(_doitUpdate){
             UpdatePos(deltaT);
             Cleanup(deltaT);
+        }
+        if(_doitUpdate & sortJeu()){
+            _ecranJeu.ajouteBanqueExp(_valeur);
+            Enlever();
         }
     }
 
@@ -103,6 +107,29 @@ public class Experience : IGameObject
 
                 }
         }
+        return false;
+    }
+    protected bool sortJeu(){
+        float marges = 0.4f;
+        int largeur =_ecranJeu.GraphicsDevice.Viewport.Width;
+        int hauteur =_ecranJeu.GraphicsDevice.Viewport.Height;
+        //Depasse a droite
+        if(_position.X >  Camera.getInstance().getPosition().X +largeur + largeur * marges){
+         return true;
+        }
+        //Depasse a gauche
+        if(_position.X < Camera.getInstance().getPosition().X - largeur* marges){
+            return true;
+        }
+        //Depasse en haut
+        if (_position.Y > Camera.getInstance().getPosition().Y +hauteur + hauteur* marges){
+            return true;
+        }
+        //Deppase en bas
+        if(_position.Y < Camera.getInstance().getPosition().Y -hauteur * marges){
+            return true;
+        }
+
         return false;
     }
     public void EmpecherUpdate(){

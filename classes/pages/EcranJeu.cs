@@ -20,6 +20,8 @@ public class EcranJeu : GameScreen
     protected List<IGameObject> _aEnlever;
     protected List<IGameObject> _aAjouter;
     protected Chrono _chronoMonstre;
+    protected int _banqueExp = 0;
+
 
     public EcranJeu(Game game) : base(game)
     {
@@ -58,7 +60,9 @@ public class EcranJeu : GameScreen
         Game.GetSpriteBatch().End();
 
     }
-
+    public void ajouteBanqueExp(int valeur){
+        _banqueExp += valeur;
+    }
     public override void Update(GameTime gameTime)
     {
         float deltaT = (float) gameTime.ElapsedGameTime.TotalSeconds;
