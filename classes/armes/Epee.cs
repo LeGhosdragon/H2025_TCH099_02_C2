@@ -170,14 +170,11 @@ public class AttaqueEpee
     {
         foreach (Monstre monstre in monstres)
         {
-            if(frappes.Contains(monstre)){
-                return;
-            }
-            if (DetecterCollision(monstre, deltaT))
-            {
+            if(!frappes.Contains(monstre) & DetecterCollision(monstre, deltaT)){
                 
                 Console.WriteLine("coll");
                 frappes.Add(monstre);
+                monstre.RecevoirDegat(10);
             }
         }
     }

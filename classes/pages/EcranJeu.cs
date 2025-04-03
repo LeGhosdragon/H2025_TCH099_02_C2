@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -16,11 +17,13 @@ public class EcranJeu : GameScreen
     private new Geometrik Game => (Geometrik)base.Game;
     protected Joueur _joueur;
     protected List<IGameObject> _objets;
+    protected List<IGameObject> _aEnlever;
     protected Chrono _chronoMonstre;
 
     public EcranJeu(Game game) : base(game)
     {
         _objets = new List<IGameObject>();
+        _aEnlever = new List<IGameObject>();
         _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector2(0, 0));
 
         AbstractArme arme = new Fusil(_joueur,this);
@@ -45,6 +48,9 @@ public class EcranJeu : GameScreen
         Game.GraphicsDevice.Clear(Color.Black);
         Game.GetSpriteBatch().Begin();
         foreach(IGameObject objet in _objets){
+            if(_aEnlever.Contains(objet)){
+                Console.WriteLine("ObjetEnleve updtate");
+            }
             objet.Draw(Game.GetSpriteBatch());
         }
         Game.GetSpriteBatch().End();
@@ -61,6 +67,11 @@ public class EcranJeu : GameScreen
         foreach(IGameObject objet in _objets){
             objet.Update(deltaT);
         }
+
+        foreach(IGameObject gameObject in _aEnlever){
+            _objets.Remove(gameObject);
+        }
+        _aEnlever = new List<IGameObject>();
     }
     public void GenererMonstres(int quantitee){
         for(int i = 0;i < quantitee;i++){
@@ -77,5 +88,8 @@ public class EcranJeu : GameScreen
     }
     public Joueur GetJoueur(){
         return _joueur;
+    }
+    public void EnleverObjet(IGameObject gameObject){
+        _aEnlever.Add(gameObject);
     }
 }

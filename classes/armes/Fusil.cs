@@ -10,14 +10,10 @@ namespace desktop.armes;
 
 public class Fusil : AbstractArme
 {
-    private List<ProjectileFusil> _projectiles;
-    private Joueur _joueur;
-    
+    private List<ProjectileFusil> _projectiles;    
     public Fusil(Joueur j, EcranJeu ecran) : base(new Vector2[]{new Vector2(0,0),new Vector2(0,20),new Vector2(50,20),new Vector2(50,0)}, j, 0.2f, 25, ecran)
     {
         _projectiles = new List<ProjectileFusil>();
-        
-
     }
     public override void Update(float deltaT)
     {
@@ -47,12 +43,14 @@ public class ProjectileFusil
     private Vector2 _vitesse;
     private Vector2 _position;
     private int _rayon;
+    private int _pierce;
 
     public void VerifierCollisions(List<Monstre> monstres){
         
         foreach(Monstre monstre in monstres){
             if(!_frappes.Contains(monstre) && VerifierCollision(monstre)){
                 _frappes.Add(monstre);
+                monstre.RecevoirDegat(10);
             }
         }
     }
