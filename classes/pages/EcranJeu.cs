@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using desktop.armes;
 using desktop.gameobjects;
+using desktop.ui;
 using desktop.utils;
+using GeonBit.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;
@@ -22,7 +24,7 @@ public class EcranJeu : GameScreen
     protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
     public bool _arrete = false;
-    public bool MenuPause = false;
+    public bool _menuPause = false;
     /// <summary>
     /// Touches qui ont ete appuye pour lesquels les eevenements on deja ete actives
     /// </summary>
@@ -35,7 +37,7 @@ public class EcranJeu : GameScreen
         _objets = new List<IGameObject>();
         _aEnlever = new List<IGameObject>();
         _aAjouter = new List<IGameObject>();
-        _joueur = new Joueur(PolyGen.GetPoly(100, 100), new Vector2(0, 0));
+        _joueur = new Joueur(new Vector2(0, 0), this);
 
         AbstractArme arme = new Fusil(_joueur, this);
         _joueur.setArme(arme);
@@ -55,38 +57,39 @@ public class EcranJeu : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
-        if (!_arrete)
-        {
-            Camera.setPosition(_joueur.getPosition());
-            Game.GraphicsDevice.Clear(Color.Black);
-            Game.GetSpriteBatch().Begin();
-            foreach (IGameObject objet in _objets)
-            {
-                if (_aEnlever.Contains(objet))
-                {
-                    Console.WriteLine("ObjetEnleve updtate");
-                }
-                objet.Draw(Game.GetSpriteBatch());
-            }
-            Game.GetSpriteBatch().End();
-        }
 
+        Camera.setPosition(_joueur.getPosition());
+        Game.GraphicsDevice.Clear(Color.Black);
+        Game.GetSpriteBatch().Begin();
+        foreach (IGameObject objet in _objets)
+        {
+            if (_aEnlever.Contains(objet))
+            {
+                Console.WriteLine("ObjetEnleve updtate");
+            }
+            objet.Draw(Game.GetSpriteBatch());
+        }
+        Game.GetSpriteBatch().End();
+
+        UserInterface.Active.Draw(Game.GetSpriteBatch());
 
     }
 
     public override void Update(GameTime gameTime)
-    {
+    {           
+        float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
         Touche.enleverTouches(_touches);
 
         //Permet de mettre le jeu en pause
-        if(Touche.ValiderTouche(_touches,ControlesEnum.PAUSE) && Controle.enfonceClavier(ControlesEnum.PAUSE)){
+        if (Touche.ValiderTouche(_touches, ControlesEnum.PAUSE) && Controle.enfonceClavier(ControlesEnum.PAUSE))
+        {
             _touches.Add(new Touche(ControlesEnum.PAUSE));
-            _arrete = !_arrete;
+            _menuPause = !_menuPause;
         }
 
-        if (!_arrete)
+        if (!_arrete && !_menuPause)
         {
-            float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (_chronoMonstre.Update(deltaT))
             {
                 GenererMonstres(5);
@@ -106,6 +109,12 @@ public class EcranJeu : GameScreen
                 _objets.Remove(gameObject);
             }
             _aEnlever = new List<IGameObject>();
+        }
+        UserInterface.Active.Update(gameTime);
+        if(boites != null){
+            foreach (BoiteAmelioration boite in boites){
+                boite.Update(deltaT,Game.GraphicsDevice);
+            }
         }
     }
     /// <summary>
@@ -169,5 +178,16 @@ public class EcranJeu : GameScreen
     public void AjouerObjet(IGameObject gameObject)
     {
         _aAjouter.Add(gameObject);
+    }
+    private BoiteAmelioration[] boites;
+    public void augmenterNiveau(Joueur joueur)
+    {
+        _arrete = true;
+        boites = BoiteAmelioration.genererAmelioration(3, Game.GraphicsDevice);
+        foreach (BoiteAmelioration boite in boites)
+        {
+            UserInterface.Active.AddEntity(boite);
+        }
+
     }
 }

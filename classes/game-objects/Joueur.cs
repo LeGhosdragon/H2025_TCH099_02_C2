@@ -1,25 +1,28 @@
 using System;
 using System.Diagnostics;
 using desktop.armes;
+using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame;
 
 namespace desktop.gameobjects;
 
-public class Joueur : AbstractGameObject
+public class Joueur : IGameObject
 {
     private IArme _arme;
     float _vitesse = 100f;
-    float _rayon;
+    float _rayon = 40;
     int _experience = 0;
-    private int _niveau = 1;
+    protected int _niveau {get;set;} = 1;
+    protected EcranJeu _ecranJeu;
+    protected Vector2 _position;
 
-    public Joueur(Vector2[] forme, Vector2 position)
-        : base(forme, position, 0)
+    public Joueur(Vector2 position,EcranJeu ecranJeu)
     {
-        _rayon = forme[0].Length();
+        this._ecranJeu = ecranJeu;
     }
     /// <summary>
     /// Ajoute de l'experience au joueur
@@ -28,10 +31,6 @@ public class Joueur : AbstractGameObject
     public void ajouterExperience(int quantitee)
     {
         _experience += quantitee;
-        while (_experience > getExpReq())
-        {
-            augmenterNiveau();
-        }
     }
     /// <summary>
     /// 
@@ -40,6 +39,7 @@ public class Joueur : AbstractGameObject
     {
         _experience -= getExpReq();
         _niveau++;
+        _ecranJeu.augmenterNiveau(this);
     }
     /// <summary>
     /// Permet d'obtenir le nombre d'experience requis pour atteindre le prochain niveau
@@ -74,7 +74,10 @@ public class Joueur : AbstractGameObject
     {
         return _rayon;
     }
-    public override void Update(float deltaT)
+    public Vector2 getPosition(){
+        return _position;
+    }
+    public void Update(float deltaT)
     {
         //Deplace le joueur
         int xMov = 0;
@@ -97,5 +100,15 @@ public class Joueur : AbstractGameObject
         }
         _position.Y += yMov * deltaT * _vitesse;
         _position.X += xMov * deltaT * _vitesse;
+
+        if (_experience > getExpReq())
+        {
+            augmenterNiveau();
+        }
+    }
+
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(),_rayon,40,Color.White);
     }
 }
