@@ -12,8 +12,9 @@ namespace desktop.gameobjects;
 
 public class Joueur : IGameObject
 {
+     
     private IArme _arme;
-    float _vitesse = 100f;
+    public float _vitesse {get;set;}= 100f;
     float _rayon = 40;
     int _experience = 0;
     protected int _niveau {get;set;} = 1;

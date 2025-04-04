@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using desktop.ameliorations;
 using desktop.armes;
 using desktop.gameobjects;
 using desktop.ui;
@@ -52,6 +53,7 @@ public class EcranJeu : GameScreen
 
     public override void LoadContent()
     {
+        Amelioration.LoadContent(Content);
         base.LoadContent();
     }
 
@@ -183,11 +185,18 @@ public class EcranJeu : GameScreen
     public void augmenterNiveau(Joueur joueur)
     {
         _arrete = true;
-        boites = BoiteAmelioration.genererAmelioration(3, Game.GraphicsDevice);
+        boites = BoiteAmelioration.genererAmelioration(3, this);
         foreach (BoiteAmelioration boite in boites)
         {
             UserInterface.Active.AddEntity(boite);
         }
 
+    }
+    public void terminerAmelioration(){
+                foreach (BoiteAmelioration boite in boites)
+        {
+            UserInterface.Active.RemoveEntity(boite);
+        }
+        _arrete =false;
     }
 }
