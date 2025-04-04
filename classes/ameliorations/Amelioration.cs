@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using desktop.ameliorations.arme;
+using desktop.ameliorations.arme.fusil;
 using desktop.ameliorations.joueur;
 using desktop.armes;
 using desktop.gameobjects;
@@ -27,10 +28,12 @@ public abstract class Amelioration{
         _ameliorations.Add(new UpgVitMouvement(img));
 
         //Ameliorations de fusil
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgVitAttaqueFusil(img));
 
         //Ameliorations de l'epee
     }
-    public static Amelioration[] obtenirAmeliorations(int quantiee, AbstractArme typeArme){
+    public static Amelioration[] obtenirAmeliorations(int quantiee, IArme typeArme){
         Amelioration[] choixPossibles = _ameliorations.FindAll(a =>{
             if(a._limite == 0){
                 return false;
@@ -43,7 +46,24 @@ public abstract class Amelioration{
             }
             return false;
         }).ToArray();
-        return choixPossibles;
+        return trouverUnique(quantiee,choixPossibles);
+    }
+    public static Amelioration[] trouverUnique(int quantiee, Amelioration[] choix){
+        List<Amelioration> selection = new List<Amelioration>();
+        if(choix.Length < quantiee){
+            for(int i = 0; i < quantiee; i++){
+                selection.Add( choix[i % choix.Length]);
+            }
+            return selection.ToArray();
+        }
+        HashSet<int> set = new HashSet<int>();
+        while(set.Count < quantiee){
+           set.Add(Random.Shared.Next(choix.Length));
+        }
+        foreach(int pos in set){
+            selection.Add(choix[pos]);
+        }
+        return selection.ToArray();
     }
     public virtual void Appliquer(EcranJeu ecranJeu){
         ecranJeu.terminerAmelioration();

@@ -55,8 +55,9 @@ public class BoiteAmelioration: Panel{
     }
     public static BoiteAmelioration[] genererAmelioration(int quantiee,EcranJeu ecranJeu){
         BoiteAmelioration[] boites = new BoiteAmelioration[quantiee];
+        Amelioration[] ameliorations = Amelioration.obtenirAmeliorations(quantiee,ecranJeu._joueur._arme);
         for(int i = 0; i < quantiee; i++){
-            boites[i] = new BoiteAmelioration(quantiee,i,ecranJeu,Amelioration._ameliorations[0]);
+            boites[i] = new BoiteAmelioration(quantiee,i,ecranJeu,ameliorations[i]);
         }
         Console.WriteLine(boites.Length);
         return boites;

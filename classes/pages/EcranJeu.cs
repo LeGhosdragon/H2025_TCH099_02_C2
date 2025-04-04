@@ -41,7 +41,7 @@ public class EcranJeu : GameScreen
         _joueur = new Joueur(new Vector2(0, 0), this);
 
         AbstractArme arme = new Fusil(_joueur, this);
-        _joueur.setArme(arme);
+        _joueur._arme = arme;
         _objets.Add(arme);
 
         _objets.Add(_joueur);

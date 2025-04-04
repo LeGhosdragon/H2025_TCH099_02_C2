@@ -13,7 +13,7 @@ namespace desktop.gameobjects;
 public class Joueur : IGameObject
 {
      
-    private IArme _arme;
+    public IArme _arme {get; set;}
     public float _vitesse {get;set;}= 100f;
     float _rayon = 40;
     int _experience = 0;
@@ -58,14 +58,6 @@ public class Joueur : IGameObject
     public int getExpReq()
     {
         return getExpReq(_niveau);
-    }
-    /// <summary>
-    /// Choisis l'arme qui est utilisé
-    /// </summary>
-    /// <param name="arme"></param>
-    public void setArme(IArme arme)
-    {
-        this._arme = arme;
     }
     /// <summary>
     /// Rayon du joueur

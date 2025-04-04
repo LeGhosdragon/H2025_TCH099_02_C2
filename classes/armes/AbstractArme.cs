@@ -14,7 +14,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     /// <summary>
     /// Delai entre chaque attaque
     /// </summary>
-    protected Chrono _delai;
+    public Chrono _delai {get;}
 
     /// <summary>
     /// Determine si une nouvelle attaque doit etre fait des que le delai est ecoule

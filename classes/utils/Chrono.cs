@@ -6,7 +6,7 @@ namespace desktop.utils;
 public class Chrono
 {
     //Delai en secondes
-    private float _delai;
+    public float _delai {get;set;}
     private float _tempsAct;
 
     //Determine si le delai doit etre reinitialise manuellement ou non
