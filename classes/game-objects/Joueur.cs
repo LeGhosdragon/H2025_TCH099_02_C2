@@ -14,7 +14,9 @@ public class Joueur : IGameObject
 {
     //Attributs selon ameliorations
     public float _vitesse {get;set;}= 100f; //UpgVitMouement 100, +20
-    public float _rayonCollection {get;set;} = 100; //
+    public float _rayonCollection {get;set;} = 100; //UpgRayonAttraction 100,* 1.3
+    public float _hpBase {get;set;} = 20; //Pas affecte
+    public float _hp {get;set;} //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
 
     public IArme _arme {get; set;}
     float _rayon = 40;
@@ -26,6 +28,7 @@ public class Joueur : IGameObject
     public Joueur(Vector2 position,EcranJeu ecranJeu)
     {
         this._ecranJeu = ecranJeu;
+        this._hp = _hpBase;
     }
     /// <summary>
     /// Ajoute de l'experience au joueur
