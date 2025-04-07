@@ -23,13 +23,29 @@ public abstract class Amelioration{
     }
 
     public static void LoadContent(ContentManager content){
+
         //Ameliorations de joueur
         Texture2D img = content.Load<Texture2D>("ball");
         _ameliorations.Add(new UpgVitMouvement(img));
 
         //Ameliorations de fusil
+
+        //Vitesse attaque
         img = content.Load<Texture2D>("ball");
         _ameliorations.Add(new UpgVitAttaqueFusil(img));
+
+        //Taille projectile
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgGrandeurFusil(img));
+
+        //Degat projectile
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgDegatFusil(img));
+
+        //Pierce projectile
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgPierceFusil(img));
+
 
         //Ameliorations de l'epee
     }

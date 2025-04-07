@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using desktop.gameobjects;
 using desktop.pages;
 using desktop.utils;
@@ -10,14 +11,20 @@ namespace desktop.armes;
 
 public class Fusil : AbstractArme
 {
+    //Attributs selon ameliorations
+    public int _rayonBalles {get;set;} = 6; //UpgGrandeurFusil -> 6, + 3 
+    public float _degat {get;set;} = 15; //UpgDegatFusil ->  15,  * 1.2 
+    public int _pierce {get;set;} = 1; //UpgPierceFusil -> 1, + 1
+    public float _vitesse {get;set;} = 500;
+
     private List<ProjectileFusil> _projectiles;
-    public Fusil(Joueur j, EcranJeu ecran) : base(new Vector2[] { new Vector2(0, 0), new Vector2(0, 20), new Vector2(50, 20), new Vector2(50, 0) }, j, 0.2f, 25, ecran)
+    public Fusil(Joueur j, EcranJeu ecran) : base(new Vector2[] { new Vector2(0, 0), new Vector2(0, 20), new Vector2(50, 20), new Vector2(50, 0) }, j, 1f, 25, ecran)
     {
         _projectiles = new List<ProjectileFusil>();
     }
     public override void Update(float deltaT)
     {
-        foreach (ProjectileFusil projectile in _projectiles)
+        foreach (ProjectileFusil projectile in _projectiles.Reverse<ProjectileFusil>())
         {
             projectile.Update(deltaT, _ecran.GetMonstres());
         }
@@ -36,7 +43,10 @@ public class Fusil : AbstractArme
     {
         Vector2 dir = Camera.getInstance().getPosSourisCamera();
         dir.Normalize();
-        _projectiles.Add(new ProjectileFusil(this._position, dir * 1000, 10));
+        _projectiles.Add(new ProjectileFusil(_position,this, dir * _vitesse));
+    }
+    public void EnleverProjectile(ProjectileFusil projectile){
+        this._projectiles.Remove(projectile);
     }
 }
 public class ProjectileFusil
@@ -44,7 +54,7 @@ public class ProjectileFusil
     private List<Monstre> _frappes;
     private Vector2 _vitesse;
     private Vector2 _position;
-    private int _rayon;
+    private Fusil _fusil;
     private int _pierce;
 
     /// <summary>
@@ -56,10 +66,11 @@ public class ProjectileFusil
 
         foreach (Monstre monstre in monstres)
         {
-            if (!_frappes.Contains(monstre) && VerifierCollision(monstre))
+            if (!_frappes.Contains(monstre) && VerifierCollision(monstre) && _pierce >0)
             {
                 _frappes.Add(monstre);
-                monstre.RecevoirDegat(10);
+                monstre.RecevoirDegat(_fusil._degat);
+                _pierce--;
             }
         }
     }
@@ -73,24 +84,28 @@ public class ProjectileFusil
         Vector2 posM = monstre.getPosition();
         float rayM = monstre.getRayon();
         float dist = (posM - _position).Length();
-        return rayM + _rayon > dist;
+        return rayM +_fusil._rayonBalles > dist;
     }
-    public ProjectileFusil(Vector2 position, Vector2 vitesse, int rayon)
-    {
+    public ProjectileFusil(Vector2 position, Fusil fusil,Vector2 vitesse)
+    {   
         this._vitesse = vitesse;
         this._position = position;
-        this._rayon = rayon;
+        this._fusil = fusil;
+        this._pierce = fusil._pierce;
         _frappes = new List<Monstre>();
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.DrawCircle(this._position - Camera.getInstance().getPosition(), _rayon, _rayon, Color.Red, _rayon);
+        spriteBatch.DrawCircle(this._position - Camera.getInstance().getPosition(),_fusil._rayonBalles,_fusil._rayonBalles , Color.Red, _fusil._rayonBalles);
     }
 
     public void Update(float deltaT, List<Monstre> monstres)
     {
         this._position += _vitesse * deltaT;
         VerifierCollisions(monstres);
+        if(_pierce <= 0){
+            _fusil.EnleverProjectile(this);
+        }
     }
 }
