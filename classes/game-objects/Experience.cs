@@ -45,10 +45,9 @@ public class Experience : IGameObject
     }
     public void UpdatePos(float deltaT)
     {
-        //TODO devrait etre une statistique du joueur
-        float distanceDattraction = 1000;
-
         Joueur joueur = _ecranJeu._joueur;
+        float distanceDattraction = joueur._rayonCollection;
+
         Vector2 posJoueur = joueur.getPosition();
         Vector2 dir = posJoueur - _position;
 

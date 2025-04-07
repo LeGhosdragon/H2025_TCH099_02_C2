@@ -12,9 +12,11 @@ namespace desktop.gameobjects;
 
 public class Joueur : IGameObject
 {
-     
+    //Attributs selon ameliorations
+    public float _vitesse {get;set;}= 100f; //UpgVitMouement 100, +20
+    public float _rayonCollection {get;set;} = 100; //
+
     public IArme _arme {get; set;}
-    public float _vitesse {get;set;}= 100f;
     float _rayon = 40;
     int _experience = 0;
     protected int _niveau {get;set;} = 1;

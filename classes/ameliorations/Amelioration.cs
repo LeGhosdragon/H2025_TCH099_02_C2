@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace desktop.ameliorations;
 public abstract class Amelioration{
     public static List<Amelioration> _ameliorations {get;set;} = new List<Amelioration>() ;
-    protected int _limite {get;}
+    protected int _limite {get;set;}
     public Texture2D _image {get;set;}
     public String _description { get;}
     public Amelioration(Texture2D image,String description,int limite){
@@ -25,8 +25,14 @@ public abstract class Amelioration{
     public static void LoadContent(ContentManager content){
 
         //Ameliorations de joueur
+
+        //Vitesse de mouvement
         Texture2D img = content.Load<Texture2D>("ball");
         _ameliorations.Add(new UpgVitMouvement(img));
+
+        //Rayon d'attraction
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgRayonAttraction(img));
 
         //Ameliorations de fusil
 
@@ -82,6 +88,7 @@ public abstract class Amelioration{
         return selection.ToArray();
     }
     public virtual void Appliquer(EcranJeu ecranJeu){
+        _limite--;
         ecranJeu.terminerAmelioration();
     }
 }
