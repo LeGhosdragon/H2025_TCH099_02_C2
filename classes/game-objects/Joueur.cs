@@ -1,34 +1,74 @@
 using System;
 using System.Diagnostics;
 using desktop.armes;
+using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame;
 
 namespace desktop.gameobjects;
 
-public class Joueur : AbstractGameObject
+public class Joueur : IGameObject
 {
-    private IArme _arme;
-    float _vitesse = 100f;
-    float _rayon;
+    protected readonly float DELAI_INVICIBILITE = 2; //Delai durant lequel le joueur est invincible en secondes
+    protected Chrono _chronoInvincibilite;
 
-    public Joueur(Vector2[] forme, Vector2 position)
-        : base(forme, position, 0)
+    //Attributs selon ameliorations
+    public float _vitesse {get;set;}= 100f; //UpgVitMouement 100, +20
+    public float _rayonCollection {get;set;} = 100; //UpgRayonAttraction 100,* 1.3
+    public float _hpBase {get;set;} = 20; //Pas affecte
+    public float _hp {get;set;} //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
+
+    public IArme _arme {get; set;}
+    float _rayon = 40;
+    int _experience = 0;
+    protected int _niveau {get;set;} = 1;
+    protected EcranJeu _ecranJeu;
+    protected Vector2 _position;
+
+    public Joueur(Vector2 position,EcranJeu ecranJeu)
     {
-        _rayon = forme[0].Length();
+        this._position = position;
+        this._ecranJeu = ecranJeu;
+        this._hp = _hpBase;
+        _chronoInvincibilite = new Chrono(DELAI_INVICIBILITE,true);
+    }
+    /// <summary>
+    /// Ajoute de l'experience au joueur
+    /// </summary>
+    /// <param name="quantitee">Quantitee d'experience ajoutee</param>
+    public void ajouterExperience(int quantitee)
+    {
+        _experience += quantitee;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public void augmenterNiveau()
+    {
+        _experience -= getExpReq();
+        _niveau++;
+        _ecranJeu.augmenterNiveau(this);
+    }
+    /// <summary>
+    /// Permet d'obtenir le nombre d'experience requis pour atteindre le prochain niveau
+    /// </summary>
+    /// <returns>nombre d'experience requis pour le prochain niveau</returns>
+    public int getExpReq(int niveau)
+    {
+        return 7 + (int)Math.Round(Math.Pow(niveau, 1.9));
     }
 
     /// <summary>
-    /// Choisis l'arme qui est utilisé
+    /// Permet d'obtenir le nombre d'experience requis pour atteindre le prochain niveau
     /// </summary>
-    /// <param name="arme"></param>
-    public void setArme(IArme arme)
+    /// <returns>nombre d'experience requis pour le prochain niveau</returns>
+    public int getExpReq()
     {
-        this._arme = arme;
+        return getExpReq(_niveau);
     }
-
     /// <summary>
     /// Rayon du joueur
     /// </summary>
@@ -37,8 +77,10 @@ public class Joueur : AbstractGameObject
     {
         return _rayon;
     }
-
-    public override void Update(float deltaT)
+    public Vector2 getPosition(){
+        return _position;
+    }
+    public void Update(float deltaT)
     {
         //Deplace le joueur
         int xMov = 0;
@@ -59,8 +101,32 @@ public class Joueur : AbstractGameObject
         {
             xMov += 1;
         }
-
         _position.Y += yMov * deltaT * _vitesse;
         _position.X += xMov * deltaT * _vitesse;
+
+        if (_experience > getExpReq())
+        {
+            augmenterNiveau();
+        }
+        _chronoInvincibilite.Update(deltaT);
+    }
+    public void collision(int degat){
+        if(_chronoInvincibilite.Update(0)){
+            _hp -= degat;
+            _chronoInvincibilite.reinitialiser();
+        }
+        if(_hp <= 0){
+            Mourrir();
+        }
+    }
+    public void Mourrir(){
+
+    }
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(),_rayon,40,Color.White);
+        Vector2 posTxt = _position - Camera.getInstance().getPosition() - _ecranJeu._font.MeasureString(_hp+"")/2;
+        spriteBatch.DrawString(_ecranJeu._font,_hp +"",posTxt,Color.White);
+        
     }
 }

@@ -13,7 +13,7 @@ public class Monstre : AbstractGameObject
     private float _vitesse;
     private float _vitesseRot;
     private float _rayon;
-    private int hp;
+    private float hp;
 
     public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon)
         : base(forme, position, 1)
@@ -34,9 +34,12 @@ public class Monstre : AbstractGameObject
 
     public override void Update(float deltaT)
     {
-        bouger(_ecranJeu.GetJoueur().getPosition(), deltaT);
+        bouger(_ecranJeu._joueur.getPosition(), deltaT);
         eviterCollisions(deltaT);
-        if (collisionJoueur()) { }
+        if (collisionJoueur()) { 
+            //TODO Modifier le 1 pour le nombre de degat de l'ennemi
+            _ecranJeu._joueur.collision(1);
+        }
     }
 
     /// <summary>
@@ -75,13 +78,18 @@ public class Monstre : AbstractGameObject
     /// </summary>
     /// <param name="degat">Nombre de degat subit</param>
     /// <returns>true si le monstre est mort</returns>
-    public bool RecevoirDegat(int degat){
+    public bool RecevoirDegat(float degat){
         this.hp -= degat;
         if(hp <= 0){
-            _ecranJeu.EnleverObjet(this);
+            Mourrir();
             return true;
         }
         return false;
+    }
+
+    public void Mourrir(){
+            _ecranJeu.EnleverObjet(this);
+            new Experience(this._position,10,_ecranJeu);
     }
 
     /// <summary>
@@ -103,8 +111,8 @@ public class Monstre : AbstractGameObject
     /// <returns>True si le joueur est sur le monstre</returns>
     public bool collisionJoueur()
     {
-        Vector2 posJ = _ecranJeu.GetJoueur().getPosition();
-        float rayJ = _ecranJeu.GetJoueur().getRayon();
+        Vector2 posJ = _ecranJeu._joueur.getPosition();
+        float rayJ = _ecranJeu._joueur.getRayon();
         float dist = (posJ - _position).Length();
         return rayJ + _rayon > dist;
     }

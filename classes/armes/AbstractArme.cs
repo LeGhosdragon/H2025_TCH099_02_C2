@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using desktop.gameobjects;
 using desktop.pages;
 using desktop.utils;
@@ -13,24 +14,25 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     /// <summary>
     /// Delai entre chaque attaque
     /// </summary>
-    protected Chrono _delai;
+    public Chrono _delai {get;}
 
     /// <summary>
     /// Determine si une nouvelle attaque doit etre fait des que le delai est ecoule
     /// </summary>
-    protected bool _attaqueAutomatique;
+    public bool _attaqueAutomatique {get;set;}
 
     /// <summary>
     /// Forme de base de l'arme (pas necessairement celle qui est affiche)
     /// </summary>
-    protected Vector2[] _formeBase;
+    public Vector2[] _formeBase {get;}
 
     /// <summary>
     /// Permet de bien placcer l'arme autour du joueur
     /// </summary>
-    protected float _longueur;
+    public float _longueur {get;}
 
     protected EcranJeu _ecran;
+    protected List<Touche> _touches = new List<Touche>();
 
     protected AbstractArme(
         Vector2[] formeBase,
@@ -51,8 +53,11 @@ public abstract class AbstractArme : AbstractGameObject, IArme
 
     public override void Update(float deltaT)
     {
-        if (Controle.enfonceClavier(ControlesEnum.ATTAQUE_AUTOMATIQUE))
+        Touche.enleverTouches(_touches);
+        
+        if (Touche.ValiderTouche(_touches,ControlesEnum.ATTAQUE_AUTOMATIQUE) && Controle.enfonceClavier(ControlesEnum.ATTAQUE_AUTOMATIQUE))
         {
+            _touches.Add(new Touche(ControlesEnum.ATTAQUE_AUTOMATIQUE));
             _attaqueAutomatique = !_attaqueAutomatique;
         }
         if (
@@ -75,28 +80,8 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         _forme = PolyGen.tournerMatrice(_formeBase, PolyGen.angleVecteur(dir));
     }
 
-    public float GetLongueur()
-    {
-        return _longueur;
-    }
+
 
     public abstract void utiliser();
 
-    /// <summary>
-    /// Permet de savoir si l'arme attaque automatiquement
-    /// </summary>
-    /// <returns>True si _attaqueAutomatique est active</returns>
-    public bool GetAttaqueAutomatique()
-    {
-        return _attaqueAutomatique;
-    }
-
-    /// <summary>
-    /// Permet d'obtenir la forme de l'arme avant des modification
-    /// </summary>
-    /// <returns>formeBase de l'arme</returns>
-    public Vector2[] getFormeBase()
-    {
-        return _formeBase;
-    }
 }

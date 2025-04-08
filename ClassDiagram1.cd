@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="desktop.Geometrik" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAAAAQwAAAAAAAAAABAAAQBACAIAABAAAAAQ=</HashCode>
+      <FileName>Geometrik.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.ameliorations.Amelioration" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAQAAAQAAEAAAAAAAAAAQ=</HashCode>
+      <FileName>classes\ameliorations\Amelioration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.ameliorations.joueur.AbstractUpgJoueur" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>classes\ameliorations\joueur\AbstractUpgJoueur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.ameliorations.joueur.UpgVitMouvement" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>classes\ameliorations\joueur\UpgVitMouvement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.ReponseInscription" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>classes\api\LocalAPI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.ReponseConnexion" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>classes\api\LocalAPI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.LocalAPI" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAQAACAAABABAAgAIA=</HashCode>
+      <FileName>classes\api\LocalAPI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.Camera" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAACAEBAAAQCAAIAgAAAAAA=</HashCode>
+      <FileName>classes\utils\Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.ChoixSelection" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAQACAAwAACwAAAQAAAAIAAEAAgAAIBAAAAAGQAAA=</HashCode>
+      <FileName>classes\utils\ChoixSelecion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.Chrono" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>classes\utils\Chrono.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.Controle" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAEAAAAQAAQAIBAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>classes\utils\Controle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.Peintre" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>classes\utils\Peintre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.PolyGen" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAABAAAAgAAAAQAABAAAAAAAA=</HashCode>
+      <FileName>classes\utils\PolyGen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.utils.Touche" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAQACACAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>classes\utils\Touche.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.armes.AbstractArme" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAECAAAAAAAAAAAAAAAAACACAAAAIAAAAgAAgQ=</HashCode>
+      <FileName>classes\armes\AbstractArme.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="desktop.armes.Epee" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECQACAAABAACAgAAAAAAgAAAAACACAACAIAAAAAAACA=</HashCode>
+      <FileName>classes\armes\Epee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.armes.AttaqueEpee" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAAAAAAgAAIAEAAQAAAAAEAAAwAAAAgAAABAA=</HashCode>
+      <FileName>classes\armes\Epee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.armes.Fusil" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAACAAAAQAAAAAAAAA=</HashCode>
+      <FileName>classes\armes\Fusil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.armes.ProjectileFusil" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAgAAAAAAACAAAEAAAAAAAAAAkAgAAAA=</HashCode>
+      <FileName>classes\armes\Fusil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.gameobjects.AbstractGameObject" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIIAAAAAAAAgAAAAAAAAACAAAAAAAAAAAAgAAABAA=</HashCode>
+      <FileName>classes\game-objects\AbstractGameObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="desktop.gameobjects.Experience" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAgAAgAAAAAAAAAAgACAQEAAAQAAgFAAAAE=</HashCode>
+      <FileName>classes\game-objects\Experience.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="desktop.gameobjects.Fond" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAACQAgAAAAASAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\game-objects\Fond.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="desktop.gameobjects.Joueur" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAIAEAAAAABgAGAAAAgCAAAAAQAEAAAAAAkAAABAA=</HashCode>
+      <FileName>classes\game-objects\Joueur.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="desktop.gameobjects.Monstre" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAACABCAAAAAAACAIAAAAAEAAAABAFAAAABA=</HashCode>
+      <FileName>classes\game-objects\Monstre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.pages.EcranAcceuil" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAA4AAAAAAAAQAgAgAAAAAAAAgAAAAAAQ=</HashCode>
+      <FileName>classes\pages\EcranAcceuil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.pages.EcranConnexion" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAABA4AAAAAAAAAAAAgAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>classes\pages\EcranConnexion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.pages.EcranInscription" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAABA4AAAAAAAAAAAAgAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>classes\pages\EcranInscription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.pages.EcranJeu" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEAAAAAAgCAAAAAAAAIAEoAAAAAQMAAAABMByU=</HashCode>
+      <FileName>classes\pages\EcranJeu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.pages.EcranSelection" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAQAAAgAAAAAAAAAAAAgAACABAAAAAAAAAAQ=</HashCode>
+      <FileName>classes\pages\EcranSelection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="desktop.ui.BoiteAmelioration" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAQAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAI=</HashCode>
+      <FileName>classes\ui\BoiteAmelioration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="desktop.armes.IArme" Collapsed="true">
+    <Position X="3.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\interfaces\IArme.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="desktop.gameobjects.IGameObject" Collapsed="true">
+    <Position X="3.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\interfaces\IGameObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="desktop.utils.ControlesEnum" Collapsed="true">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAgAAAAEAACAAAAAAAAAAAAAAAAAAAAACAQ=</HashCode>
+      <FileName>classes\utils\Controle.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
