@@ -1,7 +1,6 @@
-using desktop.ameliorations.joueur;
 using desktop.gameobjects;
 using Microsoft.Xna.Framework.Graphics;
-
+namespace desktop.ameliorations.joueur;
 public class UpgVieJoueur : AbstractUpgJoueur
 {
     public UpgVieJoueur(Texture2D image) : base(image, "Augmente la vie tu personnage", -1)

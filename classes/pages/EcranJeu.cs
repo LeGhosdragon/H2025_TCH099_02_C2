@@ -184,4 +184,10 @@ public class EcranJeu : GameScreen
         }
         _arrete =false;
     }
+
+    public void FinPartie(){
+        _arrete = true;
+        BoiteScore boiteScore = new BoiteScore(new Score());
+        UserInterface.Active.AddEntity(boiteScore);
+    }
 }
