@@ -12,6 +12,9 @@ namespace desktop.gameobjects;
 
 public class Joueur : IGameObject
 {
+    protected readonly float DELAI_INVICIBILITE = 2; //Delai durant lequel le joueur est invincible en secondes
+    protected Chrono _chronoInvincibilite;
+
     //Attributs selon ameliorations
     public float _vitesse {get;set;}= 100f; //UpgVitMouement 100, +20
     public float _rayonCollection {get;set;} = 100; //UpgRayonAttraction 100,* 1.3
@@ -27,8 +30,10 @@ public class Joueur : IGameObject
 
     public Joueur(Vector2 position,EcranJeu ecranJeu)
     {
+        this._position = position;
         this._ecranJeu = ecranJeu;
         this._hp = _hpBase;
+        _chronoInvincibilite = new Chrono(DELAI_INVICIBILITE,true);
     }
     /// <summary>
     /// Ajoute de l'experience au joueur
@@ -103,10 +108,25 @@ public class Joueur : IGameObject
         {
             augmenterNiveau();
         }
+        _chronoInvincibilite.Update(deltaT);
     }
+    public void collision(int degat){
+        if(_chronoInvincibilite.Update(0)){
+            _hp -= degat;
+            _chronoInvincibilite.reinitialiser();
+        }
+        if(_hp <= 0){
+            Mourrir();
+        }
+    }
+    public void Mourrir(){
 
+    }
     public void Draw(SpriteBatch spriteBatch)
     {
         spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(),_rayon,40,Color.White);
+        Vector2 posTxt = _position - Camera.getInstance().getPosition() - _ecranJeu._font.MeasureString(_hp+"")/2;
+        spriteBatch.DrawString(_ecranJeu._font,_hp +"",posTxt,Color.White);
+        
     }
 }

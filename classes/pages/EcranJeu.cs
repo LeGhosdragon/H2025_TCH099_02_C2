@@ -20,12 +20,11 @@ public class EcranJeu : GameScreen
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
     protected List<IGameObject> _objets;
-    protected List<IGameObject> _aEnlever;
-    protected List<IGameObject> _aAjouter;
     protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
     public bool _arrete = false;
     public bool _menuPause = false;
+    public SpriteFont _font {get;set;}
     /// <summary>
     /// Touches qui ont ete appuye pour lesquels les eevenements on deja ete actives
     /// </summary>
@@ -36,8 +35,6 @@ public class EcranJeu : GameScreen
     public EcranJeu(Game game) : base(game)
     {
         _objets = new List<IGameObject>();
-        _aEnlever = new List<IGameObject>();
-        _aAjouter = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
 
         AbstractArme arme = new Fusil(_joueur, this);
@@ -54,6 +51,7 @@ public class EcranJeu : GameScreen
     public override void LoadContent()
     {
         Amelioration.LoadContent(Content);
+        _font = Content.Load<SpriteFont>("GeonBit.UI/Themes/editor/fonts/Regular");
         base.LoadContent();
     }
 
@@ -65,10 +63,6 @@ public class EcranJeu : GameScreen
         Game.GetSpriteBatch().Begin();
         foreach (IGameObject objet in _objets)
         {
-            if (_aEnlever.Contains(objet))
-            {
-                Console.WriteLine("ObjetEnleve updtate");
-            }
             objet.Draw(Game.GetSpriteBatch());
         }
         Game.GetSpriteBatch().End();
@@ -96,21 +90,12 @@ public class EcranJeu : GameScreen
             {
                 GenererMonstres(5);
             }
-            foreach (IGameObject gameObject in _aAjouter)
-            {
-                _objets.Add(gameObject);
-            }
-            _aAjouter = new List<IGameObject>();
-            foreach (IGameObject objet in _objets)
+
+            foreach (IGameObject objet in _objets.Reverse<IGameObject>())
             {
                 objet.Update(deltaT);
             }
 
-            foreach (IGameObject gameObject in _aEnlever)
-            {
-                _objets.Remove(gameObject);
-            }
-            _aEnlever = new List<IGameObject>();
         }
         UserInterface.Active.Update(gameTime);
         if(boites != null){
@@ -171,7 +156,7 @@ public class EcranJeu : GameScreen
     /// <param name="gameObject"></param>
     public void EnleverObjet(IGameObject gameObject)
     {
-        _aEnlever.Add(gameObject);
+        _objets.Remove(gameObject);
     }
     /// <summary>
     /// Ajoute un objet a la scene, il sera update  et dessine apres l'image actuelle
@@ -179,7 +164,7 @@ public class EcranJeu : GameScreen
     /// <param name="gameObject">objet a ajouter</param>
     public void AjouerObjet(IGameObject gameObject)
     {
-        _aAjouter.Add(gameObject);
+        _objets.Add(gameObject);
     }
     private BoiteAmelioration[] boites;
     public void augmenterNiveau(Joueur joueur)

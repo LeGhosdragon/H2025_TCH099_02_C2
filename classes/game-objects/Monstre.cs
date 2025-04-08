@@ -36,7 +36,10 @@ public class Monstre : AbstractGameObject
     {
         bouger(_ecranJeu._joueur.getPosition(), deltaT);
         eviterCollisions(deltaT);
-        if (collisionJoueur()) { }
+        if (collisionJoueur()) { 
+            //TODO Modifier le 1 pour le nombre de degat de l'ennemi
+            _ecranJeu._joueur.collision(1);
+        }
     }
 
     /// <summary>
