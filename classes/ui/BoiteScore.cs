@@ -8,11 +8,8 @@ using GeonBit.UI.Entities;
 namespace desktop.ui;
 
 public class BoiteScore : Panel{
-    private Score _score;
     public BoiteScore(Score score){
-        _score = score;
-
-
+        Size = new Vector2(0.5f,0.7f);
 
         BoiteStat boiteNom = new BoiteStat("Joueur:",score._nomUtilisateur);
         AddChild(boiteNom);
@@ -28,6 +25,9 @@ public class BoiteScore : Panel{
 
         BoiteStat boiteTotal = new BoiteStat("Score:",score.getScore() +"");
         AddChild(boiteTotal);
+
+        Button btnSuite = new Button("Suivant");
+        AddChild(btnSuite);
 
         IterateChildren(new EventCallback((entity)=>{
             Console.Write(Children.Count);
