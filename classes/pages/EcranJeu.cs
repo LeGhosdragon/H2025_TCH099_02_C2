@@ -26,6 +26,7 @@ public class EcranJeu : GameScreen
     public bool _arrete = false;
     public bool _menuPause = false;
     public SpriteFont _font {get;set;}
+    public Score _score {get;set;}
     /// <summary>
     /// Touches qui ont ete appuye pour lesquels les eevenements on deja ete actives
     /// </summary>
@@ -35,6 +36,8 @@ public class EcranJeu : GameScreen
 
     public EcranJeu(Game game) : base(game)
     {
+        _score = new Score(LocalAPI._nomUtilisateur);
+
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
 
@@ -98,12 +101,13 @@ public class EcranJeu : GameScreen
             }
 
         }
-        UserInterface.Active.Update(gameTime);
         if(boites != null){
             foreach (BoiteAmelioration boite in boites){
                 boite.Update(deltaT,Game.GraphicsDevice);
             }
         }
+        _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
+        UserInterface.Active.Update(gameTime);
     }
     /// <summary>
     /// Genere une quantitee desiree de monstres
@@ -188,7 +192,15 @@ public class EcranJeu : GameScreen
 
     public void FinPartie(){
         _arrete = true;
-        BoiteScore boiteScore = new BoiteScore(new Score());
+        Console.WriteLine(_score._duree);
+        BoiteScore boiteScore = new BoiteScore(new Score(),this);
         UserInterface.Active.AddEntity(boiteScore);
+    }
+    public void ChargerEcranScore(Score score){
+        UnloadContent();
+        Game.LoadEcranScore(score);
+    }
+    public void UnloadContent(){
+        UserInterface.Active.Clear();
     }
 }

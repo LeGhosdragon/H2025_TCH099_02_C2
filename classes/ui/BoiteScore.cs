@@ -1,6 +1,7 @@
 using System;
 using System.Net.NetworkInformation;
 using System.Numerics;
+using desktop.pages;
 using desktop.utils;
 using GeonBit.UI;
 using GeonBit.UI.Entities;
@@ -8,7 +9,7 @@ using GeonBit.UI.Entities;
 namespace desktop.ui;
 
 public class BoiteScore : Panel{
-    public BoiteScore(Score score){
+    public BoiteScore(Score score,EcranJeu ecranJeu){
         Size = new Vector2(0.5f,0.7f);
 
         BoiteStat boiteNom = new BoiteStat("Joueur:",score._nomUtilisateur);
@@ -20,7 +21,7 @@ public class BoiteScore : Panel{
         BoiteStat boiteExp = new BoiteStat("Experience:",score._experience +"");
         AddChild(boiteExp);
 
-        BoiteStat boiteTemps = new BoiteStat("Temps:",score._duree +"S");
+        BoiteStat boiteTemps = new BoiteStat("Temps:",score._duree +" S");
         AddChild(boiteTemps);
 
         BoiteStat boiteTotal = new BoiteStat("Score:",score.getScore() +"");
@@ -28,6 +29,10 @@ public class BoiteScore : Panel{
 
         Button btnSuite = new Button("Suivant");
         AddChild(btnSuite);
+
+        btnSuite.OnClick = (Entity)=>{
+        ecranJeu.ChargerEcranScore(score);
+        };
 
         IterateChildren(new EventCallback((entity)=>{
             Console.Write(Children.Count);

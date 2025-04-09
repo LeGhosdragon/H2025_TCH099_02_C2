@@ -22,7 +22,8 @@ public class ReponseConnexion
 }
 public static class LocalAPI
 {
-    private static String JetonConnexion;
+    public static String JetonConnexion {get; private set;}
+    public static String _nomUtilisateur {get;private set;}
     static LocalAPI()
     {
         client.BaseAddress = new Uri("http://localhost/serveur/api/api.php/");
@@ -70,6 +71,7 @@ public static class LocalAPI
         }
         if (reponse.Reussite)
         {
+            _nomUtilisateur = identifiant;
             JetonConnexion = reponse.jeton;
         }
         return reponse;
