@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using desktop.gameobjects;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Screens;
@@ -11,9 +12,10 @@ namespace desktop.pages;
 
 public class EcranScore : GameScreen
 {
+    Fond fond = new Fond();
     private new Geometrik Game => (Geometrik)base.Game;
 
-    
+
     public EcranScore(Game game, Score score) : base(game)
     {
         AjouterPalmares(score);
@@ -62,11 +64,14 @@ public class EcranScore : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
-
+        Game.GraphicsDevice.Clear(Color.Black);
+        Game.GetSpriteBatch().Begin();
+        fond.Draw(Game.GetSpriteBatch());
+        Game.GetSpriteBatch().End();
     }
 
     public override void Update(GameTime gameTime)
     {
-
+        fond.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
     }
 }

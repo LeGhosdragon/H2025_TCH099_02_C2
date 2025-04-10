@@ -19,9 +19,8 @@ public class Fond : IGameObject
 
     public void Draw(SpriteBatch spriteBatch)
     {
-                //Dessine des lignes verticales
+        //Dessine des lignes verticales
         for(float act = increment.X;act < GetLargeurEcran(spriteBatch);act += largeur ){
-            Console.WriteLine(act);
             spriteBatch.DrawLine(act,0, act, GetHauteurEcran(spriteBatch), Color.White);
         }
         //Dessine des lignes horizontales
