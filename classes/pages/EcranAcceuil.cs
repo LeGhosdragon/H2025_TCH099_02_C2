@@ -70,6 +70,14 @@ public class EcranAcceuil : GameScreen
 
             };
         }
+        Button btnPalmares = new Button("Voir le Palmarès");
+        _centre.AddChild(btnPalmares);
+        btnPalmares.OnClick = (Entity btn) =>
+        {
+            UnloadContent();
+            Game.LoadEcranScore();
+
+        };
 
 
         base.Initialize();

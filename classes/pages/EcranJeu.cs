@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using desktop.ameliorations;
 using desktop.armes;
 using desktop.gameobjects;
@@ -210,9 +211,24 @@ public class EcranJeu : GameScreen
     }
     public void ChargerEcranScore(Score score){
         UnloadContent();
-        Game.LoadEcranScore(score);
+        Game.LoadEcranScore();
+        AjouterPalmares(score);
     }
     public void UnloadContent(){
         UserInterface.Active.Clear();
+    }
+
+        private void AjouterPalmares(Score score)
+    {
+
+        Thread t1 = new Thread(async () =>
+        {
+            ReponseAjouterPalmares reponse = await LocalAPI.AjouterPalmares(score);
+            if (reponse != null)
+            {
+                Console.WriteLine(reponse.Erreurs);
+            }
+        });
+        t1.Start();
     }
 }

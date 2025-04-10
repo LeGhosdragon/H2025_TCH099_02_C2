@@ -83,8 +83,8 @@ public class Geometrik : Game
     public void LoadEcranSelection(){
         _screenManager.LoadScreen(new EcranSelection(this));
     }
-    public void LoadEcranScore(Score score){
-        _screenManager.LoadScreen(new EcranScore(this,score));
+    public void LoadEcranScore(){
+        _screenManager.LoadScreen(new EcranScore(this));
     }
 
     
