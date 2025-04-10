@@ -92,6 +92,7 @@ public static class LocalAPI
         if(JetonConnexion == null || _nomUtilisateur == null){
             return  null;
         }
+        
 
         //Creer le corps de la requete 
         Dictionary<String, String> form = new() {   {"jeton",JetonConnexion}, 

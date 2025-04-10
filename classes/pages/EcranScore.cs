@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -24,6 +25,7 @@ public class EcranScore : GameScreen
         Thread t1 = new Thread(async () =>
         {
             ReponseAjouterPalmares reponse = await LocalAPI.AjouterPalmares(score);
+            Console.WriteLine(reponse.Erreurs);
         });
         t1.Start();
     }
