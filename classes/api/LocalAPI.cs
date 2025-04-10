@@ -31,13 +31,13 @@ public class ReponseObtenirPalmares
     public Palmares[] Palmares {get;set;} = [];
 }
 public class Palmares{
-    public int Identifiant {get;set;}
-    public string Utilisateur {get;set;}
+    public int Id {get;set;}
+    public string Nom_Utilisateur {get;set;}
     public int Score {get;set;}
-    public int TempsPartie {get;set;}
+    public int Temps_Partie {get;set;}
     public int Experience {get;set;}
-    public int EnnemisEnleve {get;set;}
-    public string DateSoumission {get;set;}
+    public int Ennemis_Enleve {get;set;}
+    public string Date_Soumission {get;set;}
 
 }
 public static class LocalAPI
@@ -134,12 +134,18 @@ public static class LocalAPI
     /// Obtiens les scores qui sont dans la base de donnee
     /// </summary>
     /// <returns>Reponse dela requete</returns>
-    public async static Task<ReponseObtenirPalmares> ObtenirPalmares()
+    public async static Task<Palmares[]> ObtenirPalmares()
     {
         ReponseObtenirPalmares reponse = null;
+        HttpResponseMessage response = await client.GetAsync("palmares/obtenir");
 
-
-        return reponse;
+        if (response.IsSuccessStatusCode)
+        {
+            reponse = await response.Content.ReadFromJsonAsync<ReponseObtenirPalmares>();
+            return reponse.Palmares;
+        }
+        return null;
+        
     }
     /// <summary>
     /// Fait une string avec une liste derreurs (toutes les erreurs sont separes d'une ligne)

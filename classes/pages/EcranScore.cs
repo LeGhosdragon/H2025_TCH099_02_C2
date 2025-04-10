@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using desktop.utils;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Screens;
@@ -9,23 +11,31 @@ namespace desktop.pages;
 
 public class EcranScore : GameScreen
 {
-        private new Geometrik Game => (Geometrik)base.Game;
+    private new Geometrik Game => (Geometrik)base.Game;
 
     public EcranScore(Game game, Score score) : base(game)
     {
-        GenererUI();
         AjouterPalmares(score);
+        Thread t1 = new Thread (async ()=>{
+            List<Palmares> scores = await obtenirPalmares();
+            GenererUI(scores);
+
+        });
+        t1.Start();
 
 
     }
-    private void GenererUI()
+    private void GenererUI(List<Palmares> scores)
     {
 
     }
-    public List<Score> obtenirPalmares(){
-        return new List<Score>();
+    public async Task<List<Palmares>> obtenirPalmares()
+    {
+        Palmares[] liste = await LocalAPI.ObtenirPalmares();
+        return liste.ToList<Palmares>();
     }
-    public void AfficherPalmares(){
+    public void AfficherPalmares()
+    {
 
     }
     private void AjouterPalmares(Score score)
@@ -34,7 +44,8 @@ public class EcranScore : GameScreen
         Thread t1 = new Thread(async () =>
         {
             ReponseAjouterPalmares reponse = await LocalAPI.AjouterPalmares(score);
-            if(reponse != null){
+            if (reponse != null)
+            {
                 Console.WriteLine(reponse.Erreurs);
             }
         });
