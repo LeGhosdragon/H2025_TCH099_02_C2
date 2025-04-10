@@ -51,11 +51,22 @@ public class EcranScore : GameScreen
         centre.AddChild(titre);
         titre.Anchor = Anchor.AutoCenter;
 
+        PanelTabs categories = new PanelTabs();
+        categories.AddTab("Place");
+        categories.AddTab("Score");
+        categories.Size = new Vector2(0.9f, 0.1f);
+
+        centre.AddChild(categories);
+
         _palmares = new Panel();
-        _palmares.Size = new Vector2(0.9f, 0.8f);
         _palmares.PanelOverflowBehavior = PanelOverflowBehavior.VerticalScroll;
+        _palmares.Size = new Vector2(0.9f, 0.8f);
+
         centre.AddChild(_palmares);
         _palmares.Anchor = Anchor.AutoCenter;
+
+        
+        
 
 
         Button btnHome = new Button("Retour");
@@ -79,34 +90,46 @@ public class EcranScore : GameScreen
         });
         
 
-        foreach (Palmares score in scores)
+        for (int i = 0; i < scores.Count ;i++)
         {
             Panel panel = new Panel();
+            panel.Skin = PanelSkin.None;
             panel.Size = new Vector2(0.9f,0.2f);
             panel.Anchor = Anchor.AutoCenter;
             _palmares.AddChild(panel);
+
+            Paragraph position = new Paragraph(i+"");
+            panel.AddChild(position);
+            position.Anchor = Anchor.AutoInline;
+            
+            Paragraph score = new Paragraph(scores[i].Score+"");
+            panel.AddChild(score);
+            score.Anchor = Anchor.AutoInline;
+
+            Paragraph utilisateur = new Paragraph(scores[i].Nom_Utilisateur+"");
+            panel.AddChild(utilisateur);
+            utilisateur.Anchor = Anchor.AutoInline;
+
+            Paragraph temps = new Paragraph(scores[i].Temps_Partie+"S");
+            panel.AddChild(temps);
+            temps.Anchor = Anchor.AutoInline;
+
+            Paragraph eliminations = new Paragraph(scores[i].Ennemis_Enleve+"S");
+            panel.AddChild(eliminations);
+            eliminations.Anchor = Anchor.AutoInline;
+
+            Paragraph date = new Paragraph(scores[i].Date_Soumission+"S");
+            panel.AddChild(date);
+            date.Anchor = Anchor.AutoInline;
+
+            Paragraph experience = new Paragraph(scores[i].Experience+"");
+            panel.AddChild(experience);
+            experience.Anchor = Anchor.CenterRight;
+
+            _palmares.AddChild(new HorizontalLine());
+
         }
-        foreach (Palmares score in scores)
-        {
-            Panel panel = new Panel();
-            panel.Size = new Vector2(0.9f,0.2f);
-            panel.Anchor = Anchor.AutoCenter;
-            _palmares.AddChild(panel);
-        }
-                foreach (Palmares score in scores)
-        {
-            Panel panel = new Panel();
-            panel.Size = new Vector2(0.9f,0.2f);
-            panel.Anchor = Anchor.AutoCenter;
-            _palmares.AddChild(panel);
-        }
-                foreach (Palmares score in scores)
-        {
-            Panel panel = new Panel();
-            panel.Size = new Vector2(0.9f,0.2f);
-            panel.Anchor = Anchor.AutoCenter;
-            _palmares.AddChild(panel);
-        }
+        
     }
     public async Task<List<Palmares>> obtenirPalmares()
     {
