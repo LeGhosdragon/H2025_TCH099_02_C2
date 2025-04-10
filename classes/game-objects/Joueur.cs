@@ -42,6 +42,7 @@ public class Joueur : IGameObject
     public void ajouterExperience(int quantitee)
     {
         _experience += quantitee;
+        _ecranJeu._score._experience += quantitee;
     }
     /// <summary>
     /// 

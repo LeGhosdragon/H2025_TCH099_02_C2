@@ -21,7 +21,7 @@ public class BoiteScore : Panel{
         BoiteStat boiteExp = new BoiteStat("Experience:",score._experience +"");
         AddChild(boiteExp);
 
-        BoiteStat boiteTemps = new BoiteStat("Temps:",score._duree +" S");
+        BoiteStat boiteTemps = new BoiteStat("Temps:",score.GetTempsEnSec() +" S");
         AddChild(boiteTemps);
 
         BoiteStat boiteTotal = new BoiteStat("Score:",score.getScore() +"");

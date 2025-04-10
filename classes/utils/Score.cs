@@ -12,7 +12,10 @@ public class Score{
     public int _duree {get;set;} = 0;
 
     public int getScore(){
-        return _ennemisEnleve * _experience * _duree;
+        return _ennemisEnleve * _experience * GetTempsEnSec();
+    }
+    public int GetTempsEnSec(){
+        return (int) Math.Round( (double) _duree/1000); 
     }
     public Score(string nomUtilisateur = "Invité")
     {
