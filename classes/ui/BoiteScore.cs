@@ -11,8 +11,6 @@ namespace desktop.ui;
 public class BoiteScore : Panel{
     public BoiteScore(Score score,EcranJeu ecranJeu){
         Size = new Vector2(0.5f,0.7f);
-        Console.Write(score._nomUtilisateur);
-        string nom = score._nomUtilisateur;
        
         BoiteStat boiteNom = new BoiteStat("Joueur:",score._nomUtilisateur);
         AddChild(boiteNom);

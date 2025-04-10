@@ -20,6 +20,10 @@ public class ReponseConnexion
     public String[] Erreurs { get; set; } = [];
     public String jeton { get; set; }
 }
+public class ReponseAjouterPalmares{
+    public bool Reussite {get;set;} = false;
+    public string Erreurs {get;set;} 
+}
 public static class LocalAPI
 {
     public static String JetonConnexion {get; private set;}
@@ -76,13 +80,43 @@ public static class LocalAPI
         }
         return reponse;
     }
+    /// <summary>
+    /// Envoie un score a la base de donnee avec les information du compte deja connecte
+    /// </summary>
+    /// <param name="score">score a soumettre</param>
+    /// <returns>Retourne la reponse de la requete</returns>
+    public async static Task<ReponseAjouterPalmares> AjouterPalmares(Score score){
+        ReponseAjouterPalmares reponse = null;
+        
+        //Valide si l'utilisateur est cconnecte
+        if(JetonConnexion == null || _nomUtilisateur == null){
+            return  null;
+        }
+
+        //Creer le corps de la requete 
+        Dictionary<String, String> form = new() {   {"jeton",JetonConnexion}, 
+                                                    {"score",score.getScore()+""},
+                                                    {"duree",score._duree+""},
+                                                    {"experience",score._experience+""}, 
+                                                    {"ennemis",score._ennemisEnleve+""}};
+        HttpContent corps = new FormUrlEncodedContent(form);
+
+        //Envoie la requete
+        HttpResponseMessage response = await client.PostAsync("palmares/ajouter",corps);
+        
+        if (response.IsSuccessStatusCode)
+        {
+            reponse = await response.Content.ReadFromJsonAsync<ReponseAjouterPalmares>();
+        }                                  
+        return reponse;
+    }
 
     /// <summary>
     /// Fait une string avec une liste derreurs (toutes les erreurs sont separes d'une ligne)
     /// </summary>
     /// <param name="errs">liste derreur a formatter</param>
     /// <returns>String correpsondant aux erreurs concatenees</returns>
-    public static String formatterErreurs(String[] errs)
+    public static string formatterErreurs(String[] errs)
     {
         String res = "";
         foreach (String s in errs)
