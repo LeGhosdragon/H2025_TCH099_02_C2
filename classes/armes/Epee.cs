@@ -171,8 +171,6 @@ public class AttaqueEpee
         {
             if (!frappes.Contains(monstre) & DetecterCollision(monstre, deltaT))
             {
-
-                Console.WriteLine("coll");
                 frappes.Add(monstre);
                 monstre.RecevoirDegat(10);
             }

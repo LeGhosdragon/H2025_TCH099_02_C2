@@ -36,7 +36,11 @@ public class EcranJeu : GameScreen
 
     public EcranJeu(Game game) : base(game)
     {
-        _score = new Score(LocalAPI._nomUtilisateur);
+        string nomUtilisateur = "Invite";
+        if(LocalAPI._nomUtilisateur != null){
+            nomUtilisateur = LocalAPI._nomUtilisateur;
+        }
+        _score = new Score(nomUtilisateur);
 
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
@@ -189,11 +193,9 @@ public class EcranJeu : GameScreen
         }
         _arrete =false;
     }
-
     public void FinPartie(){
         _arrete = true;
-        Console.WriteLine(_score._duree);
-        BoiteScore boiteScore = new BoiteScore(new Score(),this);
+        BoiteScore boiteScore = new BoiteScore(_score,this);
         UserInterface.Active.AddEntity(boiteScore);
     }
     public void ChargerEcranScore(Score score){
