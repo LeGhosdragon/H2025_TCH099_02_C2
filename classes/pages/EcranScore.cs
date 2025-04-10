@@ -13,20 +13,27 @@ public class EcranScore : GameScreen
 {
     private new Geometrik Game => (Geometrik)base.Game;
 
+    
     public EcranScore(Game game, Score score) : base(game)
     {
         AjouterPalmares(score);
+        GenererUI();
+
+
         Thread t1 = new Thread (async ()=>{
             List<Palmares> scores = await obtenirPalmares();
-            GenererUI(scores);
+            GenererScores(scores);
 
         });
         t1.Start();
 
 
     }
-    private void GenererUI(List<Palmares> scores)
+    private void GenererUI()
     {
+        
+    }
+    private void GenererScores(List<Palmares> scores){
 
     }
     public async Task<List<Palmares>> obtenirPalmares()

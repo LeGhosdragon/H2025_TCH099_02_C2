@@ -23,8 +23,7 @@ public class EcranJeu : GameScreen
     protected List<IGameObject> _objets;
     protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
-    public bool _arrete = false;
-    public bool _menuPause = false;
+
     public SpriteFont _font {get;set;}
     public Score _score {get;set;}
     /// <summary>
@@ -32,7 +31,13 @@ public class EcranJeu : GameScreen
     /// </summary>
     public List<Touche> _touches = new List<Touche>();
 
-
+    /// <summary>
+    /// Variables de statut de partie
+    /// </summary>
+    public bool _arrete = false;
+    public bool _menuPause = false;
+    public bool _finPartie = false;
+    
 
     public EcranJeu(Game game) : base(game)
     {
