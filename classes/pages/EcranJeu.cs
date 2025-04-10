@@ -20,6 +20,7 @@ public class EcranJeu : GameScreen
 {
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
+    protected Fond _fond;
     protected List<IGameObject> _objets;
     protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
@@ -41,6 +42,8 @@ public class EcranJeu : GameScreen
 
     public EcranJeu(Game game) : base(game)
     {
+        _fond = new Fond();
+
         string nomUtilisateur = "Invite";
         if(LocalAPI._nomUtilisateur != null){
             nomUtilisateur = LocalAPI._nomUtilisateur;
@@ -70,10 +73,11 @@ public class EcranJeu : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
-
         Camera.setPosition(_joueur.getPosition());
         Game.GraphicsDevice.Clear(Color.Black);
         Game.GetSpriteBatch().Begin();
+        _fond.Draw(Game.GetSpriteBatch());
+
         foreach (IGameObject objet in _objets)
         {
             objet.Draw(Game.GetSpriteBatch());
@@ -115,6 +119,7 @@ public class EcranJeu : GameScreen
                 boite.Update(deltaT,Game.GraphicsDevice);
             }
         }
+        _fond.Update(deltaT,_joueur.getPosition());
         _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         UserInterface.Active.Update(gameTime);
     }
