@@ -18,7 +18,7 @@ public class Joueur : IGameObject
     //Attributs selon ameliorations
     public float _vitesse { get; set; } = 100f; //UpgVitMouement 100, +20
     public float _rayonCollection { get; set; } = 100; //UpgRayonAttraction 100,* 1.3
-    public float _hpBase { get; set; } = 2; //Pas affecte
+    public float _hpBase { get; set; } = 20; //Pas affecte
     public float _hp { get; set; } //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
 
     public IArme _arme { get; set; }
@@ -103,8 +103,13 @@ public class Joueur : IGameObject
         {
             xMov += 1;
         }
-        _position.Y += yMov * deltaT * _vitesse;
-        _position.X += xMov * deltaT * _vitesse;
+       Vector2 mov = new Vector2(xMov, yMov);
+
+        if(xMov != 0 || yMov != 0){
+            mov.Normalize();
+
+            _position += mov * deltaT * _vitesse;
+        }
 
         if (_experience > getExpReq())
         {

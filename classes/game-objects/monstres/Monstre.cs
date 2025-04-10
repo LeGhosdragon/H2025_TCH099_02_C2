@@ -9,20 +9,26 @@ namespace desktop.gameobjects;
 
 public class Monstre : AbstractGameObject
 {
-    private EcranJeu _ecranJeu;
-    private float _vitesse;
-    private float _vitesseRot;
-    private float _rayon;
-    private float hp;
+    protected EcranJeu _ecranJeu;
+    protected float _vitesse;
+    protected float _vitesseRot;
+    protected float _rayon;
+    protected float _hp;
+    protected string _type;
+    protected float _exp;
+    protected float _dmg;
 
-    public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon)
+    public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon, string type = "normal", float vitesse = 20, int vitesseRot = 1, float hp = 15, float exp = 1, float dmg = 1)
         : base(forme, position, 1)
     {
-        this._ecranJeu = ecranJeu;
-        this._vitesse = 20;
-        this._vitesseRot = 1;
-        this._rayon = rayon;
-        this.hp = 20;
+        _ecranJeu = ecranJeu;
+        _vitesse = vitesse;
+        _vitesseRot = vitesseRot;
+        _rayon = rayon;
+        _hp = hp;
+        _type = type;
+        _exp = exp;
+        _dmg = dmg;
     }
     /// <summary>
     /// Rayon de la collision de la forme
@@ -46,7 +52,7 @@ public class Monstre : AbstractGameObject
     /// Evite les collisions avec tout les monstres
     /// </summary>
     /// <param name="deltaT">difference entre la derniere update</param>
-    private void eviterCollisions(float deltaT)
+    protected void eviterCollisions(float deltaT)
     {
         List<Monstre> monstres = _ecranJeu.GetMonstres();
         monstres.Remove(this);
@@ -58,9 +64,9 @@ public class Monstre : AbstractGameObject
     /// </summary>
     /// <param name="monstre">monstre a evite</param>
     /// <param name="deltaT">difference entre la derniere update</param>
-    private void eviterCollisions(Monstre monstre, float deltaT)
+    protected void eviterCollisions(Monstre monstre, float deltaT)
     {
-        float minDistance = 1.2f * _forme[0].Length();
+        float minDistance = 1.7f * _forme[0].Length();
         float facteurEviter = 0.5f;
 
         Vector2 dif = _position - monstre._position;
@@ -79,8 +85,8 @@ public class Monstre : AbstractGameObject
     /// <param name="degat">Nombre de degat subit</param>
     /// <returns>true si le monstre est mort</returns>
     public bool RecevoirDegat(float degat){
-        this.hp -= degat;
-        if(hp <= 0){
+        _hp -= degat;
+        if(_hp <= 0){
             Mourrir();
             return true;
         }

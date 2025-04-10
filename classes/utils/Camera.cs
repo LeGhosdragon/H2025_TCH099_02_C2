@@ -34,6 +34,15 @@ public class Camera
         );
     }
 
+    public float getWidth()
+    {
+        return _graphics.Viewport.Width;
+    }
+    public float getHeight()
+    {
+        return _graphics.Viewport.Height;
+    }
+
     public Vector2 getPosition()
     {
         return _position;

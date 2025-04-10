@@ -96,7 +96,9 @@ public class EcranJeu : GameScreen
         {
             if (_chronoMonstre.Update(deltaT))
             {
-                GenererMonstres(5);
+                GenererMonstres("normal", 5);
+                GenererMonstres("runner", 3);
+                GenererMonstres("tank", 3);
             }
 
             foreach (IGameObject objet in _objets.Reverse<IGameObject>())
@@ -117,11 +119,11 @@ public class EcranJeu : GameScreen
     /// Genere une quantitee desiree de monstres
     /// </summary>
     /// <param name="quantitee">quantitee de monstres a generer</param>
-    public void GenererMonstres(int quantitee)
+    public void GenererMonstres(string type, int quantitee)
     {
         for (int i = 0; i < quantitee; i++)
         {
-            GenererMonstre();
+            GenerateurMonstre.GenererMonstre(type, this, _objets, 1);
         }
     }
 
@@ -134,14 +136,7 @@ public class EcranJeu : GameScreen
         _banqueExp += valeur;
     }
 
-    /// <summary>
-    /// Cree un nouveau monstre et l'ajoute dans le jeu
-    /// </summary>
-    public void GenererMonstre()
-    {
-        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 20), new Vector2(100, 100), this, 20);
-        _objets.Add(monstre);
-    }
+
     /// <summary>
     /// Retourne tout les objets de type monstre dans le jeu
     /// </summary>
