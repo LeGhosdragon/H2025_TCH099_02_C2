@@ -119,7 +119,7 @@ public class EcranJeu : GameScreen
                 boite.Update(deltaT,Game.GraphicsDevice);
             }
         }
-        _fond.Update(deltaT,_joueur.getPosition());
+        _fond.Update(_joueur.getPosition());
         _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         UserInterface.Active.Update(gameTime);
     }
