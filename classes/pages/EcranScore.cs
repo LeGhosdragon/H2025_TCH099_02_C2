@@ -32,13 +32,24 @@ public class EcranScore : GameScreen
             _palmares.AddChild(titreChargement);
 
 
-            List<Palmares> scores = await obtenirPalmares();
-            GenererScores(scores, titreChargement);
+            ReponseObtenirPalmares reponse = await LocalAPI.ObtenirPalmares();
+            if(reponse.Erreur != null){
+                titreChargement.Text = reponse.Erreur;
+                return;
+            }
+            if(!reponse.Reussite){
+                titreChargement.Text = "Erreur lors de l'obtention du palmares";
+                return;
+            }
+
+            
+            GenererScores(reponse.Palmares.ToList(), titreChargement);
 
         });
         t1.Start();
         base.Initialize();
     }
+
     private void GenererUI()
     {
         Panel centre = new Panel();
@@ -80,7 +91,7 @@ public class EcranScore : GameScreen
         centre.AddChild(btnHome);
 
     }
-    private void GenererScores(List<Palmares> scores, Entity chargement)
+    private void GenererScores(List<Palmares> scores,Entity chargement)
     {
         _palmares.RemoveChild(chargement);
         
@@ -129,11 +140,6 @@ public class EcranScore : GameScreen
  */
         }
         
-    }
-    public async Task<List<Palmares>> obtenirPalmares()
-    {
-        Palmares[] liste = await LocalAPI.ObtenirPalmares();
-        return liste.ToList<Palmares>();
     }
 
 

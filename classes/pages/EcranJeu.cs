@@ -214,7 +214,7 @@ public class EcranJeu : GameScreen
         Game.LoadEcranScore();
         AjouterPalmares(score);
     }
-    public void UnloadContent(){
+    public override void UnloadContent(){
         UserInterface.Active.Clear();
     }
 
