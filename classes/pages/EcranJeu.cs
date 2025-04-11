@@ -21,7 +21,7 @@ public class EcranJeu : GameScreen
 {
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
-    protected Fond _fond;
+    protected Fond _fond = new Fond();
     protected List<IGameObject> _objets;
     protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
@@ -33,17 +33,12 @@ public class EcranJeu : GameScreen
     /// </summary>
     public List<Touche> _touches = new List<Touche>();
 
-    /// <summary>
-    /// Variables de statut de partie
-    /// </summary>
-    public bool _arrete = false;
-    public bool _menuPause = false;
-    public bool _finPartie = false;
+
+    public EtatJeu _etat {get;set;} =  EtatJeu.EN_COURS;
     
 
     public EcranJeu(Game game) : base(game)
     {
-        _fond = new Fond();
 
         string nomUtilisateur = "Invite";
         if(LocalAPI._nomUtilisateur != null){
@@ -99,10 +94,14 @@ public class EcranJeu : GameScreen
         if (Touche.ValiderTouche(_touches, ControlesEnum.PAUSE) && Controle.enfonceClavier(ControlesEnum.PAUSE))
         {
             _touches.Add(new Touche(ControlesEnum.PAUSE));
-            _menuPause = !_menuPause;
+            if(_etat == EtatJeu.PAUSE){
+                _etat = EtatJeu.EN_COURS;
+            }else if(_etat == EtatJeu.EN_COURS){
+                _etat = EtatJeu.PAUSE;
+            }
         }
 
-        if (!_arrete && !_menuPause)
+        if (_etat == EtatJeu.EN_COURS)
         {
             if (_chronoMonstre.Update(deltaT))
             {
@@ -113,15 +112,15 @@ public class EcranJeu : GameScreen
             {
                 objet.Update(deltaT);
             }
-
+            _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         }
         if(boites != null){
             foreach (BoiteAmelioration boite in boites){
                 boite.Update(deltaT,Game.GraphicsDevice);
             }
         }
+
         _fond.Update(_joueur.getPosition());
-        _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         UserInterface.Active.Update(gameTime);
     }
     /// <summary>
@@ -189,7 +188,7 @@ public class EcranJeu : GameScreen
     private BoiteAmelioration[] boites;
     public void augmenterNiveau(Joueur joueur)
     {
-        _arrete = true;
+        _etat = EtatJeu.AMELIORATION;
         boites = BoiteAmelioration.genererAmelioration(3, this);
         foreach (BoiteAmelioration boite in boites)
         {
@@ -202,10 +201,13 @@ public class EcranJeu : GameScreen
         {
             UserInterface.Active.RemoveEntity(boite);
         }
-        _arrete =false;
+        _etat = EtatJeu.EN_COURS;
     }
     public void FinPartie(){
-        _arrete = true;
+        if(_etat != EtatJeu.EN_COURS){
+            return;
+        }
+        _etat = EtatJeu.FIN;
         BoiteScore boiteScore = new BoiteScore(_score,this);
         UserInterface.Active.AddEntity(boiteScore);
     }
@@ -230,5 +232,11 @@ public class EcranJeu : GameScreen
             }
         });
         t1.Start();
+    }
+    public enum EtatJeu {
+        EN_COURS,
+        AMELIORATION,
+        FIN,
+        PAUSE,
     }
 }
