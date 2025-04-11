@@ -17,7 +17,7 @@ public class Monstre : AbstractGameObject
     protected string _type;
     protected float _exp;
     protected float _dmg;
-
+    protected bool _text;
     public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon, string type = "normal", float vitesse = 20, int vitesseRot = 1, float hp = 15, float exp = 1, float dmg = 1)
         : base(forme, position, 1)
     {
@@ -29,6 +29,7 @@ public class Monstre : AbstractGameObject
         _type = type;
         _exp = exp;
         _dmg = dmg;
+        _text = false;
     }
     /// <summary>
     /// Rayon de la collision de la forme
@@ -46,6 +47,16 @@ public class Monstre : AbstractGameObject
             //TODO Modifier le 1 pour le nombre de degat de l'ennemi
             _ecranJeu._joueur.collision(1);
         }
+    }
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        if(Controle.enfonceClavier(ControlesEnum.TEXT))
+        {
+            Vector2 posTxt = _position - Camera.getInstance().getPosition() - _ecranJeu._font.MeasureString(_hp + "") / 2;
+            posTxt.Y -= _rayon*2f;
+            spriteBatch.DrawString(_ecranJeu._font, _hp + "", posTxt, Color.White);
+        }
+        base.Draw(spriteBatch);
     }
 
     /// <summary>

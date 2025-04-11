@@ -18,7 +18,7 @@ public class Joueur : IGameObject
     //Attributs selon ameliorations
     public float _vitesse { get; set; } = 100f; //UpgVitMouement 100, +20
     public float _rayonCollection { get; set; } = 100; //UpgRayonAttraction 100,* 1.3
-    public float _hpBase { get; set; } = 20; //Pas affecte
+    public float _hpBase { get; set; } = 200; //Pas affecte
     public float _hp { get; set; } //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
 
     public IArme _arme { get; set; }
@@ -117,7 +117,7 @@ public class Joueur : IGameObject
         }
         _chronoInvincibilite.Update(deltaT);
     }
-    public void collision(int degat)
+    public void collision(float degat)
     {
         if (_chronoInvincibilite.Update(0))
         {

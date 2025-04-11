@@ -69,6 +69,10 @@ public class EcranJeu : GameScreen
         Camera.setPosition(_joueur.getPosition());
         Game.GraphicsDevice.Clear(Color.Black);
         Game.GetSpriteBatch().Begin();
+        foreach (ProjectileEnnemi projectile in MonstreGunner.getProjectiles())
+        {
+            projectile.Draw(Game.GetSpriteBatch());
+        }
         foreach (IGameObject objet in _objets)
         {
             objet.Draw(Game.GetSpriteBatch());
@@ -96,15 +100,20 @@ public class EcranJeu : GameScreen
         {
             if (_chronoMonstre.Update(deltaT))
             {
-                GenererMonstres("normal", 5);
-                GenererMonstres("runner", 3);
-                GenererMonstres("tank", 3);
+                // GenererMonstres("normal", 5);
+                // GenererMonstres("runner", 3);
+                // GenererMonstres("tank", 3);
+                GenererMonstres("gunner", 3);
             }
+            foreach(ProjectileEnnemi projectile in MonstreGunner.getProjectiles().Reverse<ProjectileEnnemi>()){
+                projectile.Update(deltaT, _joueur);
 
+            }
             foreach (IGameObject objet in _objets.Reverse<IGameObject>())
             {
                 objet.Update(deltaT);
             }
+  
 
         }
         if(boites != null){

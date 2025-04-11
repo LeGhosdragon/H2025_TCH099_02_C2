@@ -84,6 +84,9 @@ public class GenerateurMonstre
             case "tank":
                 monstre = new MonstreTank( 6, ecranJeu, ennemiDifficultee);
                 break;
+            case "gunner":
+                monstre = new MonstreGunner( 2, ecranJeu, ennemiDifficultee);
+                break;
             default:
 
                 break;
