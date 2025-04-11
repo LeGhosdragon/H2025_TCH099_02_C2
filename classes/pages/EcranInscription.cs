@@ -70,6 +70,13 @@ public class EcranInscription : GameScreen
         erreurs = new Paragraph();
          _centre.AddChild(erreurs);
         
+        Button btnRetour = new Button("Retour");
+        btnRetour.Anchor = Anchor.BottomCenter;
+        btnRetour.OnClick = (Entity btn) =>{
+            UnloadContent();
+            Game.LoadEcranAcceuil();
+        };
+        _centre.AddChild(btnRetour);
 
 
         base.Initialize();

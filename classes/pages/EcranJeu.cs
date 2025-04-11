@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Threading;
 using desktop.ameliorations;
 using desktop.armes;
 using desktop.gameobjects;
@@ -19,21 +19,31 @@ public class EcranJeu : GameScreen
 {
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
+    protected Fond _fond = new Fond();
     protected List<IGameObject> _objets;
     protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
-    public bool _arrete = false;
-    public bool _menuPause = false;
+
     public SpriteFont _font {get;set;}
+    public Score _score {get;set;}
     /// <summary>
     /// Touches qui ont ete appuye pour lesquels les eevenements on deja ete actives
     /// </summary>
     public List<Touche> _touches = new List<Touche>();
 
 
+    public EtatJeu _etat {get;set;} =  EtatJeu.EN_COURS;
+    
 
     public EcranJeu(Game game) : base(game)
     {
+
+        string nomUtilisateur = "Invite";
+        if(LocalAPI._nomUtilisateur != null){
+            nomUtilisateur = LocalAPI._nomUtilisateur;
+        }
+        _score = new Score(nomUtilisateur);
+
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
 
@@ -57,10 +67,11 @@ public class EcranJeu : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
-
         Camera.setPosition(_joueur.getPosition());
         Game.GraphicsDevice.Clear(Color.Black);
         Game.GetSpriteBatch().Begin();
+        _fond.Draw(Game.GetSpriteBatch());
+
         foreach (IGameObject objet in _objets)
         {
             objet.Draw(Game.GetSpriteBatch());
@@ -81,10 +92,14 @@ public class EcranJeu : GameScreen
         if (Touche.ValiderTouche(_touches, ControlesEnum.PAUSE) && Controle.enfonceClavier(ControlesEnum.PAUSE))
         {
             _touches.Add(new Touche(ControlesEnum.PAUSE));
-            _menuPause = !_menuPause;
+            if(_etat == EtatJeu.PAUSE){
+                _etat = EtatJeu.EN_COURS;
+            }else if(_etat == EtatJeu.EN_COURS){
+                _etat = EtatJeu.PAUSE;
+            }
         }
 
-        if (!_arrete && !_menuPause)
+        if (_etat == EtatJeu.EN_COURS)
         {
             if (_chronoMonstre.Update(deltaT))
             {
@@ -95,14 +110,16 @@ public class EcranJeu : GameScreen
             {
                 objet.Update(deltaT);
             }
-
+            _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         }
-        UserInterface.Active.Update(gameTime);
         if(boites != null){
             foreach (BoiteAmelioration boite in boites){
                 boite.Update(deltaT,Game.GraphicsDevice);
             }
         }
+
+        _fond.Update(_joueur.getPosition());
+        UserInterface.Active.Update(gameTime);
     }
     /// <summary>
     /// Genere une quantitee desiree de monstres
@@ -169,7 +186,7 @@ public class EcranJeu : GameScreen
     private BoiteAmelioration[] boites;
     public void augmenterNiveau(Joueur joueur)
     {
-        _arrete = true;
+        _etat = EtatJeu.AMELIORATION;
         boites = BoiteAmelioration.genererAmelioration(3, this);
         foreach (BoiteAmelioration boite in boites)
         {
@@ -182,6 +199,42 @@ public class EcranJeu : GameScreen
         {
             UserInterface.Active.RemoveEntity(boite);
         }
-        _arrete =false;
+        _etat = EtatJeu.EN_COURS;
+    }
+    public void FinPartie(){
+        if(_etat != EtatJeu.EN_COURS){
+            return;
+        }
+        _etat = EtatJeu.FIN;
+        BoiteScore boiteScore = new BoiteScore(_score,this);
+        UserInterface.Active.AddEntity(boiteScore);
+    }
+    public void ChargerEcranScore(Score score){
+        UnloadContent();
+        Game.LoadEcranScore();
+        AjouterPalmares(score);
+    }
+    public void UnloadContent(){
+        UserInterface.Active.Clear();
+    }
+
+        private void AjouterPalmares(Score score)
+    {
+
+        Thread t1 = new Thread(async () =>
+        {
+            ReponseAjouterPalmares reponse = await LocalAPI.AjouterPalmares(score);
+            if (reponse != null)
+            {
+                Console.WriteLine(reponse.Erreurs);
+            }
+        });
+        t1.Start();
+    }
+    public enum EtatJeu {
+        EN_COURS,
+        AMELIORATION,
+        FIN,
+        PAUSE,
     }
 }

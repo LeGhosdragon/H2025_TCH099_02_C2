@@ -16,24 +16,24 @@ public class Joueur : IGameObject
     protected Chrono _chronoInvincibilite;
 
     //Attributs selon ameliorations
-    public float _vitesse {get;set;}= 100f; //UpgVitMouement 100, +20
-    public float _rayonCollection {get;set;} = 100; //UpgRayonAttraction 100,* 1.3
-    public float _hpBase {get;set;} = 20; //Pas affecte
-    public float _hp {get;set;} //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
+    public float _vitesse { get; set; } = 100f; //UpgVitMouement 100, +20
+    public float _rayonCollection { get; set; } = 100; //UpgRayonAttraction 100,* 1.3
+    public float _hpBase { get; set; } = 2; //Pas affecte
+    public float _hp { get; set; } //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
 
-    public IArme _arme {get; set;}
+    public IArme _arme { get; set; }
     float _rayon = 40;
     int _experience = 0;
-    protected int _niveau {get;set;} = 1;
+    protected int _niveau { get; set; } = 1;
     protected EcranJeu _ecranJeu;
     protected Vector2 _position;
 
-    public Joueur(Vector2 position,EcranJeu ecranJeu)
+    public Joueur(Vector2 position, EcranJeu ecranJeu)
     {
         this._position = position;
         this._ecranJeu = ecranJeu;
         this._hp = _hpBase;
-        _chronoInvincibilite = new Chrono(DELAI_INVICIBILITE,true);
+        _chronoInvincibilite = new Chrono(DELAI_INVICIBILITE, true);
     }
     /// <summary>
     /// Ajoute de l'experience au joueur
@@ -42,6 +42,7 @@ public class Joueur : IGameObject
     public void ajouterExperience(int quantitee)
     {
         _experience += quantitee;
+        _ecranJeu._score._experience += quantitee;
     }
     /// <summary>
     /// 
@@ -77,7 +78,8 @@ public class Joueur : IGameObject
     {
         return _rayon;
     }
-    public Vector2 getPosition(){
+    public Vector2 getPosition()
+    {
         return _position;
     }
     public void Update(float deltaT)
@@ -101,8 +103,14 @@ public class Joueur : IGameObject
         {
             xMov += 1;
         }
-        _position.Y += yMov * deltaT * _vitesse;
-        _position.X += xMov * deltaT * _vitesse;
+        Vector2 mov = new Vector2(xMov, yMov);
+        
+        if(xMov != 0 || yMov != 0){
+            mov.Normalize();
+
+            _position += mov * deltaT * _vitesse;
+        }
+
 
         if (_experience > getExpReq())
         {
@@ -110,23 +118,30 @@ public class Joueur : IGameObject
         }
         _chronoInvincibilite.Update(deltaT);
     }
-    public void collision(int degat){
-        if(_chronoInvincibilite.Update(0)){
+    public void collision(int degat)
+    {
+        if (_chronoInvincibilite.Update(0))
+        {
             _hp -= degat;
             _chronoInvincibilite.reinitialiser();
-        }
-        if(_hp <= 0){
-            Mourrir();
-        }
-    }
-    public void Mourrir(){
 
+            if (_hp <= 0)
+            {
+                Console.Write(_hp);
+                Mourrir();
+            }
+        }
+
+    }
+    public void Mourrir()
+    {
+        _ecranJeu.FinPartie();
     }
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(),_rayon,40,Color.White);
-        Vector2 posTxt = _position - Camera.getInstance().getPosition() - _ecranJeu._font.MeasureString(_hp+"")/2;
-        spriteBatch.DrawString(_ecranJeu._font,_hp +"",posTxt,Color.White);
-        
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _rayon, 40, Color.White);
+        Vector2 posTxt = _position - Camera.getInstance().getPosition() - _ecranJeu._font.MeasureString(_hp + "") / 2;
+        spriteBatch.DrawString(_ecranJeu._font, _hp + "", posTxt, Color.White);
+
     }
 }

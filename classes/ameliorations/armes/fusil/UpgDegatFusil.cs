@@ -1,6 +1,6 @@
-using desktop.ameliorations.arme.fusil;
 using desktop.armes;
 using Microsoft.Xna.Framework.Graphics;
+namespace desktop.ameliorations.arme.fusil;
 
 public class UpgDegatFusil : AbstractUpgFusil
 {

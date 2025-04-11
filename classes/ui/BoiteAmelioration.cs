@@ -59,7 +59,6 @@ public class BoiteAmelioration: Panel{
         for(int i = 0; i < quantiee; i++){
             boites[i] = new BoiteAmelioration(quantiee,i,ecranJeu,ameliorations[i]);
         }
-        Console.WriteLine(boites.Length);
         return boites;
     }
     public void Update(float deltaT,GraphicsDevice graphicsDevice){

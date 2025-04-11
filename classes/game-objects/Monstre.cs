@@ -89,6 +89,7 @@ public class Monstre : AbstractGameObject
 
     public void Mourrir(){
             _ecranJeu.EnleverObjet(this);
+            _ecranJeu._score._ennemisEnleve += 1;
             new Experience(this._position,10,_ecranJeu);
     }
 

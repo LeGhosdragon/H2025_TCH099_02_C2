@@ -29,7 +29,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     /// <summary>
     /// Permet de bien placcer l'arme autour du joueur
     /// </summary>
-    public float _longueur {get;}
+    public Vector2 _dimensions {get;}
 
     protected EcranJeu _ecran;
     protected List<Touche> _touches = new List<Touche>();
@@ -38,7 +38,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         Vector2[] formeBase,
         Joueur joueur,
         float delai,
-        float longueur,
+        Vector2 _dimensions,
         EcranJeu ecran
     )
         : base(formeBase, joueur.getPosition(), 1)
@@ -47,7 +47,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         this._joueur = joueur;
         this._delai = new Chrono(delai, true);
         this._attaqueAutomatique = true;
-        this._longueur = longueur;
+        this._dimensions = _dimensions;
         this._ecran = ecran;
     }
 
@@ -76,7 +76,9 @@ public abstract class AbstractArme : AbstractGameObject, IArme
         //Place l'arme dans la direction ou la souris pointe
         Vector2 dir = Camera.getInstance().getPosSourisCamera();
         dir.Normalize();
-        _position = _joueur.getPosition() + dir * (_joueur.getRayon() + _longueur / 2);
+        _position = _joueur.getPosition() + //Centre avec le joueur
+                    dir * _joueur.getRayon()  + //Mets sur le bord du joueur
+                    new Vector2(dir.Y,-dir.X)* _dimensions.X/2 ;//Decale pour qu'il soit centre
         _forme = PolyGen.tournerMatrice(_formeBase, PolyGen.angleVecteur(dir));
     }
 

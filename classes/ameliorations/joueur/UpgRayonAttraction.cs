@@ -1,6 +1,6 @@
-using desktop.ameliorations.joueur;
 using desktop.gameobjects;
 using Microsoft.Xna.Framework.Graphics;
+namespace desktop.ameliorations.joueur;
 
 public class UpgRayonAttraction : AbstractUpgJoueur
 {
