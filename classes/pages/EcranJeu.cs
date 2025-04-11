@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using desktop.ameliorations;
 using desktop.armes;
+using desktop.evenements;
 using desktop.gameobjects;
 using desktop.ui;
 using desktop.utils;
@@ -21,9 +22,8 @@ public class EcranJeu : GameScreen
     public Joueur _joueur { get; }
     protected Fond _fond = new Fond();
     protected List<IGameObject> _objets;
-    protected Chrono _chronoMonstre;
     protected int _banqueExp = 0;
-
+    protected DirecteurEvenement _directeurEvenement {get;} 
     public SpriteFont _font {get;set;}
     public Score _score {get;set;}
     /// <summary>
@@ -37,7 +37,7 @@ public class EcranJeu : GameScreen
 
     public EcranJeu(Game game) : base(game)
     {
-
+        _directeurEvenement = new DirecteurEvenement(this);
         string nomUtilisateur = "Invite";
         if(LocalAPI._nomUtilisateur != null){
             nomUtilisateur = LocalAPI._nomUtilisateur;
@@ -54,8 +54,6 @@ public class EcranJeu : GameScreen
         _objets.Add(_joueur);
 
         new Camera(GraphicsDevice, _joueur.getPosition());
-        _chronoMonstre = new Chrono(3f);
-
     }
 
     public override void LoadContent()
@@ -101,10 +99,7 @@ public class EcranJeu : GameScreen
 
         if (_etat == EtatJeu.EN_COURS)
         {
-            if (_chronoMonstre.Update(deltaT))
-            {
-                GenererMonstres(5);
-            }
+            _directeurEvenement.Update(deltaT);
 
             foreach (IGameObject objet in _objets.Reverse<IGameObject>())
             {
