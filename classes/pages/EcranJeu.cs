@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using desktop.ameliorations;
 using desktop.armes;
@@ -10,7 +9,6 @@ using desktop.gameobjects;
 using desktop.ui;
 using desktop.utils;
 using GeonBit.UI;
-using GeonBit.UI.Entities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;

@@ -33,7 +33,7 @@ public class Epee : AbstractArme
             ],
             joueur,
             1f,
-            100,
+            new Vector2(10,100),
             ecranJeu
         )
     {
@@ -93,7 +93,7 @@ public class Epee : AbstractArme
     protected override void UpdatePos(float deltaT)
     {
         //Place l'arme dans la direction ou la souris pointe
-        _position = _joueur.getPosition() + getDir() * (_joueur.getRayon() + _longueur / 2);
+        _position = _joueur.getPosition() + getDir() * (_joueur.getRayon() + _dimensions.Y / 2);
         _forme = PolyGen.tournerMatrice(_formeBase, PolyGen.angleVecteur(getDir()) - _angleZone);
     }
 
@@ -226,12 +226,12 @@ public class AttaqueEpee
         zone[1] =
             zone[0]
             + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
-                * (_epee.getJoueur().getRayon() + _epee._longueur);
+                * (_epee.getJoueur().getRayon() + _epee._dimensions.Y);
         float apres = _act - _epee.getVitRot() * deltaT;
         zone[2] =
             zone[0]
             + new Vector2((float)Math.Cos(apres), (float)Math.Sin(apres))
-                * (_epee.getJoueur().getRayon() + _epee._longueur);
+                * (_epee.getJoueur().getRayon() + _epee._dimensions.Y);
 
         return zone;
     }
