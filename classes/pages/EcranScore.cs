@@ -92,42 +92,41 @@ public class EcranScore : GameScreen
 
         for (int i = 0; i < scores.Count ;i++)
         {
-            Panel panel = new Panel();
-            panel.Skin = PanelSkin.None;
-            panel.Size = new Vector2(0.9f,0.2f);
-            panel.Anchor = Anchor.AutoCenter;
-            _palmares.AddChild(panel);
+            Panel panelTout = new Panel();
+            panelTout.Skin = PanelSkin.ListBackground;
+            panelTout.Size = new Vector2(0.9f,0.2f);
+            panelTout.Anchor = Anchor.AutoCenter;
+            _palmares.AddChild(panelTout);
 
-            Paragraph position = new Paragraph(i+"");
-            panel.AddChild(position);
-            position.Anchor = Anchor.AutoInline;
-            
-            Paragraph score = new Paragraph(scores[i].Score+"");
-            panel.AddChild(score);
-            score.Anchor = Anchor.AutoInline;
+            Paragraph ligne = new Paragraph(i+" " + 
+                                            "Score: " + scores[i].Score +
+                                            " Temps: " + scores[i].Temps_Partie +
+                                            " Experience " + scores[i].Experience +
+                                            " Ennemis Tuées " + scores[i].Ennemis_Enleve + 
+                                            " Par: " + scores[i].Nom_Utilisateur);
+            panelTout.AddChild(ligne);
 
-            Paragraph utilisateur = new Paragraph(scores[i].Nom_Utilisateur+"");
-            panel.AddChild(utilisateur);
-            utilisateur.Anchor = Anchor.AutoInline;
+       /*     Panel bPlace = new Panel();
+            bPlace.Skin = PanelSkin.None;
+            bPlace.Anchor = Anchor.Auto;
+            panelTout.AddChild(bPlace);
 
-            Paragraph temps = new Paragraph(scores[i].Temps_Partie+"S");
-            panel.AddChild(temps);
-            temps.Anchor = Anchor.AutoInline;
+            Paragraph pPlace = new Paragraph(i+"");
+            pPlace.Anchor  = Anchor.Auto;
+            bPlace.Size = new Vector2(0.99f,0.5f);
+            bPlace.AddChild(pPlace);         
 
-            Paragraph eliminations = new Paragraph(scores[i].Ennemis_Enleve+"S");
-            panel.AddChild(eliminations);
-            eliminations.Anchor = Anchor.AutoInline;
+            Panel bScore = new Panel();
+            bScore.Skin = PanelSkin.None;
+            bScore.Size = new Vector2(0.99f,0.5f);
 
-            Paragraph date = new Paragraph(scores[i].Date_Soumission+"S");
-            panel.AddChild(date);
-            date.Anchor = Anchor.AutoInline;
+            bScore.Anchor = Anchor.AutoInline;
+            panelTout.AddChild(bScore);
 
-            Paragraph experience = new Paragraph(scores[i].Experience+"");
-            panel.AddChild(experience);
-            experience.Anchor = Anchor.CenterRight;
-
-            _palmares.AddChild(new HorizontalLine());
-
+            Paragraph pScore = new Paragraph(scores[i].Score+"");
+            pScore.Anchor = Anchor.Auto;
+            bScore.AddChild(pScore);   
+ */
         }
         
     }
