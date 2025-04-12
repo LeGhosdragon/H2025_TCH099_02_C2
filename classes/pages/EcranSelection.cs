@@ -41,19 +41,19 @@ public class EcranSelection : GameScreen
     {
         float deltaT = (float) gameTime.ElapsedGameTime.TotalSeconds;
         
-        if(Controle.getPosSouris().X > GraphicsDevice.Viewport.Width/2){
+        if(Controle.getPosSouris().X < GraphicsDevice.Viewport.Width/2){
             _selectionEpee._hovered = true;
             _selectionFusil._hovered = false;
             if(Mouse.GetState().LeftButton == ButtonState.Pressed){
                 UnloadContent();
-                Game.LoadEcranJeu();
+                Game.LoadEcranJeu(armes.TypesArmes.EPEE);
             }
         }else{
             _selectionFusil._hovered = true;
             _selectionEpee._hovered = false;
                         if(Mouse.GetState().LeftButton == ButtonState.Pressed){
                 UnloadContent();
-                Game.LoadEcranJeu();
+                Game.LoadEcranJeu(armes.TypesArmes.FUSIL);
             }
         }
         _selectionEpee.Update(gameTime);
