@@ -35,7 +35,7 @@ public class EcranJeu : GameScreen
     public EtatJeu _etat {get;set;} =  EtatJeu.EN_COURS;
     
 
-    public EcranJeu(Game game) : base(game)
+    public EcranJeu(Game game,TypesArmes typesArme) : base(game)
     {
         _directeurEvenement = new DirecteurEvenement(this);
         string nomUtilisateur = "Invite";
@@ -47,7 +47,17 @@ public class EcranJeu : GameScreen
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
 
-        AbstractArme arme = new Fusil(_joueur, this);
+        AbstractArme arme;
+
+        switch (typesArme){
+            case TypesArmes.EPEE:
+            arme = new Epee(_joueur,this);
+            break;
+            case TypesArmes.FUSIL:
+            default:
+             arme = new Fusil(_joueur, this);
+            break;
+        }
         _joueur._arme = arme;
         _objets.Add(arme);
 
