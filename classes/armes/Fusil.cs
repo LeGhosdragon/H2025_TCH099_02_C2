@@ -16,6 +16,8 @@ public class Fusil : AbstractArme
     public float _degat {get;set;} = 15; //UpgDegatFusil ->  15,  * 1.2 
     public int _pierce {get;set;} = 1; //UpgPierceFusil -> 1, + 1
     public float _vitesse {get;set;} = 500;
+    public float _recul {get;set;} = 50; //UpgReculEpee
+
 
     private List<ProjectileFusil> _projectiles;
     public Fusil(Joueur j, EcranJeu ecran) : base(new Vector2[] { new Vector2(0, 0), new Vector2(0, 20), new Vector2(50, 20), new Vector2(50, 0) }, j, 1f, new Vector2(20,50), ecran)
@@ -48,6 +50,10 @@ public class Fusil : AbstractArme
     public void EnleverProjectile(ProjectileFusil projectile){
         this._projectiles.Remove(projectile);
     }
+    public Joueur getJoueur()
+    {
+        return _joueur;
+    }
 }
 public class ProjectileFusil
 {
@@ -70,6 +76,7 @@ public class ProjectileFusil
             {
                 _frappes.Add(monstre);
                 monstre.RecevoirDegat(_fusil._degat);
+                monstre.AjouterRecul(_fusil.getJoueur().getPosition(),_fusil._recul);
                 _pierce--;
             }
         }

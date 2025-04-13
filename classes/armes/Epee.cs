@@ -22,6 +22,8 @@ public class Epee : AbstractArme
     private List<AttaqueEpee> _aEnlever;
     private float _angleZone = (float)Math.PI / 2;
     private float _vitRot = (float)Math.PI;
+    public float _degat {get;set;} = 15; //UpgDegatEpee ->  15,  * 1.2 
+    public float _recul {get;set;} = 1; //UpgReculEpee
 
     public Epee(Joueur joueur, EcranJeu ecranJeu)
         : base(
@@ -173,6 +175,7 @@ public class AttaqueEpee
             {
                 frappes.Add(monstre);
                 monstre.RecevoirDegat(10);
+                monstre.AjouterRecul(_epee.getJoueur().getPosition(),20);
             }
         }
     }
