@@ -22,6 +22,8 @@ public class Epee : AbstractArme
     private List<AttaqueEpee> _aEnlever;
     private float _angleZone = (float)Math.PI / 2;
     private float _vitRot = (float)Math.PI;
+    public float _degat {get;set;} = 15; //UpgDegatEpee ->  15,  * 1.2 
+    public float _recul {get;set;} = 1; //UpgReculEpee
 
     public Epee(Joueur joueur, EcranJeu ecranJeu)
         : base(
@@ -33,7 +35,7 @@ public class Epee : AbstractArme
             ],
             joueur,
             1f,
-            100,
+            new Vector2(10,100),
             ecranJeu
         )
     {
@@ -93,7 +95,7 @@ public class Epee : AbstractArme
     protected override void UpdatePos(float deltaT)
     {
         //Place l'arme dans la direction ou la souris pointe
-        _position = _joueur.getPosition() + getDir() * (_joueur.getRayon() + _longueur / 2);
+        _position = _joueur.getPosition() + getDir() * (_joueur.getRayon() + _dimensions.Y / 2);
         _forme = PolyGen.tournerMatrice(_formeBase, PolyGen.angleVecteur(getDir()) - _angleZone);
     }
 
@@ -173,6 +175,7 @@ public class AttaqueEpee
             {
                 frappes.Add(monstre);
                 monstre.RecevoirDegat(10);
+                monstre.AjouterRecul(_epee.getJoueur().getPosition(),20);
             }
         }
     }
@@ -183,17 +186,83 @@ public class AttaqueEpee
         Vector2[] forme = getZoneDegat(deltaT);
 
 
-        if (collisionLigneCercle(monstre.getPosition(), monstre.getRayon(), forme[0], forme[1]))
-        {
+        //Points dans monstre
+        Vector2 c1 = forme[0] - monstre.getPosition();
+        if(c1.Length() < monstre.getRayon()){
             return true;
         }
-        if (collisionLigneCercle(monstre.getPosition(), monstre.getRayon(), forme[1], forme[2]))
-        {
+
+        Vector2 c2 = forme[1] - monstre.getPosition();
+        if(c2.Length() < monstre.getRayon()){
             return true;
         }
-        if (collisionLigneCercle(monstre.getPosition(), monstre.getRayon(), forme[2], forme[0]))
-        {
+        Vector2 c3 = forme[2] - monstre.getPosition();
+        
+        if(c3.Length() < monstre.getRayon()){
             return true;
+        }
+
+        //Centre du monstre dans forme
+
+        float A = forme[1].Y - forme[0].Y;
+        float B = forme[0].X - forme[1].X;
+
+        if(   (forme[1].Y- forme[0].Y) * (monstre.getPosition().X - forme[0].X) 
+            - (forme[1].X- forme[0].X) * (monstre.getPosition().Y - forme[0].Y)  >= 0 &
+
+              (forme[2].Y- forme[1].Y) * (monstre.getPosition().X - forme[1].X) 
+            - (forme[2].X- forme[1].X) * (monstre.getPosition().Y - forme[1].Y)  >= 0 &
+
+              (forme[0].Y- forme[2].Y) * (monstre.getPosition().X - forme[2].X) 
+            - (forme[0].X- forme[2].X) * (monstre.getPosition().Y - forme[2].Y)  >= 0){
+                return true;
+        }
+
+        //Cercle touche au cote
+
+        c1 = -c1;
+        Vector2 e1 = forme[1] - forme[0];
+
+        float k = Vector2.Dot(c1,e1);        
+        if(k > 0){
+            float l = e1.LengthSquared();
+            k = k*k/l;
+
+            if(k < l){
+                if(c1.LengthSquared() - k <= monstre.getRayon() * monstre.getRayon()){
+                    return true;
+                }
+            }
+        }
+
+        c2 = -c2;
+        Vector2 e2 = forme[2] - forme[1];
+
+        k = Vector2.Dot(c2,e2);        
+        if(k > 0){
+            float l = e2.LengthSquared();
+            k = k*k/l;
+
+            if(k < l){
+                if(c2.LengthSquared() - k <= monstre.getRayon() * monstre.getRayon()){
+                    return true;
+                }
+            }
+        }
+
+        c3 = -c3;
+        Vector2 e3 = forme[0] - forme[2];
+
+        k = Vector2.Dot(c3,e3);        
+        if(k > 0){
+            float l = e3.LengthSquared();
+            k = k*k/l;
+
+            if(k < l){
+                if(c3.LengthSquared() - k <= monstre.getRayon() * monstre.getRayon()){
+                    return true;
+                }
+            }
         }
 
 
@@ -201,22 +270,7 @@ public class AttaqueEpee
 
         return false;
     }
-    private bool collisionLigneCercle(Vector2 pos, float rayon, Vector2 p1, Vector2 p2)
-    {
-        Vector2 dif = p2 - p1;
 
-
-        float A = dif.LengthSquared();
-        float B = 2 * (dif.X * (p1.X - pos.X) + dif.Y * (p1.Y - pos.Y));
-        float C = (p1.X - pos.X) * (p1.X - pos.X) + (p1.Y - pos.Y) * (p1.Y - pos.Y) - rayon * rayon;
-
-        float det = B * B - 4 * A * C;
-        if ((A <= 0.0000001) || (det < 0))
-        {
-            return false;
-        }
-        return true;
-    }
 
     public Vector2[] getZoneDegat(float deltaT)
     {
@@ -226,12 +280,12 @@ public class AttaqueEpee
         zone[1] =
             zone[0]
             + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
-                * (_epee.getJoueur().getRayon() + _epee._longueur);
+                * (_epee.getJoueur().getRayon() + _epee._dimensions.Y);
         float apres = _act - _epee.getVitRot() * deltaT;
         zone[2] =
             zone[0]
             + new Vector2((float)Math.Cos(apres), (float)Math.Sin(apres))
-                * (_epee.getJoueur().getRayon() + _epee._longueur);
+                * (_epee.getJoueur().getRayon() + _epee._dimensions.Y);
 
         return zone;
     }

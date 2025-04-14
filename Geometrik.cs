@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using desktop.armes;
 using desktop.gameobjects;
 using desktop.pages;
 using desktop.utils;
@@ -71,8 +72,8 @@ public class Geometrik : Game
     public void LoadEcranAcceuil(){
         _screenManager.LoadScreen(new EcranAcceuil(this));
     }
-    public void LoadEcranJeu(){
-        _screenManager.LoadScreen(new EcranJeu(this));
+    public void LoadEcranJeu(TypesArmes typesArme){
+        _screenManager.LoadScreen(new EcranJeu(this,typesArme));
     }
     public void LoadEcranInscription(){
         _screenManager.LoadScreen(new EcranInscription(this));
@@ -83,8 +84,8 @@ public class Geometrik : Game
     public void LoadEcranSelection(){
         _screenManager.LoadScreen(new EcranSelection(this));
     }
-    public void LoadEcranScore(Score score){
-        _screenManager.LoadScreen(new EcranScore(this,score));
+    public void LoadEcranScore(){
+        _screenManager.LoadScreen(new EcranScore(this));
     }
 
     

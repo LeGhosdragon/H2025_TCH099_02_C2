@@ -6,6 +6,7 @@ using System.Text.Json.Nodes;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace desktop.utils;
 
@@ -18,7 +19,7 @@ public class ReponseConnexion
 {
     public bool Reussite { get; set; } = false;
     public string[] Erreurs { get; set; } = [];
-    public string jeton { get; set; }
+    public string Jeton { get; set; }
 }
 public class ReponseAjouterPalmares
 {
@@ -27,17 +28,19 @@ public class ReponseAjouterPalmares
 }
 public class ReponseObtenirPalmares
 {
-    public bool Reussite {get;set;} = false;
-    public Palmares[] Palmares {get;set;} = [];
+    public bool Reussite { get; set; } = false;
+    public Palmares[] Palmares { get; set; } = [];
+    public string Erreur { get; set; }
 }
-public class Palmares{
-    public int Id {get;set;}
-    public string Nom_Utilisateur {get;set;}
-    public int Score {get;set;}
-    public int Temps_Partie {get;set;}
-    public int Experience {get;set;}
-    public int Ennemis_Enleve {get;set;}
-    public string Date_Soumission {get;set;}
+public class Palmares
+{
+    public int Id { get; set; }
+    public string Nom_Utilisateur { get; set; }
+    public int Score { get; set; }
+    public int Temps_Partie { get; set; }
+    public int Experience { get; set; }
+    public int Ennemis_Enleve { get; set; }
+    public string Date_Soumission { get; set; }
 
 }
 public static class LocalAPI
@@ -63,14 +66,24 @@ public static class LocalAPI
     /// <returns>Retourne la reponse de la requete</returns>
     public async static Task<ReponseInscription> Inscription(String id, String mdp)
     {
-        ReponseInscription reponse = null;
+        ReponseInscription reponse = new ReponseInscription();
         Dictionary<String, String> form = new() { { "passe", mdp }, { "identifiant", id } };
         HttpContent corps = new FormUrlEncodedContent(form);
-        HttpResponseMessage response = await client.PostAsync("inscription", corps);
-        if (response.IsSuccessStatusCode)
+        try
         {
-            reponse = await response.Content.ReadFromJsonAsync<ReponseInscription>();
+            HttpResponseMessage response = await client.PostAsync("inscription", corps);
+            if (response.IsSuccessStatusCode)
+            {
+                reponse = await response.Content.ReadFromJsonAsync<ReponseInscription>();
+            }else
+            {
+                reponse.Erreurs = new[] { "Erreur de connexion code: " + response.StatusCode };
+
+            }
+        }catch(HttpRequestException e){
+            reponse.Erreurs = new[] { "Erreur de connexion au serveur" };
         }
+
         return reponse;
     }
     /// <summary>
@@ -81,18 +94,34 @@ public static class LocalAPI
     /// <returns>Retourne la reponse le la rquete</returns>
     public async static Task<ReponseConnexion> Connexion(string identifiant, string passe)
     {
-        ReponseConnexion reponse = null;
+        ReponseConnexion reponse = new ReponseConnexion();
         Dictionary<string, string> form = new() { { "passe", passe }, { "identifiant", identifiant } };
+
         HttpContent corps = new FormUrlEncodedContent(form);
-        HttpResponseMessage response = await client.PostAsync("connexion", corps);
-        if (response.IsSuccessStatusCode)
+        try
         {
-            reponse = await response.Content.ReadFromJsonAsync<ReponseConnexion>();
+            HttpResponseMessage response = await client.PostAsync("connexion", corps);
+
+            if (response.IsSuccessStatusCode)
+            {
+                reponse = await response.Content.ReadFromJsonAsync<ReponseConnexion>();
+                if (reponse.Reussite)
+                {
+                    _nomUtilisateur = identifiant;
+                    JetonConnexion = reponse.Jeton;
+                }
+                return reponse;
+            }
+            else
+            {
+                reponse.Erreurs = new[] { "Erreur de connexion code: " + response.StatusCode };
+
+            }
         }
-        if (reponse.Reussite)
+        catch (HttpRequestException e)
         {
-            _nomUtilisateur = identifiant;
-            JetonConnexion = reponse.jeton;
+            reponse.Erreurs = new[] { "Erreur de connexion au serveur" };
+
         }
         return reponse;
     }
@@ -121,6 +150,7 @@ public static class LocalAPI
         HttpContent corps = new FormUrlEncodedContent(form);
 
         //Envoie la requete
+
         HttpResponseMessage response = await client.PostAsync("palmares/ajouter", corps);
 
         if (response.IsSuccessStatusCode)
@@ -134,18 +164,27 @@ public static class LocalAPI
     /// Obtiens les scores qui sont dans la base de donnee
     /// </summary>
     /// <returns>Reponse dela requete</returns>
-    public async static Task<Palmares[]> ObtenirPalmares()
+    public async static Task<ReponseObtenirPalmares> ObtenirPalmares()
     {
-        ReponseObtenirPalmares reponse = null;
-        HttpResponseMessage response = await client.GetAsync("palmares/obtenir");
-
-        if (response.IsSuccessStatusCode)
+        ReponseObtenirPalmares reponse = new ReponseObtenirPalmares();
+        try
         {
-            reponse = await response.Content.ReadFromJsonAsync<ReponseObtenirPalmares>();
-            return reponse.Palmares;
+            HttpResponseMessage response = await client.GetAsync("palmares/obtenir");
+            if (response.IsSuccessStatusCode)
+            {
+                reponse = await response.Content.ReadFromJsonAsync<ReponseObtenirPalmares>();
+                return reponse;
+            }
+            reponse.Erreur = "Erreur de connexion code: " + response.StatusCode;
         }
-        return null;
-        
+        catch (HttpRequestException e)
+        {
+            reponse.Erreur = "Erreur de connexion au serveur";
+        }
+
+
+        return reponse;
+
     }
     /// <summary>
     /// Fait une string avec une liste derreurs (toutes les erreurs sont separes d'une ligne)

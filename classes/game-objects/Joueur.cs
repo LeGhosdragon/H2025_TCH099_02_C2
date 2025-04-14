@@ -103,13 +103,14 @@ public class Joueur : IGameObject
         {
             xMov += 1;
         }
-       Vector2 mov = new Vector2(xMov, yMov);
-
+        Vector2 mov = new Vector2(xMov, yMov);
+        
         if(xMov != 0 || yMov != 0){
             mov.Normalize();
 
             _position += mov * deltaT * _vitesse;
         }
+
 
         if (_experience > getExpReq())
         {

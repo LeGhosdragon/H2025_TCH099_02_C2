@@ -43,6 +43,7 @@ public class Monstre : AbstractGameObject
 
     public override void Update(float deltaT)
     {
+        AppliquerRecul(deltaT);
         bouger(_ecranJeu._joueur.getPosition(), deltaT);
         eviterCollisions(deltaT);
         if (collisionJoueur()) { 
@@ -110,6 +111,17 @@ public class Monstre : AbstractGameObject
             _ecranJeu.EnleverObjet(this);
             _ecranJeu._score._ennemisEnleve += 1;
             new Experience(this._position, (int)_exp ,_ecranJeu);
+    }
+    protected Vector2 recul = new Vector2(0,0);
+    public void AppliquerRecul(float deltaT){
+        Vector2 aplique = recul * deltaT  * 0.92f;
+        this._position += aplique;
+        this.recul -= aplique;
+    }
+    public void AjouterRecul(Vector2 source,float force){
+        Vector2 dir = _position - source;
+        dir.Normalize();
+        recul += dir * force;
     }
 
     /// <summary>
