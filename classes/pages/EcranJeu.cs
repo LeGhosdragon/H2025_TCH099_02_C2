@@ -22,7 +22,7 @@ public class EcranJeu : GameScreen
     public Joueur _joueur { get; }
     protected List<IGameObject> _objets;
     protected Chrono _chronoMonstre;
-    protected int _banqueExp = 0;
+    public int _banqueExp { get; set; }
     public bool _arrete = false;
     public bool _menuPause = false;
     public SpriteFont _font {get;set;}
@@ -41,7 +41,7 @@ public class EcranJeu : GameScreen
             nomUtilisateur = LocalAPI._nomUtilisateur;
         }
         _score = new Score(nomUtilisateur);
-
+        _banqueExp = 0;
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
 
@@ -103,7 +103,8 @@ public class EcranJeu : GameScreen
                 // GenererMonstres("normal", 5);
                 // GenererMonstres("runner", 3);
                 // GenererMonstres("tank", 3);
-                GenererMonstres("gunner", 3);
+                // GenererMonstres("bossGunner", 1);
+                GenererMonstres("bossNormal", 1);
             }
             foreach(ProjectileEnnemi projectile in MonstreGunner.getProjectiles().Reverse<ProjectileEnnemi>()){
                 projectile.Update(deltaT, _joueur);

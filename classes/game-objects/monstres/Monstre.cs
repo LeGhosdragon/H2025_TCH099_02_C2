@@ -9,6 +9,7 @@ namespace desktop.gameobjects;
 
 public class Monstre : AbstractGameObject
 {
+    static List<ProjectileEnnemi> _projectiles = new List<ProjectileEnnemi>();
     protected EcranJeu _ecranJeu;
     protected float _vitesse;
     protected float _vitesseRot;
@@ -18,6 +19,7 @@ public class Monstre : AbstractGameObject
     protected float _exp;
     protected float _dmg;
     protected bool _text;
+    public int _rayonBalles;
     public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon, string type = "normal", float vitesse = 20, int vitesseRot = 1, float hp = 15, float exp = 1, float dmg = 1)
         : base(forme, position, 1)
     {
@@ -63,7 +65,7 @@ public class Monstre : AbstractGameObject
     /// Evite les collisions avec tout les monstres
     /// </summary>
     /// <param name="deltaT">difference entre la derniere update</param>
-    protected void eviterCollisions(float deltaT)
+    protected virtual void eviterCollisions(float deltaT)
     {
         List<Monstre> monstres = _ecranJeu.GetMonstres();
         monstres.Remove(this);
@@ -75,7 +77,7 @@ public class Monstre : AbstractGameObject
     /// </summary>
     /// <param name="monstre">monstre a evite</param>
     /// <param name="deltaT">difference entre la derniere update</param>
-    protected void eviterCollisions(Monstre monstre, float deltaT)
+    protected virtual void eviterCollisions(Monstre monstre, float deltaT)
     {
         float minDistance = 1.7f * _forme[0].Length();
         float facteurEviter = 0.5f;
@@ -95,7 +97,7 @@ public class Monstre : AbstractGameObject
     /// </summary>
     /// <param name="degat">Nombre de degat subit</param>
     /// <returns>true si le monstre est mort</returns>
-    public bool RecevoirDegat(float degat){
+    public virtual bool RecevoirDegat(float degat){
         _hp -= degat;
         if(_hp <= 0){
             Mourrir();
@@ -104,10 +106,10 @@ public class Monstre : AbstractGameObject
         return false;
     }
 
-    public void Mourrir(){
+    public virtual void Mourrir(){
             _ecranJeu.EnleverObjet(this);
             _ecranJeu._score._ennemisEnleve += 1;
-            new Experience(this._position,10,_ecranJeu);
+            new Experience(this._position, (int)_exp ,_ecranJeu);
     }
 
     /// <summary>
@@ -115,7 +117,7 @@ public class Monstre : AbstractGameObject
     /// </summary>
     /// <param name="posJoueur">posiition du joueur</param>
     /// <param name="deltaT">difference de temps</param>
-    public void bouger(Vector2 posJoueur, float deltaT)
+    public virtual void bouger(Vector2 posJoueur, float deltaT)
     {
         Vector2 mouvement = Vector2.Normalize(posJoueur - _position);
         _position += mouvement * deltaT * _vitesse;
@@ -133,5 +135,23 @@ public class Monstre : AbstractGameObject
         float rayJ = _ecranJeu._joueur.getRayon();
         float dist = (posJ - _position).Length();
         return rayJ + _rayon > dist;
+    }
+
+    public float getDmg()
+    {
+        return _dmg;
+    }
+
+    public static List<ProjectileEnnemi> getProjectiles()
+    {
+        return _projectiles;
+    }
+    public static void EnleverProjectile(ProjectileEnnemi projectile)
+    {
+        _projectiles.Remove(projectile);
+    }
+    public static void AjouterProjectile(ProjectileEnnemi projectile)
+    {
+        _projectiles.Add(projectile);
     }
 }

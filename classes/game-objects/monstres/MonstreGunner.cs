@@ -13,7 +13,6 @@ namespace desktop.gameobjects;
 
 public class MonstreGunner : Monstre
 {
-    static List<ProjectileEnnemi> _projectiles = new List<ProjectileEnnemi>();
     const int vitesse = 20; 
     const int rayon = 10; 
     const int hp = 15; 
@@ -25,7 +24,6 @@ public class MonstreGunner : Monstre
     public int _lastShotTime;
     public int _currentTime;
     public bool _isOnCooldown;
-    public int _rayonBalles;
     public int _vitesseBalle;
 
     public MonstreGunner(int sides, EcranJeu ecranJeu, float ennemiDifficultee)
@@ -62,29 +60,13 @@ public class MonstreGunner : Monstre
         base.Update(deltaT);
     }
 
-    public float getDmg()
-    {
-        return _dmg;
-    }
-    public static List<ProjectileEnnemi> getProjectiles()
-    {
-        return _projectiles;
-    }
-    public static void EnleverProjectile(ProjectileEnnemi projectile)
-    {
-        _projectiles.Remove(projectile);
-    }
-    public static void AjouterProjectile(ProjectileEnnemi projectile)
-    {
-        _projectiles.Add(projectile);
-    }
 }
 
 public class ProjectileEnnemi 
 {
     private Vector2 _vitesse;
     private Vector2 _position;
-    private MonstreGunner _monstre;
+    private Monstre _monstre;
 
     /// <summary>
     /// Verifie si il y a une collision avec le monstre
@@ -101,7 +83,7 @@ public class ProjectileEnnemi
             MonstreGunner.EnleverProjectile(this);
         }
     }
-    public ProjectileEnnemi(Vector2 position, MonstreGunner monstre, Vector2 vitesse)
+    public ProjectileEnnemi(Vector2 position, Monstre monstre, Vector2 vitesse)
     {   
         _vitesse = vitesse;
         _position = position;

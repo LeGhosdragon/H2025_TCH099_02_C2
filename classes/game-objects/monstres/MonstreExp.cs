@@ -8,19 +8,19 @@ using Microsoft.Xna.Framework;
 
 namespace desktop.gameobjects;
 
-public class MonstreNormal : Monstre
+public class MonstreExp : Monstre
 {
     const int vitesse = 20; 
-    const int rayon = 20; 
-    const int hp = 25; 
+    const int rayon = 40; 
+    const int hp = 250; 
     const int dmg = 1; 
-    const string type = "normal";
+    const string type = "exp";
     const int vitesseRot = 1;
     const float exp = 2;
-    public MonstreNormal(int sides, EcranJeu ecranJeu, float ennemiDifficultee, bool bossSpawn = false, Vector2 position = default(Vector2))
+    public MonstreExp(EcranJeu ecranJeu, float ennemiDifficultee)
     : base(
-        PolyGen.GetPoly(sides, rayon), 
-        !bossSpawn ? GenerateurMonstre.GenererPositionMonstreBordures(rayon, ecranJeu) : position, 
+        PolyGen.GetPoly(3, rayon), 
+        GenerateurMonstre.GenererPositionMonstreBordures(rayon, ecranJeu), 
         ecranJeu, 
         rayon, 
         type, 
@@ -30,6 +30,13 @@ public class MonstreNormal : Monstre
         (float)Math.Round(exp + ennemiDifficultee/3), 
         (float)Math.Round(dmg * ennemiDifficultee)
     ){}
+
+    public override void Mourrir(){
+        _ecranJeu.EnleverObjet(this);
+        _ecranJeu._score._ennemisEnleve += 1;
+        new Experience(_position, _ecranJeu._banqueExp/2, _ecranJeu);
+        _ecranJeu._banqueExp -= _ecranJeu._banqueExp/2;
+    }
     public override void Update(float deltaT)
     {
         base.Update(deltaT);

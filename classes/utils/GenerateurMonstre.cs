@@ -71,12 +71,16 @@ public class GenerateurMonstre
     /// <summary>
     /// Cree un nouveau monstre et l'ajoute dans le jeu
     /// </summary>
-    public static void GenererMonstre(string type, EcranJeu ecranJeu, List<IGameObject> _objets, float ennemiDifficultee)
+    public static void GenererMonstre(string type, EcranJeu ecranJeu, List<IGameObject> _objets, float ennemiDifficultee, bool fromBoss = false, Vector2 pos = default(Vector2))
     {
         Monstre monstre = null;
+        if (pos == default(Vector2))
+        {
+            pos = GenererPositionMonstreBordures(2, ecranJeu);
+        }
         switch(type){
             case "normal":
-                monstre = new MonstreNormal( 4, ecranJeu, ennemiDifficultee);
+                monstre = new MonstreNormal( 4, ecranJeu, ennemiDifficultee, fromBoss, pos);
                 break;
             case "runner":
                 monstre = new MonstreRunner( 3, ecranJeu, ennemiDifficultee);
@@ -86,6 +90,12 @@ public class GenerateurMonstre
                 break;
             case "gunner":
                 monstre = new MonstreGunner( 2, ecranJeu, ennemiDifficultee);
+                break;
+            case "bossGunner":
+                monstre = new BossGunner( 2, ecranJeu, ennemiDifficultee);
+                break;
+            case "bossNormal":
+                monstre = new BossNormal( 3, ecranJeu, ennemiDifficultee);
                 break;
             default:
 
