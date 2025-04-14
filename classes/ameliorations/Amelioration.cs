@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using desktop.ameliorations.arme;
+using desktop.ameliorations.arme.epee;
 using desktop.ameliorations.arme.fusil;
 using desktop.ameliorations.joueur;
 using desktop.armes;
@@ -58,6 +59,11 @@ public abstract class Amelioration{
 
 
         //Ameliorations de l'epee
+
+        //Degat de l'epee
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgDegatEpee(img));
+
     }
     public static Amelioration[] obtenirAmeliorations(int quantiee, IArme typeArme){
         Amelioration[] choixPossibles = _ameliorations.FindAll(a =>{
