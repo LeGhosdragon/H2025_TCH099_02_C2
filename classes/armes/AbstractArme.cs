@@ -29,7 +29,7 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     /// <summary>
     /// Permet de bien placcer l'arme autour du joueur
     /// </summary>
-    public Vector2 _dimensions { get; }
+    public Vector2 _dimensions { get;set; }
 
     protected EcranJeu _ecran;
     protected List<Touche> _touches = new List<Touche>();

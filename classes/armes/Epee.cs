@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.Intrinsics.Arm;
 using desktop.gameobjects;
@@ -120,6 +121,14 @@ public class Epee : AbstractArme
     public Joueur getJoueur()
     {
         return _joueur;
+    }
+    public void Grandir(float px){
+        _dimensions += new Vector2(0,px);
+        for(int i = 0; i < _formeBase.Count() ;i++){
+            if(_formeBase[i].Y != 0){
+                        _formeBase[i].Y += px;
+            }
+        }
     }
 }
 
