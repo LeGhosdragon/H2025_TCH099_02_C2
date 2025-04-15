@@ -66,7 +66,7 @@ public abstract class Amelioration{
 
         //Largeur de l'epee
         img = content.Load<Texture2D>("ball");
-        _ameliorations.Add(new UpgLageurEpee(img));
+        _ameliorations.Add(new UpgTailleEpee(img));
 
     }
     public static Amelioration[] obtenirAmeliorations(int quantiee, IArme typeArme){

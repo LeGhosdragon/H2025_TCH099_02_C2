@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace desktop.ameliorations.arme.epee;
 
-public class UpgLageurEpee: AbstractUpgEpee{
+public class UpgTailleEpee: AbstractUpgEpee{
 
-    public UpgLageurEpee(Texture2D image) : base(image, "Augmente la taille de l'épée", -1)
+    public UpgTailleEpee(Texture2D image) : base(image, "Augmente la taille de l'épée", -1)
     {
     }
 
