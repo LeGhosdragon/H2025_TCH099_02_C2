@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.Intrinsics.Arm;
 using desktop.gameobjects;
@@ -20,10 +21,10 @@ public class Epee : AbstractArme
     /// </summary>
     private List<AttaqueEpee> attaques;
     private List<AttaqueEpee> _aEnlever;
-    private float _angleZone = (float)Math.PI / 2;
+    public float _angleZone {get;set;} = (float)Math.PI / 2; //UpgAireEpee -> PI/2, *v1.1
     private float _vitRot = (float)Math.PI;
     public float _degat {get;set;} = 15; //UpgDegatEpee ->  15,  * 1.2 
-    public float _recul {get;set;} = 1; //UpgReculEpee
+    public float _recul {get;set;} = 1; //UpgReculEpee -> 1, + 2
 
     public Epee(Joueur joueur, EcranJeu ecranJeu)
         : base(
@@ -121,6 +122,14 @@ public class Epee : AbstractArme
     {
         return _joueur;
     }
+    public void Grandir(float px){
+        _dimensions += new Vector2(0,px);
+        for(int i = 0; i < _formeBase.Count() ;i++){
+            if(_formeBase[i].Y != 0){
+                        _formeBase[i].Y += px;
+            }
+        }
+    }
 }
 
 /// <summary>
@@ -174,8 +183,8 @@ public class AttaqueEpee
             if (!frappes.Contains(monstre) & DetecterCollision(monstre, deltaT))
             {
                 frappes.Add(monstre);
-                monstre.RecevoirDegat(10);
-                monstre.AjouterRecul(_epee.getJoueur().getPosition(),20);
+                monstre.RecevoirDegat(_epee._degat);
+                monstre.AjouterRecul(_epee.getJoueur().getPosition(),_epee._recul);
             }
         }
     }
