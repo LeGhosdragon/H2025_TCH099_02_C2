@@ -16,8 +16,8 @@ public abstract class Amelioration{
     public static List<Amelioration> _ameliorations {get;set;} = new List<Amelioration>() ;
     protected int _limite {get;set;}
     public Texture2D _image {get;set;}
-    public String _description { get;}
-    public Amelioration(Texture2D image,String description,int limite){
+    public string _description { get;}
+    public Amelioration(Texture2D image,string description,int limite){
         _image = image;
         _description = description;
         _limite = limite;
@@ -67,6 +67,18 @@ public abstract class Amelioration{
         //Largeur de l'epee
         img = content.Load<Texture2D>("ball");
         _ameliorations.Add(new UpgTailleEpee(img));
+
+        //Vitesse d'attaque de l'épée
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgVitAttaqueEpee(img));
+
+        //Aire de l'épée
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgAireEpee(img));
+
+        //Recul de l'épée
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgReculEpee(img));
 
     }
     public static Amelioration[] obtenirAmeliorations(int quantiee, IArme typeArme){
