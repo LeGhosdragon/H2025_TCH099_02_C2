@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using desktop;
 using desktop.ameliorations;
 using desktop.armes;
 using desktop.evenements;
@@ -14,7 +15,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;
 
-namespace desktop.pages;
 
 public class EcranJeu : GameScreen
 {
@@ -23,23 +23,24 @@ public class EcranJeu : GameScreen
     protected Fond _fond = new Fond();
     protected List<IGameObject> _objets;
     public int _banqueExp { get; set; }
-    protected DirecteurEvenement _directeurEvenement {get;} 
-    public SpriteFont _font {get;set;}
-    public Score _score {get;set;}
+    protected DirecteurEvenement _directeurEvenement { get; }
+    public SpriteFont _font { get; set; }
+    public Score _score { get; set; }
     /// <summary>
     /// Touches qui ont ete appuye pour lesquels les eevenements on deja ete actives
     /// </summary>
     public List<Touche> _touches = new List<Touche>();
 
 
-    public EtatJeu _etat {get;set;} =  EtatJeu.EN_COURS;
-    
+    public EtatJeu _etat { get; set; } = EtatJeu.EN_COURS;
 
-    public EcranJeu(Game game,TypesArmes typesArme) : base(game)
+
+    public EcranJeu(Game game, TypesArmes typesArme) : base(game)
     {
         _directeurEvenement = new DirecteurEvenement(this);
         string nomUtilisateur = "Invite";
-        if(LocalAPI._nomUtilisateur != null){
+        if (LocalAPI._nomUtilisateur != null)
+        {
             nomUtilisateur = LocalAPI._nomUtilisateur;
         }
         _score = new Score(nomUtilisateur);
@@ -49,14 +50,15 @@ public class EcranJeu : GameScreen
 
         AbstractArme arme;
 
-        switch (typesArme){
+        switch (typesArme)
+        {
             case TypesArmes.EPEE:
-            arme = new Epee(_joueur,this);
-            break;
+                arme = new Epee(_joueur, this);
+                break;
             case TypesArmes.FUSIL:
             default:
-             arme = new Fusil(_joueur, this);
-            break;
+                arme = new Fusil(_joueur, this);
+                break;
         }
         _joueur._arme = arme;
         _objets.Add(arme);
@@ -95,7 +97,7 @@ public class EcranJeu : GameScreen
     }
 
     public override void Update(GameTime gameTime)
-    {           
+    {
         float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         Touche.enleverTouches(_touches);
@@ -104,9 +106,12 @@ public class EcranJeu : GameScreen
         if (Touche.ValiderTouche(_touches, ControlesEnum.PAUSE) && Controle.enfonceClavier(ControlesEnum.PAUSE))
         {
             _touches.Add(new Touche(ControlesEnum.PAUSE));
-            if(_etat == EtatJeu.PAUSE){
+            if (_etat == EtatJeu.PAUSE)
+            {
                 _etat = EtatJeu.EN_COURS;
-            }else if(_etat == EtatJeu.EN_COURS){
+            }
+            else if (_etat == EtatJeu.EN_COURS)
+            {
                 _etat = EtatJeu.PAUSE;
             }
         }
@@ -115,14 +120,8 @@ public class EcranJeu : GameScreen
         {
             _directeurEvenement.Update(deltaT);
 
-         
-            // GenererMonstres("normal", 5);
-            // GenererMonstres("runner", 3);
-            // GenererMonstres("tank", 3);
-            // GenererMonstres("bossGunner", 1);
-            GenererMonstres("bossNormal", 1);
-            
-            foreach(ProjectileEnnemi projectile in MonstreGunner.getProjectiles().Reverse<ProjectileEnnemi>()){
+            foreach (ProjectileEnnemi projectile in MonstreGunner.getProjectiles().Reverse<ProjectileEnnemi>())
+            {
                 projectile.Update(deltaT, _joueur);
 
             }
@@ -130,12 +129,14 @@ public class EcranJeu : GameScreen
             {
                 objet.Update(deltaT);
             }
-  
+
             _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         }
-        if(boites != null){
-            foreach (BoiteAmelioration boite in boites){
-                boite.Update(deltaT,Game.GraphicsDevice);
+        if (boites != null)
+        {
+            foreach (BoiteAmelioration boite in boites)
+            {
+                boite.Update(deltaT, Game.GraphicsDevice);
             }
         }
 
@@ -146,11 +147,14 @@ public class EcranJeu : GameScreen
     /// Genere une quantitee desiree de monstres
     /// </summary>
     /// <param name="quantitee">quantitee de monstres a generer</param>
-    public void GenererMonstres(string type, int quantitee)
+    public void GenererMonstres(string type, int quantitee, int degreeDiff, bool fromBoss = false)
     {
         for (int i = 0; i < quantitee; i++)
         {
-            GenerateurMonstre.GenererMonstre(type, this, _objets, 1);
+            if(!fromBoss)
+                GenerateurMonstre.GenererMonstre(type, this, _objets, 1, degreeDiff);
+            else
+                GenerateurMonstre.GenererMonstre(type, this, _objets, 1, degreeDiff, fromBoss, Monstre.GetMonstre("bossNormal").getPosition());
         }
     }
 
@@ -208,31 +212,36 @@ public class EcranJeu : GameScreen
         }
 
     }
-    public void terminerAmelioration(){
-                foreach (BoiteAmelioration boite in boites)
+    public void terminerAmelioration()
+    {
+        foreach (BoiteAmelioration boite in boites)
         {
             UserInterface.Active.RemoveEntity(boite);
         }
         _etat = EtatJeu.EN_COURS;
     }
-    public void FinPartie(){
-        if(_etat != EtatJeu.EN_COURS){
+    public void FinPartie()
+    {
+        if (_etat != EtatJeu.EN_COURS)
+        {
             return;
         }
         _etat = EtatJeu.FIN;
-        BoiteScore boiteScore = new BoiteScore(_score,this);
+        BoiteScore boiteScore = new BoiteScore(_score, this);
         UserInterface.Active.AddEntity(boiteScore);
     }
-    public void ChargerEcranScore(Score score){
+    public void ChargerEcranScore(Score score)
+    {
         UnloadContent();
         Game.LoadEcranScore();
         AjouterPalmares(score);
     }
-    public override void UnloadContent(){
+    public override void UnloadContent()
+    {
         UserInterface.Active.Clear();
     }
 
-        private void AjouterPalmares(Score score)
+    private void AjouterPalmares(Score score)
     {
 
         Thread t1 = new Thread(async () =>
@@ -245,7 +254,8 @@ public class EcranJeu : GameScreen
         });
         t1.Start();
     }
-    public enum EtatJeu {
+    public enum EtatJeu
+    {
         EN_COURS,
         AMELIORATION,
         FIN,

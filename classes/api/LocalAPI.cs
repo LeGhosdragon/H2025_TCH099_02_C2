@@ -81,7 +81,7 @@ public static class LocalAPI
 
             }
         }catch(HttpRequestException e){
-            reponse.Erreurs = new[] { "Erreur de connexion au serveur" };
+            reponse.Erreurs = new[] { "Erreur de connexion au serveur" + e.Message};
         }
 
         return reponse;
@@ -120,7 +120,7 @@ public static class LocalAPI
         }
         catch (HttpRequestException e)
         {
-            reponse.Erreurs = new[] { "Erreur de connexion au serveur" };
+            reponse.Erreurs = new[] { "Erreur de connexion au serveur" + e.Message };
 
         }
         return reponse;
@@ -179,7 +179,7 @@ public static class LocalAPI
         }
         catch (HttpRequestException e)
         {
-            reponse.Erreur = "Erreur de connexion au serveur";
+            reponse.Erreur = "Erreur de connexion au serveur: " + e.Message;
         }
 
 

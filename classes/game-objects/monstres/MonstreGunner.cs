@@ -13,10 +13,10 @@ namespace desktop.gameobjects;
 
 public class MonstreGunner : Monstre
 {
-    const int vitesse = 20; 
-    const int rayon = 10; 
-    const int hp = 15; 
-    const int dmg = 1; 
+    const int vitesse = 20;
+    const int rayon = 10;
+    const int hp = 15;
+    const int dmg = 1;
     const string type = "gunner";
     const int vitesseRot = 0;
     const float exp = 4;
@@ -28,18 +28,19 @@ public class MonstreGunner : Monstre
 
     public MonstreGunner(int sides, EcranJeu ecranJeu, float ennemiDifficultee)
     : base(
-        PolyGen.GetPoly(sides, rayon), 
-        GenerateurMonstre.GenererPositionMonstreBordures(rayon, ecranJeu), 
-        ecranJeu, 
-        rayon, 
-        type, 
-        vitesse, 
-        vitesseRot, 
-        (float)Math.Round(hp * Math.Pow(ennemiDifficultee, 1.2)), 
-        (float)Math.Round(exp + 4 * ennemiDifficultee/3), 
+        PolyGen.GetPoly(sides, rayon),
+        GenerateurMonstre.GenererPositionMonstreBordures(rayon, ecranJeu),
+        ecranJeu,
+        rayon,
+        type,
+        vitesse,
+        vitesseRot,
+        (float)Math.Round(hp * Math.Pow(ennemiDifficultee, 1.2)),
+        (float)Math.Round(exp + 4 * ennemiDifficultee / 3),
         (float)Math.Round(dmg * ennemiDifficultee)
-    ){
-        _shootInterval = 250;
+    )
+    {
+        _shootInterval = 2500;
         _lastShotTime = 0;
         _currentTime = 0;
         _isOnCooldown = false;
@@ -49,20 +50,25 @@ public class MonstreGunner : Monstre
     }
     public override void Update(float deltaT)
     {
-        _currentTime += (int)(deltaT * 1000); // Convertir deltaT en millisecondes
-        if (_currentTime - _lastShotTime >= _shootInterval && !_isOnCooldown)
+        if((_ecranJeu._joueur.getPosition() - _position).Length() <= 450)
         {
-            Vector2 dir = _ecranJeu._joueur.getPosition() - this._position;
-            dir.Normalize();
-            new ProjectileEnnemi(_position, this, dir * _vitesseBalle);
-            _lastShotTime = _currentTime;
+            _currentTime += (int)(deltaT * 1000); // Convertir deltaT en millisecondes
+            if (_currentTime - _lastShotTime >= _shootInterval && !_isOnCooldown)
+            {
+                Vector2 dir = _ecranJeu._joueur.getPosition() - _position;
+                dir.Normalize();
+                new ProjectileEnnemi(_position, this, dir * _vitesseBalle);
+                _lastShotTime = _currentTime;
+            }
         }
         base.Update(deltaT);
     }
 
 }
 
-public class ProjectileEnnemi 
+
+
+public class ProjectileEnnemi
 {
     private Vector2 _vitesse;
     private Vector2 _position;
@@ -78,13 +84,14 @@ public class ProjectileEnnemi
         Vector2 posM = joueur.getPosition();
         float rayM = joueur.getRayon();
         float dist = (posM - _position).Length();
-        if( rayM +_monstre._rayonBalles > dist){
+        if (rayM + _monstre._rayonBalles > dist)
+        {
             joueur.collision(_monstre.getDmg());
             MonstreGunner.EnleverProjectile(this);
         }
     }
     public ProjectileEnnemi(Vector2 position, Monstre monstre, Vector2 vitesse)
-    {   
+    {
         _vitesse = vitesse;
         _position = position;
         _monstre = monstre;
@@ -93,7 +100,7 @@ public class ProjectileEnnemi
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(),_monstre._rayonBalles,_monstre._rayonBalles , Color.Red, _monstre._rayonBalles);
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _monstre._rayonBalles, _monstre._rayonBalles, Color.Red, _monstre._rayonBalles);
     }
 
     public void Update(float deltaT, Joueur joueur)

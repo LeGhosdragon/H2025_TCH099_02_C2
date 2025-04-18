@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/slider_default.png</SourceFile>
   <SourceTime>2025-04-10T11:29:57.6094221-04:00</SourceTime>
   <DestFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/GeonBit.UI/Themes/editor/textures/slider_default.xnb</DestFile>
-  <DestTime>2025-04-10T11:40:19.8619783-04:00</DestTime>
-=======
-  <SourceFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/editor/textures/slider_default.png</SourceFile>
-  <SourceTime>2025-04-12T01:21:23.825927-04:00</SourceTime>
-  <DestFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/GeonBit.UI/Themes/editor/textures/slider_default.xnb</DestFile>
-  <DestTime>2025-04-12T15:22:21.0089523-04:00</DestTime>
->>>>>>> main
+  <DestTime>2025-04-14T17:54:15.0542059-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

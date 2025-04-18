@@ -18,7 +18,7 @@ public class BossGunner : Monstre
     const int rayon = 10; 
     const int hp = 15; 
     const int dmg = 1; 
-    const string type = "gunner";
+    const string type = "bossGunner";
     const int vitesseRot = 0;
     const float exp = 4;
     public int _shootInterval;
@@ -46,17 +46,20 @@ public class BossGunner : Monstre
         _isOnCooldown = false;
         _rayonBalles = 8 * 3;
         _vitesseBalle = 100;
-
+        AjouterBoss(this);
     }
     public override void Update(float deltaT)
     {
-        _currentTime += (int)(deltaT * 1000); // Convertir deltaT en millisecondes
-        Vector2 dir = _ecranJeu._joueur.getPosition() - _position;
-        if (_currentTime - _lastShotTime >= _shootInterval && !_isOnCooldown && dir.Length() <= 450)
+        if((_ecranJeu._joueur.getPosition() - _position).Length() <= 450)
         {
-            dir.Normalize();
-            new ProjectileEnnemi(_position, this, dir * _vitesseBalle);
-            _lastShotTime = _currentTime;
+            _currentTime += (int)(deltaT * 1000); // Convertir deltaT en millisecondes
+            Vector2 dir = _ecranJeu._joueur.getPosition() - _position;
+            if (_currentTime - _lastShotTime >= _shootInterval && !_isOnCooldown && dir.Length() <= 450)
+            {
+                dir.Normalize();
+                new ProjectileEnnemi(_position, this, dir * _vitesseBalle);
+                _lastShotTime = _currentTime;
+            }
         }
         base.Update(deltaT);
     }
