@@ -21,7 +21,7 @@ public class Joueur : IGameObject
     public float _hpBase { get; set; } = 2; //Pas affecte
     public float _hp { get; set; } //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
 
-    public IArme _arme { get; set; }
+    public AbstractArme _arme { get; set; }
     float _rayon = 40;
     int _experience = 0;
     protected int _niveau { get; set; } = 1;

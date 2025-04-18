@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using desktop.gameobjects;
 using desktop.pages;
@@ -30,6 +31,16 @@ public abstract class AbstractArme : AbstractGameObject, IArme
     /// Permet de bien placcer l'arme autour du joueur
     /// </summary>
     public Vector2 _dimensions { get;set; }
+
+    /// <summary>
+    /// Chance d'infliger des degats critiques
+    /// </summary>
+    public float _chanceCritique {get;set;} = 5;
+
+    /// <summary>
+    /// Degat suplementaire ajouter aux attaques critiques
+    /// </summary>
+    public float _degatCritique {get;set;} = 2;
 
     protected EcranJeu _ecran;
     protected List<Touche> _touches = new List<Touche>();
@@ -85,6 +96,13 @@ public abstract class AbstractArme : AbstractGameObject, IArme
 
 
     public abstract void utiliser();
+    public void AppliquerDegat(Monstre monstre, float degat){
+        if (Random.Shared.Next(100) <= _chanceCritique){
+             monstre.RecevoirDegat(_degatCritique * degat);
+            return;
+        }
+        monstre.RecevoirDegat(degat);
+    }
 
 }
 public enum TypesArmes
