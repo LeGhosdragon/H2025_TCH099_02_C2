@@ -16,7 +16,7 @@ public abstract class Amelioration{
     public static List<Amelioration> _ameliorations {get;set;} = new List<Amelioration>() ;
     protected int _limite {get;set;}
     public Texture2D _image {get;set;}
-    public string _description { get;}
+    public string _description { get;set;}
     public Amelioration(Texture2D image,string description,int limite){
         _image = image;
         _description = description;
