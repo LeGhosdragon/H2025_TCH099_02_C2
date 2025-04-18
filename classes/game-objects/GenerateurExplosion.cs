@@ -91,7 +91,10 @@ public class Explosion : IGameObject
             return;
         }
         _position = _generateur._joueur.getPosition();
-        _rayon += _generateur._rayonMax /20 * deltaT;
+
+        //Le 3 est pour correspondre a la duree dans le code web qui correspond a 20 frames donc environ 1/3 de secondes
+        _rayon += _generateur._rayonMax * deltaT * 3;
+
         ValiderCollisions(_generateur.GetMonstres());
     }
     public void ValiderCollisions(List<Monstre> monstres)
@@ -101,11 +104,9 @@ public class Explosion : IGameObject
         {
             if (!_frappes.Contains(monstre) && VerifierCollision(monstre))
             {
-                Console.Write("col");
                 _frappes.Add(monstre);
                 monstre.RecevoirDegat(_generateur._degat);
-                monstre.AjouterRecul(_position,_generateur._recul);
-                
+                monstre.AjouterRecul(_position,_generateur._recul);                
             }
         }
     }

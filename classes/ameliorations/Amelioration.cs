@@ -39,6 +39,10 @@ public abstract class Amelioration{
         img = content.Load<Texture2D>("ball");
         _ameliorations.Add(new UpgVieJoueur(img));
 
+        //Explosion
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgExplosion(img));
+
         //Ameliorations de fusil
 
         //Vitesse attaque
