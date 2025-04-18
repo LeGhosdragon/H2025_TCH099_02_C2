@@ -64,10 +64,10 @@ public static class LocalAPI
     /// <param name="id">identifiant du joueur</param>
     /// <param name="mdp">mot de passe du joueur</param>
     /// <returns>Retourne la reponse de la requete</returns>
-    public async static Task<ReponseInscription> Inscription(String id, String mdp)
+    public async static Task<ReponseInscription> Inscription(string id, string mdp)
     {
         ReponseInscription reponse = new ReponseInscription();
-        Dictionary<String, String> form = new() { { "passe", mdp }, { "identifiant", id } };
+        Dictionary<string, string> form = new() { { "passe", mdp }, { "identifiant", id } };
         HttpContent corps = new FormUrlEncodedContent(form);
         try
         {

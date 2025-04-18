@@ -168,7 +168,7 @@ public class AttaqueEpee
 
         _act -= _epee.getVitRot() * deltaT;
 
-        this._forme = PolyGen.tournerMatrice(_epee._formeBase, _act - _epee.getAngleZone());
+        this._forme = PolyGen.tournerMatrice(_epee._formeBase, _act - (float) Math.PI/2);
         Vector2 v =
             _epee.getJoueur().getPosition()
             + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))

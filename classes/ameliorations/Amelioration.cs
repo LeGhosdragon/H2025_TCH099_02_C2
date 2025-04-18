@@ -16,7 +16,7 @@ public abstract class Amelioration{
     public static List<Amelioration> _ameliorations {get;set;} = new List<Amelioration>() ;
     protected int _limite {get;set;}
     public Texture2D _image {get;set;}
-    public string _description { get;}
+    public string _description { get;set;}
     public Amelioration(Texture2D image,string description,int limite){
         _image = image;
         _description = description;
@@ -38,6 +38,10 @@ public abstract class Amelioration{
         //Vie 
         img = content.Load<Texture2D>("ball");
         _ameliorations.Add(new UpgVieJoueur(img));
+
+        //Explosion
+        img = content.Load<Texture2D>("ball");
+        _ameliorations.Add(new UpgExplosion(img));
 
         //Ameliorations de fusil
 
