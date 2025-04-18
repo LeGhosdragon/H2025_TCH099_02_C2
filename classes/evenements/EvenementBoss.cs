@@ -18,7 +18,7 @@ public class EvenementBoss : Evenement
         base.DebuterEvenement(difficulte, degreeDiff);
 
         _delaiGenerationNormal = new Chrono(1f / degreeDiff);
-        _delaiGenerationBoss = new Chrono(2f / degreeDiff);
+        _delaiGenerationBoss = new Chrono(120f / degreeDiff);
 
     }
     public override void Update(float deltaT)

@@ -22,15 +22,15 @@ public class DirecteurEvenement
         _evenementsDisponnibles.Add(new EvenementGuns(this, _ecranJeu));
         _evenementsDisponnibles.Add(new EvenementFort(this, _ecranJeu));
  
-        //EvenementNormal firstEvent = new EvenementNormal(this, _ecranJeu);
+        EvenementNormal firstEvent = new EvenementNormal(this, _ecranJeu);
         EvenementBoss eventBoss = new EvenementBoss(this, _ecranJeu);
-        //EvenementExp eventExp = new EvenementExp(this, _ecranJeu);
-        //_evenementsActifs.Add(firstEvent);
+        EvenementExp eventExp = new EvenementExp(this, _ecranJeu);
+        _evenementsActifs.Add(firstEvent);
         _evenementsActifs.Add(eventBoss);
-        //_evenementsActifs.Add(eventExp);
-        //firstEvent.DebuterEvenement(_difficulte, _degreeDiff);
+        _evenementsActifs.Add(eventExp);
+        firstEvent.DebuterEvenement(_difficulte, _degreeDiff);
         eventBoss.DebuterEvenement(_difficulte, _degreeDiff);
-        //eventExp.DebuterEvenement(_difficulte, _degreeDiff);
+        eventExp.DebuterEvenement(_difficulte, _degreeDiff);
     }
 
     public void Update(float deltaT)
