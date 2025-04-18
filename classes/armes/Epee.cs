@@ -183,7 +183,7 @@ public class AttaqueEpee
             if (!frappes.Contains(monstre) & DetecterCollision(monstre, deltaT))
             {
                 frappes.Add(monstre);
-                monstre.RecevoirDegat(_epee._degat);
+                _epee.AppliquerDegat(monstre,_epee._degat);
                 monstre.AjouterRecul(_epee.getJoueur().getPosition(),_epee._recul);
             }
         }

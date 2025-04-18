@@ -75,7 +75,7 @@ public class ProjectileFusil
             if (!_frappes.Contains(monstre) && VerifierCollision(monstre) && _pierce >0)
             {
                 _frappes.Add(monstre);
-                monstre.RecevoirDegat(_fusil._degat);
+                _fusil.AppliquerDegat(monstre,_fusil._degat);
                 monstre.AjouterRecul(_fusil.getJoueur().getPosition(),_fusil._recul);
                 _pierce--;
             }
