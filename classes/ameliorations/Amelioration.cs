@@ -28,68 +28,68 @@ public abstract class Amelioration{
         //Ameliorations de joueur
 
         //Vitesse de mouvement
-        Texture2D img = content.Load<Texture2D>("ball");
+        Texture2D img = content.Load<Texture2D>("vitesse");
         _ameliorations.Add(new UpgVitMouvement(img));
 
         //Rayon d'attraction
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("attraction");
         _ameliorations.Add(new UpgRayonAttraction(img));
 
         //Vie 
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("vie");
         _ameliorations.Add(new UpgVieJoueur(img));
 
         //Explosion
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("explosion");
         _ameliorations.Add(new UpgExplosion(img));
 
         //Chance crit
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("crit-chance");
         _ameliorations.Add(new UpgChanceCrit(img));
 
         //Degat crit
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("crit-dmg");
         _ameliorations.Add(new UpgDegatCrit(img));
 
         //Ameliorations de fusil
 
         //Vitesse attaque
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("delai");
         _ameliorations.Add(new UpgVitAttaqueFusil(img));
 
         //Taille projectile
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("longueur");
         _ameliorations.Add(new UpgGrandeurFusil(img));
 
         //Degat projectile
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("dmg");
         _ameliorations.Add(new UpgDegatFusil(img));
 
         //Pierce projectile
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("pierce");
         _ameliorations.Add(new UpgPierceFusil(img));
 
 
         //Ameliorations de l'epee
 
         //Degat de l'epee
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("dmg");
         _ameliorations.Add(new UpgDegatEpee(img));
 
         //Largeur de l'epee
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("longueur");
         _ameliorations.Add(new UpgTailleEpee(img));
 
         //Vitesse d'attaque de l'épée
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("delai");
         _ameliorations.Add(new UpgVitAttaqueEpee(img));
 
         //Aire de l'épée
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("largeur");
         _ameliorations.Add(new UpgAireEpee(img));
 
         //Recul de l'épée
-        img = content.Load<Texture2D>("ball");
+        img = content.Load<Texture2D>("recul");
         _ameliorations.Add(new UpgReculEpee(img));
 
     }
