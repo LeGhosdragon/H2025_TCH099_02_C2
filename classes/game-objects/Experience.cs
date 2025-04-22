@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
@@ -38,10 +36,20 @@ public class Experience : IGameObject
             Enlever();
         }
     }
-
+    private Color cAvant = Color.Red;
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _valeur, _valeur, Color.Blue, _valeur);
+        //Changer la couleur dynamiquement (effet arc-en-ciel pulsant)
+
+
+
+        DateTimeOffset date = DateTimeOffset.UtcNow;
+        double time = date.ToUnixTimeMilliseconds()/100;
+        double red = Math.Sin(time) * 127 + 128;
+        double green = Math.Sin(time + 2) * 127 + 128;
+        double blue = Math.Sin(time + 4) * 127 + 128;
+        Color color = new Color((int)red, (int)green, (int)blue);
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _valeur, _valeur, color, _valeur);
     }
     public void UpdatePos(float deltaT)
     {
@@ -66,14 +74,6 @@ public class Experience : IGameObject
             _position += dir * (float)attraction * deltaT * 95f;
         }
 
-
-
-        // Changer la couleur dynamiquement (effet arc-en-ciel pulsant)
-        /* const time = Date.now() / 100;
-         const red = Math.sin(time) * 127 + 128;
-         const green = Math.sin(time + 2) * 127 + 128;
-         const blue = Math.sin(time + 4) * 127 + 128;
-         const color = (red << 16) | (green << 8) | blue;*/
 
     }
     public void Cleanup(float deltaT)
