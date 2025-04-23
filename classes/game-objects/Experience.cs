@@ -49,7 +49,7 @@ public class Experience : IGameObject
         double green = Math.Sin(time + 2) * 127 + 128;
         double blue = Math.Sin(time + 4) * 127 + 128;
         Color color = new Color((int)red, (int)green, (int)blue);
-        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _valeur, _valeur, color, _valeur);
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _valeur/2, _valeur, color, _valeur/2);
     }
     public void UpdatePos(float deltaT)
     {

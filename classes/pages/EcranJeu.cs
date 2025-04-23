@@ -20,7 +20,7 @@ public class EcranJeu : GameScreen
 {
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
-    protected Fond _fond = new Fond();
+    protected FondJeu _fond = new FondJeu();
     protected BarreExp _barreExp; 
     protected List<IGameObject> _objets;
     protected int _banqueExp = 0;
