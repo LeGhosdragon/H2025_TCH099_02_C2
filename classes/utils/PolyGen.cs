@@ -102,4 +102,5 @@ public static class PolyGen
         Vector2 normal = Vector2.Normalize(v);
         return (float)Math.Atan2(normal.Y, normal.X);
     }
+    
 }

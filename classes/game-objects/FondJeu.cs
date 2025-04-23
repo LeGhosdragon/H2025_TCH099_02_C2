@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame;
@@ -19,9 +20,16 @@ public class FondJeu : IGameObject
     public Vector2 _position {get;set;} = new Vector2(0,0);
     
     protected List<Forme3D> Formes = new List<Forme3D>();
+
+    public FondJeu(){
+        Formes.Add(new Cube3D(new Vector3(),100));
+    }
     
     public void Draw(SpriteBatch spriteBatch)
     {
+        foreach(Forme3D forme in Formes){
+            forme.Draw(spriteBatch);
+        }
         //Dessine des lignes verticales
         for(float act = increment.X;act < GetLargeurEcran(spriteBatch);act += largeur ){
             spriteBatch.DrawLine(act,0, act, GetHauteurEcran(spriteBatch), Color.White);
@@ -30,17 +38,20 @@ public class FondJeu : IGameObject
         for(float act = increment.Y ;act < GetLargeurEcran(spriteBatch) ;act += largeur ){
             spriteBatch.DrawLine(0,act - _position.Y,GetLargeurEcran(spriteBatch),act- _position.Y,Color.White);
         }
+        
     }
 
     public void Update(float deltaT)
     {
-        increment.X = (increment.X + vitesse * (float) deltaT) % largeur;
-        increment.Y = (increment.X + vitesse * (float) deltaT) % largeur;
-
+        foreach(Forme3D forme in Formes.Reverse<Forme3D>()){
+            forme.Update(deltaT);
+        }
     }
-    public void Update(Vector2 positon){
+    public void Update(Vector2 positon,float deltaT){
         increment.X = -positon.X % largeur;
         increment.Y = -positon.Y % largeur;
+
+        Update(deltaT);
     }
 
     public float GetLargeurEcran(SpriteBatch spriteBatch){

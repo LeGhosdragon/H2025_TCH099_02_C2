@@ -127,7 +127,7 @@ public class EcranJeu : GameScreen
             }
         }
 
-        _fond.Update(_joueur.getPosition());
+        _fond.Update(_joueur.getPosition(),deltaT);
         UserInterface.Active.Update(gameTime);
     }
     /// <summary>
