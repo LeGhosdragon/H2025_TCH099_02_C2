@@ -23,7 +23,7 @@ public class Joueur : IGameObject
 
     public AbstractArme _arme { get; set; }
     float _rayon = 40;
-    int _experience = 0;
+    public int _experience {get; protected set;} = 0;
     protected int _niveau { get; set; } = 1;
     protected EcranJeu _ecranJeu;
     protected Vector2 _position;

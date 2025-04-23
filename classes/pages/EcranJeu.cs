@@ -21,6 +21,7 @@ public class EcranJeu : GameScreen
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
     protected Fond _fond = new Fond();
+    protected BarreExp _barreExp; 
     protected List<IGameObject> _objets;
     protected int _banqueExp = 0;
     protected DirecteurEvenement _directeurEvenement {get;} 
@@ -46,7 +47,7 @@ public class EcranJeu : GameScreen
 
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
-
+        
         AbstractArme arme;
 
         switch (typesArme){
@@ -62,6 +63,8 @@ public class EcranJeu : GameScreen
         _objets.Add(arme);
 
         _objets.Add(_joueur);
+
+        _barreExp = new BarreExp(_joueur);
 
         new Camera(GraphicsDevice, _joueur.getPosition());
     }
@@ -84,6 +87,7 @@ public class EcranJeu : GameScreen
         {
             objet.Draw(Game.GetSpriteBatch());
         }
+        _barreExp.Draw(Game.GetSpriteBatch());
         Game.GetSpriteBatch().End();
 
         UserInterface.Active.Draw(Game.GetSpriteBatch());
