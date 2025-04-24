@@ -105,16 +105,24 @@ public class EcranScore : GameScreen
         {
             Panel panelTout = new Panel();
             panelTout.Skin = PanelSkin.ListBackground;
-            panelTout.Size = new Vector2(0.9f,0.2f);
+            panelTout.Size = new Vector2(0.9f,0.3f);
             panelTout.Anchor = Anchor.AutoCenter;
             _palmares.AddChild(panelTout);
+            Header header = new Header(scores[i].Nom_Utilisateur + " #" + (i+1));
 
-            Paragraph ligne = new Paragraph(i+" " + 
-                                            "Score: " + scores[i].Score +
-                                            " Temps: " + scores[i].Temps_Partie +
-                                            " Experience " + scores[i].Experience +
-                                            " Ennemis Tuées " + scores[i].Ennemis_Enleve + 
-                                            " Par: " + scores[i].Nom_Utilisateur);
+            string lHautDebut = "Score: " + scores[i].Score+"         ";
+            string lhautFin = "Temps: " + scores[i].Temps_Partie;
+
+            string lBasDebut = "Experience " + scores[i].Experience;
+            string lBasFin = "Ennemis Tuées " + scores[i].Ennemis_Enleve;
+
+            for(int j = lBasDebut.Length;j < lHautDebut.Length;j++){
+                lBasDebut += " ";
+            }
+
+
+            Paragraph ligne = new Paragraph(lHautDebut +lhautFin + "\n" + lBasDebut + lBasFin);
+            panelTout.AddChild(header);
             panelTout.AddChild(ligne);
 
        /*     Panel bPlace = new Panel();
