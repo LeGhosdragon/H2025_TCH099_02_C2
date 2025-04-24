@@ -20,7 +20,7 @@ public class Fusil : AbstractArme
 
 
     private List<ProjectileFusil> _projectiles;
-    public Fusil(Joueur j, EcranJeu ecran) : base(new Vector2[] { new Vector2(0, 0), new Vector2(0, 20), new Vector2(50, 20), new Vector2(50, 0) }, j, 1f, new Vector2(20,50), ecran)
+    public Fusil(Joueur j, EcranJeu ecran) : base(new Vector2[] { new Vector2(0, 0), new Vector2(0, 15), new Vector2(15, 15), new Vector2(15, 0) }, j, 1f, new Vector2(15,15), ecran)
     {
         _projectiles = new List<ProjectileFusil>();
     }
@@ -34,7 +34,7 @@ public class Fusil : AbstractArme
     }
     public override void Draw(SpriteBatch spriteBatch)
     {
-        base.Draw(spriteBatch);
+        Peintre.dessinerForme(spriteBatch,_forme,_position,1);
         foreach (ProjectileFusil projectile in _projectiles)
         {
             projectile.Draw(spriteBatch);
@@ -54,6 +54,7 @@ public class Fusil : AbstractArme
     {
         return _joueur;
     }
+    
 }
 public class ProjectileFusil
 {
