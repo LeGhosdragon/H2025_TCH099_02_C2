@@ -1038,23 +1038,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\simon\\.nuget\\packages\\": {},
+    "C:\\Users\\alexa\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\simon\\OneDrive\\Images\\Documents\\GitHub\\H2025_TCH099_02_C2\\desktop.csproj",
+      "projectUniqueName": "C:\\Users\\alexa\\OneDrive\\Documents\\Ecole\\2025\\Hiver\\projet-integrateur\\desktop\\H2025_TCH099_02_C2\\desktop.csproj",
       "projectName": "desktop",
-      "projectPath": "C:\\Users\\simon\\OneDrive\\Images\\Documents\\GitHub\\H2025_TCH099_02_C2\\desktop.csproj",
-      "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\simon\\OneDrive\\Images\\Documents\\GitHub\\H2025_TCH099_02_C2\\obj\\",
+      "projectPath": "C:\\Users\\alexa\\OneDrive\\Documents\\Ecole\\2025\\Hiver\\projet-integrateur\\desktop\\H2025_TCH099_02_C2\\desktop.csproj",
+      "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alexa\\OneDrive\\Documents\\Ecole\\2025\\Hiver\\projet-integrateur\\desktop\\H2025_TCH099_02_C2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\simon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1063,6 +1063,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1132,7 +1133,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

@@ -120,7 +120,7 @@ public class Joueur : IGameObject
         _generateurExplosion.Update(deltaT);
         _chronoInvincibilite.Update(deltaT);
     }
-    public void collision(int degat)
+    public void collision(float degat)
     {
         if (_chronoInvincibilite.Update(0))
         {

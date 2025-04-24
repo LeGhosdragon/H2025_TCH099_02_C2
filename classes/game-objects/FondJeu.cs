@@ -106,8 +106,6 @@ public class FondJeu : IGameObject
         }
         if (validPosition)
         {
-            Console.WriteLine(pos.ToString());
-            Console.WriteLine(size);
             switch (shapeType)
             {
                 case 0:
