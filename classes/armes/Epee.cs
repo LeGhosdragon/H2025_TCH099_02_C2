@@ -301,6 +301,6 @@ public class AttaqueEpee
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        Peintre.dessinerForme(spriteBatch, _forme, _position);
+        Peintre.dessinerForme(spriteBatch, _forme, _position,1);
     }
 }

@@ -33,7 +33,7 @@ public abstract class AbstractGameObject : IGameObject
     /// <param name="spritebatch">appareil graphique utilisé</param>
     public virtual void Draw(SpriteBatch spriteBatch)
     {
-        Peintre.dessinerForme(spriteBatch, _forme, _position);
+        Peintre.dessinerForme(spriteBatch, _forme, _position,3);
     }
 
     /// <summary>

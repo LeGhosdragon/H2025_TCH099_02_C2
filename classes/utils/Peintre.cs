@@ -12,9 +12,9 @@ public class Peintre
     /// <param name="batch">Spritebatch de l'ecran</param>
     /// <param name="vertex">arretes de la forme</param>
     /// <param name="pos">position de la forme</param>
-    public static void dessinerForme(SpriteBatch batch, Vector2[] vertex, Vector2 pos)
+    public static void dessinerForme(SpriteBatch batch, Vector2[] vertex, Vector2 pos,float largeur)
     {
-        dessinerForme(batch, vertex, pos, Color.White);
+        dessinerForme(batch, vertex, pos, Color.White,largeur);
     }
 
     /// <summary>
@@ -24,12 +24,11 @@ public class Peintre
     /// <param name="vertex">arretes de la forme</param>
     /// <param name="pos">position de la forme</param>
     /// <param name="color">Couleur des cotes</param>
-    public static void dessinerForme(SpriteBatch batch, Vector2[] vertex, Vector2 pos, Color color)
+    public static void dessinerForme(SpriteBatch batch, Vector2[] vertex, Vector2 pos, Color color,float largeur)
     {
         Vector2 posRel = pos - Camera.getInstance().getPosition();
         for (int i = 0; i < vertex.Length; i++)
         {
-            float largeur = 3;
             Vector2 debut = vertex[i] + posRel;
             Vector2 fin = vertex[(i + 1) % vertex.Length] + posRel;
             Vector2 diff = debut - fin;
