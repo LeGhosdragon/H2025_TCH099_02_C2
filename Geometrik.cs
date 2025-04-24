@@ -28,6 +28,7 @@ public class Geometrik : Game
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
+        _graphics.SynchronizeWithVerticalRetrace = false;
         //Ajoute les evenements lorsque la page change de dimension
         this.Window.AllowUserResizing = true;
     }

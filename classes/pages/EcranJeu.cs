@@ -20,7 +20,7 @@ public class EcranJeu : GameScreen
 {
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
-    protected Fond _fond = new Fond();
+    protected FondJeu _fond;
     protected BarreExp _barreExp; 
     protected List<IGameObject> _objets;
     protected int _banqueExp = 0;
@@ -38,6 +38,7 @@ public class EcranJeu : GameScreen
 
     public EcranJeu(Game game,TypesArmes typesArme) : base(game)
     {
+        
         _directeurEvenement = new DirecteurEvenement(this);
         string nomUtilisateur = "Invite";
         if(LocalAPI._nomUtilisateur != null){
@@ -65,6 +66,7 @@ public class EcranJeu : GameScreen
         _objets.Add(_joueur);
 
         _barreExp = new BarreExp(_joueur);
+        _fond = new FondJeu(this);
 
         new Camera(GraphicsDevice, _joueur.getPosition());
     }
@@ -73,6 +75,9 @@ public class EcranJeu : GameScreen
     {
         Amelioration.LoadContent(Content);
         _font = Content.Load<SpriteFont>("GeonBit.UI/Themes/editor/fonts/Regular");
+
+        Effect effetFond = Content.Load<Effect>("effet-fond-1");
+        _fond._effet = effetFond;
         base.LoadContent();
     }
 
@@ -127,7 +132,7 @@ public class EcranJeu : GameScreen
             }
         }
 
-        _fond.Update(_joueur.getPosition());
+        _fond.Update(_joueur.getPosition(),deltaT);
         UserInterface.Active.Update(gameTime);
     }
     /// <summary>

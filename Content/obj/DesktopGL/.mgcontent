@@ -12,6 +12,7 @@
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/custom/presentation-epee.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/delai.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/dmg.png</File>
+    <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/effet-fond-1.fx</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/btn_default.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/btn_down.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/btn_hover.png</File>
@@ -310,6 +311,7 @@
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/slider_fancy_mark.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/slider_fancy.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/textures/white_texture.png</File>
+    <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/gradient-rouge.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/largeur.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/LogoGeometrik.png</File>
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/longueur.png</File>
@@ -319,6 +321,8 @@
     <File>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/vitesse.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
