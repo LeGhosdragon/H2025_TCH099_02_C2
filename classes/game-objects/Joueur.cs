@@ -147,4 +147,8 @@ public class Joueur : IGameObject
         _generateurExplosion.Draw(spriteBatch);
 
     }
+
+    public bool hpBas(){
+        return _hp <= 1;
+    }
 }
