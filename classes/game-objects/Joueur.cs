@@ -22,7 +22,7 @@ public class Joueur : IGameObject
     public float _hp { get; set; } //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
 
     public AbstractArme _arme { get; set; }
-    float _rayon = 30;
+    float _rayon = 20;
     public int _experience {get; protected set;} = 0;
     protected int _niveau { get; set; } = 1;
     protected EcranJeu _ecranJeu;
