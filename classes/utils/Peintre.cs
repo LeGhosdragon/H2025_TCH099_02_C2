@@ -29,7 +29,14 @@ public class Peintre
         Vector2 posRel = pos - Camera.getInstance().getPosition();
         for (int i = 0; i < vertex.Length; i++)
         {
-            batch.DrawLine(vertex[i] + posRel, vertex[(i + 1) % vertex.Length] + posRel, color);
+            float largeur = 3;
+            Vector2 debut = vertex[i] + posRel;
+            Vector2 fin = vertex[(i + 1) % vertex.Length] + posRel;
+            Vector2 diff = debut - fin;
+            diff.Normalize();
+            debut -= diff * largeur/2;
+            fin += diff * largeur/2;
+            batch.DrawLine(debut,fin , color,largeur);
         }
     }
 }

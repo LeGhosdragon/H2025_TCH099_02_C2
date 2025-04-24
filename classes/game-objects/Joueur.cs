@@ -22,7 +22,7 @@ public class Joueur : IGameObject
     public float _hp { get; set; } //UpgVieJoueur _hpBase, + (0.2 * _hpBase)
 
     public AbstractArme _arme { get; set; }
-    float _rayon = 40;
+    float _rayon = 30;
     public int _experience {get; protected set;} = 0;
     protected int _niveau { get; set; } = 1;
     protected EcranJeu _ecranJeu;
@@ -141,7 +141,7 @@ public class Joueur : IGameObject
     }
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _rayon, 40, Color.White);
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _rayon, 40, Color.White,3);
         Vector2 posTxt = _position - Camera.getInstance().getPosition() - _ecranJeu._font.MeasureString(_hp + "") / 2;
         spriteBatch.DrawString(_ecranJeu._font, _hp + "", posTxt, Color.White);
         _generateurExplosion.Draw(spriteBatch);
