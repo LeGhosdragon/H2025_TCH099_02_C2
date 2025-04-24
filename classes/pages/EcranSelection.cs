@@ -26,12 +26,11 @@ public class EcranSelection : GameScreen
     }
     public override void LoadContent()
     {
-        Texture2D _textDemoEpee = Content.Load<Texture2D>("custom/epee-demo");
-        Console.WriteLine(_textDemoEpee.Width);
+        Texture2D _textDemoEpee = Content.Load<Texture2D>("custom/demo-epee");
         _selectionEpee = new ChoixSelection(2,0,GraphicsDevice,_textDemoEpee,800,800,38);
         
-        Texture2D _textDemoFusil = Content.Load<Texture2D>("custom/demonstration-fusil-spritesheet");
-        _selectionFusil = new ChoixSelection(2,1,GraphicsDevice,_textDemoFusil,800,413,19);
+        Texture2D _textDemoFusil = Content.Load<Texture2D>("custom/demo-fusil");
+        _selectionFusil = new ChoixSelection(2,1,GraphicsDevice,_textDemoFusil,423,442,47);
 
         _delaiChargement = new Chrono(1f,true);
 

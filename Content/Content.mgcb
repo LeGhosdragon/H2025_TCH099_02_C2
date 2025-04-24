@@ -68,6 +68,30 @@
 /processorParam:TextureFormat=Color
 /build:crit-dmg.png
 
+#begin custom/demo-epee.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:custom/demo-epee.png
+
+#begin custom/demo-fusil.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:custom/demo-fusil.png
+
 #begin custom/demonstration-fusil-spritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -80,7 +104,7 @@
 /processorParam:TextureFormat=Color
 /build:custom/demonstration-fusil-spritesheet.png
 
-#begin custom/epee-demo-ezgif.com-gif-to-sprite-converter.png
+#begin custom/epee-demo.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -90,7 +114,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:custom/epee-demo-ezgif.com-gif-to-sprite-converter.png;custom/epee-demo.png
+/build:custom/epee-demo.png
 
 #begin custom/presentation-epee.png
 /importer:TextureImporter

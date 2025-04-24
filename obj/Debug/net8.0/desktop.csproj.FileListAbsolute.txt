@@ -706,3 +706,5 @@ C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\effet-fond-1.xnb
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\gradient-rouge.xnb
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\custom\epee-demo.xnb
+C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\custom\demo-epee.xnb
+C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\custom\demo-fusil.xnb
