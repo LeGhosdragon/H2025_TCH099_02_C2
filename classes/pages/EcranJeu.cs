@@ -18,6 +18,7 @@ namespace desktop.pages;
 
 public class EcranJeu : GameScreen
 {
+    private Texture2D _imgHpBas;
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
     protected FondJeu _fond;
@@ -76,6 +77,8 @@ public class EcranJeu : GameScreen
         Amelioration.LoadContent(Content);
         _font = Content.Load<SpriteFont>("GeonBit.UI/Themes/editor/fonts/Regular");
 
+        _imgHpBas = Content.Load<Texture2D>("gradient-rouge");
+
         Effect effetFond = Content.Load<Effect>("effet-fond-1");
         _fond._effet = effetFond;
         base.LoadContent();
@@ -92,12 +95,22 @@ public class EcranJeu : GameScreen
         {
             objet.Draw(Game.GetSpriteBatch());
         }
+        if(_joueur.hpBas()){
+            //On pourrait faire fade in la couleur
+            int maxX = GraphicsDevice.Viewport.Width;
+            int maxY = GraphicsDevice.Viewport.Height;
+            Game.GetSpriteBatch().Draw(_imgHpBas,new Rectangle(Point.Zero,new Point(maxX,maxY)),new Color(0.8f,0.8f,0.8f,0.2f));
+        }
+
         _barreExp.Draw(Game.GetSpriteBatch());
         Game.GetSpriteBatch().End();
+        
 
         UserInterface.Active.Draw(Game.GetSpriteBatch());
 
+
     }
+
 
     public override void Update(GameTime gameTime)
     {           
