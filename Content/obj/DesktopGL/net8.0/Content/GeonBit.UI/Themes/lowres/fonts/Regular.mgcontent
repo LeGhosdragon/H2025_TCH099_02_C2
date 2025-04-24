@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/fonts/Regular.spritefont</SourceFile>
-  <SourceTime>2025-04-12T01:21:23.9723669-04:00</SourceTime>
-  <DestFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/GeonBit.UI/Themes/lowres/fonts/Regular.xnb</DestFile>
-  <DestTime>2025-04-12T15:22:22.7827412-04:00</DestTime>
+  <SourceFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/lowres/fonts/Regular.spritefont</SourceFile>
+  <SourceTime>2025-04-10T11:29:57.6593419-04:00</SourceTime>
+  <DestFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/GeonBit.UI/Themes/lowres/fonts/Regular.xnb</DestFile>
+  <DestTime>2025-04-14T17:54:18.5066804-04:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

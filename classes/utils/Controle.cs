@@ -76,6 +76,11 @@ public class Controle
         boutons = new List<GamePadButtons>();
         Controle Pause = new Controle(clees, boutons);
         controles.Insert((int)ControlesEnum.PAUSE, Pause);
+        
+            clees = new List<Keys> { Keys.T };
+        boutons = new List<GamePadButtons>();
+        Controle AfficherHpText = new Controle(clees, boutons);
+        controles.Insert((int)ControlesEnum.TEXT, AfficherHpText);
 
         return controles;
     }
@@ -119,4 +124,5 @@ public enum ControlesEnum
     BOUGER_DROIT = 3, // D ou Fleche droite
     ATTAQUE_AUTOMATIQUE = 4, // Q
     PAUSE = 5, // Echap
+    TEXT = 6 // Touche pour afficher la vie des Monstres
 }

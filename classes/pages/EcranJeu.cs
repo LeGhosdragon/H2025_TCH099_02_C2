@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using desktop;
 using desktop.ameliorations;
 using desktop.armes;
 using desktop.evenements;
@@ -14,7 +15,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;
 
-namespace desktop.pages;
 
 public class EcranJeu : GameScreen
 {
@@ -24,8 +24,9 @@ public class EcranJeu : GameScreen
     protected FondJeu _fond;
     protected BarreExp _barreExp;
     protected List<IGameObject> _objets;
+
     protected BoitePause _boitePause;
-    protected int _banqueExp = 0;
+    public int _banqueExp { get; set; } = 0;
     protected DirecteurEvenement _directeurEvenement { get; }
     public SpriteFont _font { get; set; }
     public Score _score { get; set; }
@@ -49,7 +50,7 @@ public class EcranJeu : GameScreen
             nomUtilisateur = LocalAPI._nomUtilisateur;
         }
         _score = new Score(nomUtilisateur);
-
+        _banqueExp = 0;
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
 
@@ -93,6 +94,10 @@ public class EcranJeu : GameScreen
         Camera.setPosition(_joueur.getPosition());
         Game.GraphicsDevice.Clear(Color.Black);
         Game.GetSpriteBatch().Begin();
+        foreach (ProjectileEnnemi projectile in MonstreGunner.getProjectiles())
+        {
+            projectile.Draw(Game.GetSpriteBatch());
+        }
         _fond.Draw(Game.GetSpriteBatch());
 
         foreach (IGameObject objet in _objets)
@@ -148,10 +153,16 @@ public class EcranJeu : GameScreen
         {
             _directeurEvenement.Update(deltaT);
 
+            foreach (ProjectileEnnemi projectile in MonstreGunner.getProjectiles().Reverse<ProjectileEnnemi>())
+            {
+                projectile.Update(deltaT, _joueur);
+
+            }
             foreach (IGameObject objet in _objets.Reverse<IGameObject>())
             {
                 objet.Update(deltaT);
             }
+
             _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         }
         if (boites != null)
@@ -169,11 +180,14 @@ public class EcranJeu : GameScreen
     /// Genere une quantitee desiree de monstres
     /// </summary>
     /// <param name="quantitee">quantitee de monstres a generer</param>
-    public void GenererMonstres(int quantitee)
+    public void GenererMonstres(string type, int quantitee, int degreeDiff, bool fromBoss = false)
     {
         for (int i = 0; i < quantitee; i++)
         {
-            GenererMonstre();
+            if(!fromBoss)
+                GenerateurMonstre.GenererMonstre(type, this, _objets, 1, degreeDiff);
+            else
+                GenerateurMonstre.GenererMonstre(type, this, _objets, 1, degreeDiff, fromBoss, Monstre.GetMonstre("bossNormal").getPosition());
         }
     }
 
@@ -186,14 +200,7 @@ public class EcranJeu : GameScreen
         _banqueExp += valeur;
     }
 
-    /// <summary>
-    /// Cree un nouveau monstre et l'ajoute dans le jeu
-    /// </summary>
-    public void GenererMonstre()
-    {
-        Monstre monstre = new Monstre(PolyGen.GetPoly(3, 20), new Vector2(100, 100), this, 20);
-        _objets.Add(monstre);
-    }
+
     /// <summary>
     /// Retourne tout les objets de type monstre dans le jeu
     /// </summary>
