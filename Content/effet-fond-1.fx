@@ -28,7 +28,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 float4 PS(float2 vTex0 : TEXCOORD0 ) : COLOR0
 {	
 	float distfromcenter=distance(float2(0.5f, 0.5f), vTex0);	
-	float4 rColor = lerp(float4(0,0,0,1),float4(1,1,1,1), saturate(distfromcenter));	
+	float4 rColor = lerp(float4(0.201, 0.088, 3.756,1), float4(1,1,1,1), saturate(distfromcenter));	
 	return rColor;
 }
 

@@ -38,6 +38,7 @@ public class EcranJeu : GameScreen
 
     public EcranJeu(Game game,TypesArmes typesArme) : base(game)
     {
+        
         _directeurEvenement = new DirecteurEvenement(this);
         string nomUtilisateur = "Invite";
         if(LocalAPI._nomUtilisateur != null){
