@@ -4,6 +4,7 @@ using System.Linq;
 using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame;
 
@@ -12,7 +13,7 @@ namespace desktop.gameobjects;
 public class FondJeu : IGameObject
 {
 
-
+    public Effect _effet {get;set;}
     //Increment du fond
     private Vector2 increment = new Vector2(10, 10);
 
@@ -22,21 +23,22 @@ public class FondJeu : IGameObject
     public Vector2 _position { get; set; } = new Vector2(0, 0);
     EcranJeu _ecranJeu;
     protected List<Forme3D> _formes = new List<Forme3D>();
-
     public FondJeu(EcranJeu ecranJeu)
     {
         _ecranJeu = ecranJeu;
-/*
-        _formes.Add(new Cube3D(new Vector3(), 100));
-        _formes.Add(new Octaedre(new Vector3(100, 100, 100), 200));
-        _formes.Add(new Pyramide(new Vector3(-100, -100, -100), 100));
-        _formes.Add(new Tetraedre(new Vector3(-200, -200, -200), 400));
-*/
+
         GenererFormes(10);
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
+        if(_effet != null){
+            spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Immediate,BlendState.AlphaBlend);
+            _effet.CurrentTechnique.Passes[0].Apply();
+        }
+
+
         foreach (Forme3D forme in _formes.Reverse<Forme3D>())
         {
             forme.Draw(spriteBatch);
@@ -50,6 +52,11 @@ public class FondJeu : IGameObject
         for (float act = increment.Y; act < GetLargeurEcran(spriteBatch); act += largeur)
         {
             spriteBatch.DrawLine(0, act - _position.Y, GetLargeurEcran(spriteBatch), act - _position.Y, Color.White);
+        }
+
+        if(_effet != null){
+            spriteBatch.End();
+            spriteBatch.Begin();
         }
 
     }

@@ -116,6 +116,12 @@
 /processorParam:TextureFormat=Color
 /build:dmg.png
 
+#begin effet-fond-1.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:effet-fond-1.fx
+
 #begin Example/btn_default.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -4597,6 +4603,18 @@
 
 #begin GeonBit.UI/Themes/lowres/ThemeData.xml
 /copy:GeonBit.UI/Themes/lowres/ThemeData.xml
+
+#begin gradient-rouge.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:gradient-rouge.png
 
 #begin largeur.png
 /importer:TextureImporter

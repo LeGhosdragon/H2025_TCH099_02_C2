@@ -74,6 +74,9 @@ public class EcranJeu : GameScreen
     {
         Amelioration.LoadContent(Content);
         _font = Content.Load<SpriteFont>("GeonBit.UI/Themes/editor/fonts/Regular");
+
+        Effect effetFond = Content.Load<Effect>("effet-fond-1");
+        _fond._effet = effetFond;
         base.LoadContent();
     }
 
