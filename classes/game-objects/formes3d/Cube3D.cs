@@ -5,7 +5,7 @@ namespace desktop.gameobjects;
 
 public class Cube3D : Forme3D
 {
-    public Cube3D(Vector3 position,float taille) : base(position, genererCotes(), genererCoins(taille))
+    public Cube3D(Vector3 position,float taille) : base(position,taille, genererCotes(), genererCoins(taille))
     {
     }
     protected static List<Vector2> genererCotes(){

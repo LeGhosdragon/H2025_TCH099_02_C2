@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using desktop.utils;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
@@ -10,10 +11,12 @@ public class Forme3D : IGameObject
 {
     protected Vector3 _angle {get;set;}
     protected Vector3 _vitesse {get;set;}
-    protected Vector3 _position {get;set;}
+    public Vector3 _position {get;set;}
     protected List<Vector2> _cotes {get;set;}
     protected List<Vector3> _coins {get;set;}
-    public Forme3D(Vector3 position,List<Vector2> cotes, List<Vector3> coins){
+    protected const float _distMax = 1000;
+    public float _taille {get;set;}
+    public Forme3D(Vector3 position,float taille,List<Vector2> cotes, List<Vector3> coins){
         _angle = new Vector3(
            (float)( Random.Shared.NextDouble() * Math.PI * 2),
            (float)( Random.Shared.NextDouble() * Math.PI * 2),
@@ -27,6 +30,7 @@ public class Forme3D : IGameObject
         _position = position;
         _coins = coins;
         _cotes = cotes;
+        _taille = taille;
         
 
 
@@ -43,7 +47,7 @@ public class Forme3D : IGameObject
         foreach(Vector2 cote in _cotes){
             Vector2 pos1 = new Vector2(projete[(int) cote.X].X + _position.X,projete[(int) cote.X].Y + _position.Y);
             Vector2 pos2 = new Vector2(projete[(int) cote.Y].X + _position.X,projete[(int) cote.Y].Y + _position.Y);
-            spriteBatch.DrawLine(pos1,pos2,Color.White);
+            spriteBatch.DrawLine(pos1 - Camera.getInstance().getPosition(),pos2 - Camera.getInstance().getPosition(),Color.White);
 
         }
     }
@@ -80,5 +84,10 @@ public class Forme3D : IGameObject
     {
         _angle += _vitesse * deltaT * 100;
 
+
     }
+    public bool doitEnlever(){
+        return Vector2.Distance(Camera.getInstance().getPosition(), new Vector2(_position.X,_position.Y)) >  _distMax;
+    }
+
 }
