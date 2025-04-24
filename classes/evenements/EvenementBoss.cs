@@ -23,7 +23,7 @@ public class EvenementBoss : Evenement
     }
     public override void Update(float deltaT)
     {
-        Console.WriteLine($"Evenement Boss : {Monstre.CheckSiBoss("bossNormal")} {Monstre.CheckSiBoss("bossRunner")} {Monstre.CheckSiBoss("bossTank")} {Monstre.CheckSiBoss("bossGunner")}");
+        //Console.WriteLine($"Evenement Boss : {Monstre.CheckSiBoss("bossNormal")} {Monstre.CheckSiBoss("bossRunner")} {Monstre.CheckSiBoss("bossTank")} {Monstre.CheckSiBoss("bossGunner")}");
         if (_delaiGenerationBoss.Update(deltaT))
         {
             string boss = ChooseBossToFind();

@@ -35,8 +35,8 @@ public class DirecteurEvenement
 
     public void Update(float deltaT)
     {
-        temps += deltaT;
-        Console.WriteLine(temps);
+        // temps += deltaT;
+        // Console.WriteLine(temps);
         foreach (Evenement evenement in _evenementsActifs.Reverse<Evenement>())
         {
             evenement.Update(deltaT);
