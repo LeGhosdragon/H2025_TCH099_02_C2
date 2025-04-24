@@ -27,7 +27,7 @@ public class EcranAcceuil : GameScreen
 
 
         //Panneau du centre
-        _centre = new Panel(new Vector2(600, 800));
+        _centre = new Panel(new Vector2(400, 310));
         UserInterface.Active.AddEntity(_centre);
 
         //Ajout du bouton Jouer
