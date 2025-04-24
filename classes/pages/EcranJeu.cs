@@ -22,44 +22,48 @@ public class EcranJeu : GameScreen
     private new Geometrik Game => (Geometrik)base.Game;
     public Joueur _joueur { get; }
     protected FondJeu _fond;
-    protected BarreExp _barreExp; 
+    protected BarreExp _barreExp;
     protected List<IGameObject> _objets;
+    protected BoitePause _boitePause;
     protected int _banqueExp = 0;
-    protected DirecteurEvenement _directeurEvenement {get;} 
-    public SpriteFont _font {get;set;}
-    public Score _score {get;set;}
+    protected DirecteurEvenement _directeurEvenement { get; }
+    public SpriteFont _font { get; set; }
+    public Score _score { get; set; }
+
     /// <summary>
     /// Touches qui ont ete appuye pour lesquels les eevenements on deja ete actives
     /// </summary>
     public List<Touche> _touches = new List<Touche>();
 
 
-    public EtatJeu _etat {get;set;} =  EtatJeu.EN_COURS;
-    
+    public EtatJeu _etat { get; set; } = EtatJeu.EN_COURS;
 
-    public EcranJeu(Game game,TypesArmes typesArme) : base(game)
+
+    public EcranJeu(Game game, TypesArmes typesArme) : base(game)
     {
-        
+
         _directeurEvenement = new DirecteurEvenement(this);
         string nomUtilisateur = "Invite";
-        if(LocalAPI._nomUtilisateur != null){
+        if (LocalAPI._nomUtilisateur != null)
+        {
             nomUtilisateur = LocalAPI._nomUtilisateur;
         }
         _score = new Score(nomUtilisateur);
 
         _objets = new List<IGameObject>();
         _joueur = new Joueur(new Vector2(0, 0), this);
-        
+
         AbstractArme arme;
 
-        switch (typesArme){
+        switch (typesArme)
+        {
             case TypesArmes.EPEE:
-            arme = new Epee(_joueur,this);
-            break;
+                arme = new Epee(_joueur, this);
+                break;
             case TypesArmes.FUSIL:
             default:
-             arme = new Fusil(_joueur, this);
-            break;
+                arme = new Fusil(_joueur, this);
+                break;
         }
         _joueur._arme = arme;
         _objets.Add(arme);
@@ -95,25 +99,40 @@ public class EcranJeu : GameScreen
         {
             objet.Draw(Game.GetSpriteBatch());
         }
-        if(_joueur.hpBas()){
+        if (_joueur.hpBas())
+        {
             //On pourrait faire fade in la couleur
             int maxX = GraphicsDevice.Viewport.Width;
             int maxY = GraphicsDevice.Viewport.Height;
-            Game.GetSpriteBatch().Draw(_imgHpBas,new Rectangle(Point.Zero,new Point(maxX,maxY)),new Color(0.8f,0.8f,0.8f,0.2f));
+            Game.GetSpriteBatch().Draw(_imgHpBas, new Rectangle(Point.Zero, new Point(maxX, maxY)), new Color(0.8f, 0.8f, 0.8f, 0.2f));
         }
 
         _barreExp.Draw(Game.GetSpriteBatch());
         Game.GetSpriteBatch().End();
-        
+
 
         UserInterface.Active.Draw(Game.GetSpriteBatch());
 
 
     }
 
+    public void ChangerPause()
+    {
+        if (_etat == EtatJeu.PAUSE)
+        {
+            _etat = EtatJeu.EN_COURS;
+            UserInterface.Active.RemoveEntity(_boitePause);
+        }
+        else if (_etat == EtatJeu.EN_COURS)
+        {
+            _etat = EtatJeu.PAUSE;
+            _boitePause = new BoitePause(this);
+            UserInterface.Active.AddEntity(_boitePause);
+        }
+    }
 
     public override void Update(GameTime gameTime)
-    {           
+    {
         float deltaT = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         Touche.enleverTouches(_touches);
@@ -122,11 +141,7 @@ public class EcranJeu : GameScreen
         if (Touche.ValiderTouche(_touches, ControlesEnum.PAUSE) && Controle.enfonceClavier(ControlesEnum.PAUSE))
         {
             _touches.Add(new Touche(ControlesEnum.PAUSE));
-            if(_etat == EtatJeu.PAUSE){
-                _etat = EtatJeu.EN_COURS;
-            }else if(_etat == EtatJeu.EN_COURS){
-                _etat = EtatJeu.PAUSE;
-            }
+            ChangerPause();
         }
 
         if (_etat == EtatJeu.EN_COURS)
@@ -139,13 +154,15 @@ public class EcranJeu : GameScreen
             }
             _score.Update((int)gameTime.ElapsedGameTime.TotalMilliseconds);
         }
-        if(boites != null){
-            foreach (BoiteAmelioration boite in boites){
-                boite.Update(deltaT,Game.GraphicsDevice);
+        if (boites != null)
+        {
+            foreach (BoiteAmelioration boite in boites)
+            {
+                boite.Update(deltaT, Game.GraphicsDevice);
             }
         }
 
-        _fond.Update(_joueur.getPosition(),deltaT);
+        _fond.Update(_joueur.getPosition(), deltaT);
         UserInterface.Active.Update(gameTime);
     }
     /// <summary>
@@ -221,31 +238,40 @@ public class EcranJeu : GameScreen
         }
 
     }
-    public void terminerAmelioration(){
-                foreach (BoiteAmelioration boite in boites)
+    public void terminerAmelioration()
+    {
+        foreach (BoiteAmelioration boite in boites)
         {
             UserInterface.Active.RemoveEntity(boite);
         }
         _etat = EtatJeu.EN_COURS;
     }
-    public void FinPartie(){
-        if(_etat != EtatJeu.EN_COURS){
+    public void FinPartie()
+    {
+        
+        if (_etat == EtatJeu.AMELIORATION)
+        {
             return;
         }
+        if(_etat == EtatJeu.PAUSE){
+            UserInterface.Active.RemoveEntity(_boitePause);
+        }
         _etat = EtatJeu.FIN;
-        BoiteScore boiteScore = new BoiteScore(_score,this);
+        BoiteScore boiteScore = new BoiteScore(_score, this);
         UserInterface.Active.AddEntity(boiteScore);
     }
-    public void ChargerEcranScore(Score score){
+    public void ChargerEcranScore(Score score)
+    {
         UnloadContent();
         Game.LoadEcranScore();
         AjouterPalmares(score);
     }
-    public override void UnloadContent(){
+    public override void UnloadContent()
+    {
         UserInterface.Active.Clear();
     }
 
-        private void AjouterPalmares(Score score)
+    private void AjouterPalmares(Score score)
     {
 
         Thread t1 = new Thread(async () =>
@@ -258,7 +284,8 @@ public class EcranJeu : GameScreen
         });
         t1.Start();
     }
-    public enum EtatJeu {
+    public enum EtatJeu
+    {
         EN_COURS,
         AMELIORATION,
         FIN,
