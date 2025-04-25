@@ -68,10 +68,10 @@ public class Experience : IGameObject
         if (dir.Length() < distanceDattraction + getTaille())
         {
 
-            double attraction = 0.5 / Math.Max(dir.Length(), 100);
+            double attraction = 0.9 / Math.Max(dir.Length(), 10);
 
             // Application de la velocité avec damping
-            _position += dir * (float)attraction * deltaT * 95f;
+            _position += dir * (float)attraction * deltaT * 200f;
         }
 
 

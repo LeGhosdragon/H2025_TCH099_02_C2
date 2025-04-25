@@ -29,7 +29,7 @@ public class BossGunner : Monstre
 
     public BossGunner(int sides, EcranJeu ecranJeu, float ennemiDifficultee)
     : base(
-        PolyGen.GetPoly(sides, rayon), 
+        PolyGen.GetPoly(5, rayon), 
         GenerateurMonstre.GenererPositionMonstreBordures(rayon, ecranJeu), 
         ecranJeu, 
         rayon, 

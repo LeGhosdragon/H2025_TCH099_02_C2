@@ -13,7 +13,7 @@ public class Fusil : AbstractArme
 {
     //Attributs selon ameliorations
     public int _rayonBalles {get;set;} = 6; //UpgGrandeurFusil -> 6, + 3 
-    public float _degat {get;set;} = 15; //UpgDegatFusil ->  15,  * 1.2 
+    public float _degat {get;set;} = 15 * 1.7f; //UpgDegatFusil ->  15 * 1.7f,  * 1.2 
     public int _pierce {get;set;} = 1; //UpgPierceFusil -> 1, + 1
     public float _vitesse {get;set;} = 500;
     public float _recul {get;set;} = 50; //UpgReculEpee

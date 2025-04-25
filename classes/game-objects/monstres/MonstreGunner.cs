@@ -14,7 +14,7 @@ namespace desktop.gameobjects;
 public class MonstreGunner : Monstre
 {
     const int vitesse = 20;
-    const int rayon = 10;
+    const int rayon = 15;
     const int hp = 15;
     const int dmg = 1;
     const string type = "gunner";
@@ -28,7 +28,7 @@ public class MonstreGunner : Monstre
 
     public MonstreGunner(int sides, EcranJeu ecranJeu, float ennemiDifficultee)
     : base(
-        PolyGen.GetPoly(sides, rayon),
+        getForme(),
         GenerateurMonstre.GenererPositionMonstreBordures(rayon, ecranJeu),
         ecranJeu,
         rayon,
@@ -47,6 +47,9 @@ public class MonstreGunner : Monstre
         _rayonBalles = 8;
         _vitesseBalle = 100;
 
+    }
+    protected static Vector2[] getForme(){
+        return PolyGen.GetPoly(5, rayon);
     }
     public override void Update(float deltaT)
     {
