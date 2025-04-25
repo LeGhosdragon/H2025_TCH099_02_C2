@@ -32,6 +32,7 @@ public class BoiteScore : Panel{
 
         btnSuite.OnClick = (Entity)=>{
         ecranJeu.ChargerEcranScore(score);
+        MusiqueAPI.Jouer(MusiqueAPI.Musique.MENU);
         };
 
         IterateChildren(new EventCallback((entity)=>{

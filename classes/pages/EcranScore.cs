@@ -62,13 +62,6 @@ public class EcranScore : GameScreen
         centre.AddChild(titre);
         titre.Anchor = Anchor.AutoCenter;
 
-        PanelTabs categories = new PanelTabs();
-        categories.AddTab("Place");
-        categories.AddTab("Score");
-        categories.Size = new Vector2(0.9f, 0.1f);
-
-        centre.AddChild(categories);
-
         _palmares = new Panel();
         _palmares.PanelOverflowBehavior = PanelOverflowBehavior.VerticalScroll;
         _palmares.Size = new Vector2(0.9f, 0.8f);

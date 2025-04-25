@@ -42,6 +42,7 @@ public class EvenementBoss : Evenement
         if(Monstre.CheckSiBoss("bossNormal"))
         {
             i[0] = true;
+            MusiqueAPI.Jouer(MusiqueAPI.Musique.BOSS);
         } 
         // if(Monstre.CheckSiBoss("bossRunner"))
         // {
@@ -54,6 +55,7 @@ public class EvenementBoss : Evenement
         if(Monstre.CheckSiBoss("bossGunner"))
         {
             i[3] = true;
+            MusiqueAPI.Jouer(MusiqueAPI.Musique.KIM);
         }
         // if(Monstre.CheckSiBoss("err404"))
         // {

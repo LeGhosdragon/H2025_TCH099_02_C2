@@ -6,8 +6,10 @@ using desktop.pages;
 using desktop.utils;
 using GeonBit.UI;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended.Screens;
 
 namespace desktop;
@@ -50,7 +52,7 @@ public class Geometrik : Game
 
     protected override void LoadContent()
     {
-
+        MusiqueAPI.LoadContent(Content);
     }
 
     protected override void Update(GameTime gameTime)
@@ -72,6 +74,7 @@ public class Geometrik : Game
     */
     public void LoadEcranAcceuil(){
         _screenManager.LoadScreen(new EcranAcceuil(this));
+        MusiqueAPI.Jouer(MusiqueAPI.Musique.MENU);
     }
     public void LoadEcranJeu(TypesArmes typesArme){
         _screenManager.LoadScreen(new EcranJeu(this,typesArme));
