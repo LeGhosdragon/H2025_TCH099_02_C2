@@ -33,6 +33,7 @@ public class Geometrik : Game
         _graphics.SynchronizeWithVerticalRetrace = false;
         //Ajoute les evenements lorsque la page change de dimension
         this.Window.AllowUserResizing = true;
+        this.IsMouseVisible = false;
     }
 
     protected override void Initialize()
