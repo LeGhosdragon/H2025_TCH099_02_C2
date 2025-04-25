@@ -30,13 +30,13 @@ public class Epee : AbstractArme
         : base(
             [
                 new Vector2(0, 0),
-                new Vector2(0, 100),
-                new Vector2(10, 100),
+                new Vector2(0, 80),
+                new Vector2(10, 80),
                 new Vector2(10, 0),
             ],
             joueur,
             1f,
-            new Vector2(10,100),
+            new Vector2(10,80),
             ecranJeu
         )
     {
@@ -169,10 +169,11 @@ public class AttaqueEpee
         _act -= _epee.getVitRot() * deltaT;
 
         this._forme = PolyGen.tournerMatrice(_epee._formeBase, _act - (float) Math.PI/2);
+        Vector2 dir = new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act));
         Vector2 v =
             _epee.getJoueur().getPosition()
-            + new Vector2((float)Math.Cos(_act), (float)Math.Sin(_act))
-                * _epee.getJoueur().getRayon();
+            + dir
+                * _epee.getJoueur().getRayon() - new Vector2(dir.Y, -dir.X) * 5;;
         this._position = v;
     }
 
