@@ -49,7 +49,7 @@ public class Experience : IGameObject
         double green = Math.Sin(time + 2) * 127 + 128;
         double blue = Math.Sin(time + 4) * 127 + 128;
         Color color = new Color((int)red, (int)green, (int)blue);
-        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), _valeur/2, _valeur, color, _valeur/2);
+        spriteBatch.DrawCircle(_position - Camera.getInstance().getPosition(), getTaille(), 30, color,getTaille());
     }
     public void UpdatePos(float deltaT)
     {
@@ -59,13 +59,13 @@ public class Experience : IGameObject
         Vector2 posJoueur = joueur.getPosition();
         Vector2 dir = posJoueur - _position;
 
-        if (dir.Length() < joueur.getRayon() + _valeur)
+        if (dir.Length() < joueur.getRayon() + getTaille())
         {
             Collect(joueur);
         }
 
         // Application de la force d'attraction vers le joueur
-        if (dir.Length() < distanceDattraction + _valeur)
+        if (dir.Length() < distanceDattraction + getTaille())
         {
 
             double attraction = 0.5 / Math.Max(dir.Length(), 100);
@@ -75,6 +75,9 @@ public class Experience : IGameObject
         }
 
 
+    }
+    public float getTaille(){
+        return Math.Max(_valeur / (_ecranJeu._joueur._niveau * _ecranJeu._joueur._niveau + 20) ,5);
     }
     public void Cleanup(float deltaT)
     {
@@ -95,7 +98,7 @@ public class Experience : IGameObject
                     _position += diff * attraction * deltaT;
                 }
 
-                if (diff.Length() < exp._valeur + _valeur) { // Fusion
+                if (diff.Length() < exp.getTaille() + getTaille()) { // Fusion
                     if(_valeur > exp._valeur){
                         _valeur += exp._valeur;
                         exp.Enlever();

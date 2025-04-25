@@ -14,13 +14,16 @@ public class EcranAcceuil : GameScreen
 {
     private new Geometrik Game => (Geometrik)base.Game;
 
-    public EcranAcceuil(Game game) : base(game) { }
+    public EcranAcceuil(Game game) : base(game) {
+     
+    }
 
     Fond _fond = new Fond();
     Panel _centre;
     public override void LoadContent()
     {
         base.LoadContent();
+
     }
     public override void Initialize()
     {
@@ -70,6 +73,7 @@ public class EcranAcceuil : GameScreen
 
             };
         }
+
         Button btnPalmares = new Button("Voir le Palmarès");
         _centre.AddChild(btnPalmares);
         btnPalmares.OnClick = (Entity btn) =>

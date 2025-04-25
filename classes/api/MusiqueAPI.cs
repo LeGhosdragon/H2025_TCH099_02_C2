@@ -18,15 +18,18 @@ public static class MusiqueAPI{
     public static void Jouer(Musique musique){
         Song song = null;
         try{
+
             song = GetSong(musique);
         }catch (NullReferenceException){
-            
+        Console.WriteLine(musique);
+
         }
         if(song == null){
             MediaPlayer.Stop();
             return;
         }
         MediaPlayer.Play(song);
+
     }
     private static Song GetSong(Musique musique){
         fichiersMusique.TryGetValue(musique, out Song song);
@@ -96,5 +99,8 @@ public static class MusiqueAPI{
 
         song = content.Load<Song>("musiques/kahoot");
         fichiersMusique.Add(Musique.MENU,song);
+        
+        Jouer(Musique.MENU);
+
     }
 }
