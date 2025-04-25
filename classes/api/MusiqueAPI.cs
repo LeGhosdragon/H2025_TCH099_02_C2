@@ -12,6 +12,7 @@ public static class MusiqueAPI{
 
     public static float _volume {get;private set;} = 0.1f;
     public static void SetVolume(float volume){
+        Console.WriteLine(volume);
         MediaPlayer.Volume = volume;
         _volume = volume;
     }

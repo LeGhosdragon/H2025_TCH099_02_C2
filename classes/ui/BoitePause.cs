@@ -2,6 +2,7 @@ using desktop.gameobjects;
 using desktop.pages;
 using GeonBit.UI.Entities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 
 namespace desktop.ui;
 
@@ -15,7 +16,13 @@ public class BoitePause:Panel{
 
         Label labelMusique = new Label("Volume Musique");
         this.AddChild(labelMusique);
-        Slider sliderMusique = new Slider();
+        Slider sliderMusique = new Slider(0,100);
+        sliderMusique.Value = (int)MusiqueAPI._volume * 100;
+
+        sliderMusique.OnValueChange = (Entity entity) =>{
+                MusiqueAPI.SetVolume( (float) (((Slider) entity).Value )/100);
+        };
+
         this.AddChild(sliderMusique);
 
         Button btnQuitter = new Button("Abandonner");
