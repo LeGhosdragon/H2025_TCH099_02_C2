@@ -87,7 +87,26 @@ public class Forme3D : IGameObject
 
     }
     public bool doitEnlever(){
-        return Vector2.Distance(Camera.getInstance().getPosition(), new Vector2(_position.X,_position.Y)) >  _distMax;
+        float marges = 1f;
+        float largeur = Camera.getInstance().getWidth();
+        float hauteur = Camera.getInstance().getHeight();
+        //Depasse a droite
+        if(_position.X >  Camera.getInstance().getPosition().X +largeur + largeur * marges){
+         return true;
+        }
+        //Depasse a gauche
+        if(_position.X < Camera.getInstance().getPosition().X - largeur* marges){
+            return true;
+        }
+        //Depasse en haut
+        if (_position.Y > Camera.getInstance().getPosition().Y +hauteur + hauteur* marges){
+            return true;
+        }
+        //Deppase en bas
+        if(_position.Y < Camera.getInstance().getPosition().Y -hauteur * marges){
+            return true;
+        }
+        return false;
     }
 
 }

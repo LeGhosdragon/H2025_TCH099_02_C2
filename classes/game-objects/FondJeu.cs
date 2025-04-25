@@ -85,9 +85,10 @@ public class FondJeu : IGameObject
 
         while (!validPosition && (attempts < maxAttempts))
         {
-            pos.X = Random.Shared.Next((int)bornes.X) - _ecranJeu._joueur.getPosition().X;
-            pos.Y = Random.Shared.Next((int)bornes.Y) - _ecranJeu._joueur.getPosition().Y;
+            pos.X = Random.Shared.Next((int)bornes.X) - bornes.X/2 + _ecranJeu._joueur.getPosition().X;
+            pos.Y = Random.Shared.Next((int)bornes.Y) - bornes.Y/2 + _ecranJeu._joueur.getPosition().Y;
             pos.Z = Random.Shared.Next(100);
+            Console.WriteLine(pos.ToString());
 
             // Vérifie si la nouvelle position est trop proche d'une forme existante
             if (!proximiteForme(pos,size,minDistance)) {
