@@ -12,7 +12,7 @@ public class EvenementExp : Evenement
     public override void DebuterEvenement(float difficulte, float degreeDiff)
     {
         base.DebuterEvenement(difficulte, degreeDiff);
-        _delaiGeneration = new Chrono(60f);
+        _delaiGeneration = new Chrono(120f);
     }
     public override void Update(float deltaT)
     {

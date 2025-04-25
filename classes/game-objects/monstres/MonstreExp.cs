@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using desktop.pages;
 using desktop.utils;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace desktop.gameobjects;
@@ -42,5 +43,15 @@ public class MonstreExp : Monstre
     public override void Update(float deltaT)
     {
         base.Update(deltaT);
+    }
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        DateTimeOffset date = DateTimeOffset.UtcNow;
+        double time = date.ToUnixTimeMilliseconds()/100;
+        double red = Math.Sin(time) * 127 + 128;
+        double green = Math.Sin(time + 2) * 127 + 128;
+        double blue = Math.Sin(time + 4) * 127 + 128;
+        Color color = new Color((int)red, (int)green, (int)blue);
+        Peintre.dessinerForme(spriteBatch, _forme, _position,color,3);
     }
 }

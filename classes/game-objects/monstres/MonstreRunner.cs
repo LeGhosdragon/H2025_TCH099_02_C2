@@ -10,7 +10,7 @@ namespace desktop.gameobjects;
 
 public class MonstreRunner : Monstre
 {
-    const int vitesse = 40; 
+    const int vitesse = 160; 
     const int rayon = 10; 
     const int hp = 15; 
     const int dmg = 1; 

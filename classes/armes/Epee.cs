@@ -24,7 +24,7 @@ public class Epee : AbstractArme
     public float _angleZone {get;set;} = (float)Math.PI / 2; //UpgAireEpee -> PI/2, *v1.1
     private float _vitRot = (float)Math.PI;
     public float _degat {get;set;} = 15; //UpgDegatEpee ->  15,  * 1.2 
-    public float _recul {get;set;} = 1; //UpgReculEpee -> 1, + 2
+    public float _recul {get;set;} = 40; //UpgReculEpee -> 40, + 10
 
     public Epee(Joueur joueur, EcranJeu ecranJeu)
         : base(

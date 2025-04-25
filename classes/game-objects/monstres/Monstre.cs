@@ -22,7 +22,7 @@ public class Monstre : AbstractGameObject
     protected bool _text;
     public int _rayonBalles;
 
-    public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon, string type = "normal", float vitesse = 20, int vitesseRot = 1, float hp = 15, float exp = 1, float dmg = 1)
+    public Monstre(Vector2[] forme, Vector2 position, EcranJeu ecranJeu, float rayon, string type = "normal", float vitesse = 80, int vitesseRot = 1, float hp = 15, float exp = 1, float dmg = 1)
         : base(forme, position, 1)
     {
         _ecranJeu = ecranJeu;

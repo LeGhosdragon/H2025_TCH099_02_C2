@@ -15,7 +15,7 @@ public class BossGunner : Monstre
 {
     static List<ProjectileEnnemi> _projectiles = new List<ProjectileEnnemi>();
     const int vitesse = 20; 
-    const int rayon = 10; 
+    const int rayon = 40; 
     const int hp = 15; 
     const int dmg = 1; 
     const string type = "bossGunner";

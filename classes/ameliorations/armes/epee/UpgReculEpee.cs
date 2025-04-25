@@ -11,6 +11,6 @@ public class UpgReculEpee : AbstractUpgEpee
 
     public override void Appliquer(Epee epee)
     {
-        epee._recul += 2;
+        epee._recul += 10;
     }
 }
