@@ -239,6 +239,7 @@ public class EcranJeu : GameScreen
     {
         _etat = EtatJeu.AMELIORATION;
         boites = BoiteAmelioration.genererAmelioration(3, this);
+        _score._experience++;
         foreach (BoiteAmelioration boite in boites)
         {
             UserInterface.Active.AddEntity(boite);
