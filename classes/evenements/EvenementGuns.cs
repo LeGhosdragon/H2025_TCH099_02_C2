@@ -13,7 +13,7 @@ public class EvenementGuns : Evenement
     {
         base.DebuterEvenement(difficulte, degreeDiff);
         _delaiGenerationGunner = new Chrono(2f / degreeDiff);
-
+        MusiqueAPI.Jouer(MusiqueAPI.Musique.NORMAL_INTENSE);
     }
     public override void Update(float deltaT)
     {

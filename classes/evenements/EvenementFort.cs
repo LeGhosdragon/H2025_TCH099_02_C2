@@ -1,6 +1,7 @@
 using System;
 using desktop.pages;
 using desktop.utils;
+using Microsoft.Xna.Framework.Media;
 
 namespace desktop.evenements;
 
@@ -13,6 +14,7 @@ public class EvenementFort : Evenement
     {
         base.DebuterEvenement(difficulte, degreeDiff);
         _delaiGenerationTank = new Chrono(2f / degreeDiff);
+        MusiqueAPI.Jouer(MusiqueAPI.Musique.DIFFICULTY2);
 
     }
     public override void Update(float deltaT)

@@ -4688,6 +4688,84 @@
 /processorParam:TextureFormat=Color
 /build:longueur.png
 
+#begin musiques/difficultyllup.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/difficultyllup.mp3
+
+#begin musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.mp3
+
+#begin musiques/fun-with-my-8-bit-game-301278.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/fun-with-my-8-bit-game-301278.mp3
+
+#begin musiques/game-over-38511.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/game-over-38511.mp3
+
+#begin musiques/glitch-in-the-dark-306765.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/glitch-in-the-dark-306765.mp3
+
+#begin musiques/jungle-ish-beat-for-video-games-314073.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/jungle-ish-beat-for-video-games-314073.mp3
+
+#begin musiques/kahoot.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/kahoot.mp3
+
+#begin musiques/kim-lightyear-legends-109307.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/kim-lightyear-legends-109307.mp3
+
+#begin musiques/level-iii-medium-294426.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/level-iii-medium-294426.mp3
+
+#begin musiques/mold-250080.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/mold-250080.mp3
+
+#begin musiques/neon-gaming-128925.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/neon-gaming-128925.mp3
+
+#begin musiques/panic-182769.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/panic-182769.mp3
+
+#begin musiques/space-station-247790.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/space-station-247790.mp3
+
 #begin pierce.png
 /importer:TextureImporter
 /processor:TextureProcessor

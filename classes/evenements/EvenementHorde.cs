@@ -13,6 +13,7 @@ public class EvenementHorde : Evenement
     {
         base.DebuterEvenement(difficulte, degreeDiff);
         _delaiGenerationNormal = new Chrono(2f / degreeDiff);
+        MusiqueAPI.Jouer(MusiqueAPI.Musique.SPACE1);
 
     }
     public override void Update(float deltaT)

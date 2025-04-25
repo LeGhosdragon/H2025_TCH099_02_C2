@@ -1,6 +1,7 @@
 using System;
 using desktop.pages;
 using desktop.utils;
+using Microsoft.Xna.Framework.Media;
 
 namespace desktop.evenements;
 
@@ -13,6 +14,7 @@ public class EvenementAmbush : Evenement
     {
         base.DebuterEvenement(difficulte, degreeDiff);
         _delaiGenerationRunner = new Chrono(2f / degreeDiff);
+        MusiqueAPI.Jouer(MusiqueAPI.Musique.SPEED);
 
     }
     public override void Update(float deltaT)

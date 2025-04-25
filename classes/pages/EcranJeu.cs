@@ -255,7 +255,6 @@ public class EcranJeu : GameScreen
     }
     public void FinPartie()
     {
-        
         if (_etat == EtatJeu.AMELIORATION)
         {
             return;
@@ -264,6 +263,8 @@ public class EcranJeu : GameScreen
             UserInterface.Active.RemoveEntity(_boitePause);
         }
         _etat = EtatJeu.FIN;
+        MusiqueAPI.Jouer(MusiqueAPI.Musique.GAME_OVER);
+
         BoiteScore boiteScore = new BoiteScore(_score, this);
         UserInterface.Active.AddEntity(boiteScore);
     }
