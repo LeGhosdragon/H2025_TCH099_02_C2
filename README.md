@@ -44,7 +44,7 @@ Ce Dépot peut être utilisé avec le  **[Serveur](https://github.com/LeGhosdrag
 - **[Monogame](https://monogame.net/)**
 - **[NuGet](https://www.nuget.org/)**
 - **[Json.Net](https://www.newtonsoft.com/json)**
-- **[Monogame Primitive 2D] (https://github.com/z2oh/C3.MonoGame.Primitives2D)**
+- **[Monogame Primitive 2D](https://github.com/z2oh/C3.MonoGame.Primitives2D)**
 - **[Monogame extended](https://www.monogameextended.net/)**
 - **[GeonBit UI](https://github.com/RonenNess/GeonBit.UI)**
 ---
