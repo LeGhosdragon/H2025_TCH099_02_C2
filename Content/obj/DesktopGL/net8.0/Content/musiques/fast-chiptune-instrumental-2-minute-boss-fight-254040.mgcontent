@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.mp3</SourceFile>
-  <SourceTime>2025-04-24T22:29:20.862838-04:00</SourceTime>
-  <DestFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.xnb</DestFile>
-  <DestTime>2025-04-24T22:30:59.9378462-04:00</DestTime>
+  <SourceFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.mp3</SourceFile>
+  <SourceTime>2025-04-24T22:09:16.9440062-04:00</SourceTime>
+  <DestFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.xnb</DestFile>
+  <DestTime>2025-04-24T23:04:05.0486658-04:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.ogg</string>
+    <string>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/musiques/fast-chiptune-instrumental-2-minute-boss-fight-254040.ogg</string>
   </BuildOutput>
 </PipelineBuildEvent>

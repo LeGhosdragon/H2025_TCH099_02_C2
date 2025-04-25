@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/Example/monk.png</SourceFile>
-  <SourceTime>2025-04-10T11:29:57.5525775-04:00</SourceTime>
-  <DestFile>C:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/Example/monk.xnb</DestFile>
-  <DestTime>2025-04-24T22:30:47.1249304-04:00</DestTime>
+  <SourceFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/Example/monk.png</SourceFile>
+  <SourceTime>2025-04-24T15:16:20.7066766-04:00</SourceTime>
+  <DestFile>C:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/Content/Example/monk.xnb</DestFile>
+  <DestTime>2025-04-24T23:03:59.9892144-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

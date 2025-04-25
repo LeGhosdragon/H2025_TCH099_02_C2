@@ -24,7 +24,7 @@ public class Fond : IGameObject
             spriteBatch.DrawLine(act,0, act, GetHauteurEcran(spriteBatch), Color.White);
         }
         //Dessine des lignes horizontales
-        for(float act = increment.Y ;act < GetLargeurEcran(spriteBatch) ;act += largeur ){
+        for(float act = increment.Y ;act < GetHauteurEcran(spriteBatch) ;act += largeur ){
             spriteBatch.DrawLine(0,act - _position.Y,GetLargeurEcran(spriteBatch),act- _position.Y,Color.White);
         }
     }
