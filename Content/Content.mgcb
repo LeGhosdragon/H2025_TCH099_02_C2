@@ -14,6 +14,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../../../../../../../Downloads/menu-musique.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:../../../../../../../../../Downloads/menu-musique.mp3;musiques/menu-musique.mp3
+
 #begin attraction.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -4688,6 +4694,12 @@
 /processorParam:TextureFormat=Color
 /build:longueur.png
 
+#begin musiques/9. Space Debris.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:musiques/9. Space Debris.wav
+
 #begin musiques/difficultyllup.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
@@ -4741,6 +4753,12 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:musiques/level-iii-medium-294426.mp3
+
+#begin musiques/menu-musique.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:musiques/menu-musique.mp3
 
 #begin musiques/mold-250080.mp3
 /importer:Mp3Importer

@@ -734,3 +734,6 @@ C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\musiques\panic-182769.xnb
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\musiques\space-station-247790.ogg
 C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\musiques\space-station-247790.xnb
+C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\musiques\9. Space Debris.xnb
+C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\musiques\menu-musique.ogg
+C:\Users\alexa\OneDrive\Documents\Ecole\2025\Hiver\projet-integrateur\desktop\H2025_TCH099_02_C2\bin\Debug\net8.0\Content\musiques\menu-musique.xnb

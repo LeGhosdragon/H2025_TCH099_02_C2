@@ -97,7 +97,7 @@ public static class MusiqueAPI{
         song = content.Load<Song>("musiques/space-station-247790");
         fichiersMusique.Add(Musique.SPACE1,song);
 
-        song = content.Load<Song>("musiques/kahoot");
+        song = content.Load<Song>("musiques/menu-musique");
         fichiersMusique.Add(Musique.MENU,song);
         
         Jouer(Musique.MENU);

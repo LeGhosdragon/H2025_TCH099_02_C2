@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/musiques/9. Space Debris.wav</SourceFile>
+  <SourceTime>2025-04-24T21:55:24.0293987-04:00</SourceTime>
+  <DestFile>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/musiques/9. Space Debris.xnb</DestFile>
+  <DestTime>2025-04-24T22:00:03.1699685-04:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2024-08-16T13:05:56-04:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
