@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RingGoldRuby.png</SourceFile>
-  <SourceTime>2025-04-24T15:16:20.8832318-04:00</SourceTime>
-  <DestFile>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/GeonBit.UI/Themes/hd/textures/icons/RingGoldRuby.xnb</DestFile>
-  <DestTime>2025-04-24T19:39:46.5253425-04:00</DestTime>
+  <SourceFile>c:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/GeonBit.UI/Themes/hd/textures/icons/RingGoldRuby.png</SourceFile>
+  <SourceTime>2025-04-10T11:29:57.6490703-04:00</SourceTime>
+  <DestFile>c:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/bin/DesktopGL/GeonBit.UI/Themes/hd/textures/icons/RingGoldRuby.xnb</DestFile>
+  <DestTime>2025-04-24T22:37:02.2197435-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

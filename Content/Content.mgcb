@@ -14,12 +14,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../../../../../../../Downloads/menu-musique.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:../../../../../../../../../Downloads/menu-musique.mp3;musiques/menu-musique.mp3
-
 #begin attraction.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/custom/demo-epee.png</SourceFile>
-  <SourceTime>2025-04-24T16:48:02.0660669-04:00</SourceTime>
-  <DestFile>c:/Users/alexa/OneDrive/Documents/Ecole/2025/Hiver/projet-integrateur/desktop/H2025_TCH099_02_C2/Content/bin/DesktopGL/custom/demo-epee.xnb</DestFile>
-  <DestTime>2025-04-24T19:39:42.5046318-04:00</DestTime>
+  <SourceFile>c:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/custom/demo-epee.png</SourceFile>
+  <SourceTime>2025-04-24T22:29:20.5310408-04:00</SourceTime>
+  <DestFile>c:/Users/simon/OneDrive/Images/Documents/GitHub/H2025_TCH099_02_C2/Content/bin/DesktopGL/custom/demo-epee.xnb</DestFile>
+  <DestTime>2025-04-24T22:36:55.1171232-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T13:05:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
